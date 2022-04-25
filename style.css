@@ -6,8 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgb(22, 21, 21);
-    color: white;
 }
 /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Sätter också body:ns bakgrund till en bild. Body:n blir till ett flexobjekt vilket
 gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
@@ -44,24 +42,12 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             .siteName {
                 font-size: 150%;
                 margin: .5rem;
-                color: rgb(140, 230, 225);
+                color: rgb(37, 36, 37);
             }
             
             a {
                 text-decoration: none;
             }
-
-            .darkModeToggle, .lightModeToggle{
-                position: absolute;
-                margin-right: 6rem;
-            }
-
-                .darkModeToggle img, .lightModeToggle img {
-                    width: 35px;
-                    height: 35px;
-                    margin-top: 4px;
-                    cursor: pointer;
-                }
         
             .navLinks {
                 width: 100%;
@@ -84,7 +70,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                         list-style: none;
                     }
 
-                        body.index li.index, body.cv li.cv, body.contact li.contact, body.portfolio li.portfolio, body.projects li.projects, body.apps li.apps {
+                        body.index li.index, body.book li.book, body.images li.images, body.about li.about {
                             background-color: green;
                         }
 
@@ -99,7 +85,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                         .navLinks li a {
                             display: block;
                             text-decoration: none;
-                            color: white;
+                            color: black;
                             padding: 1rem;
                         }
             
@@ -117,7 +103,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 .navToggle .bar {
                     height: 3px;
                     width: 100%;
-                    background-color: white;
+                    background-color: black;
                     border-radius: 10px;
                 }
         
@@ -143,7 +129,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
 /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Gäller globalt och för sidorna "index.html", "cv.html" och "contact.html". -------------------------------------------------------------------------------------- */
 
-    #mainContentIndex, #mainContentCv, #mainContentContact, #mainContentPortfolio, #mainContentProjects, #mainContentApps {
+    #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentAbout {
         flex: 1;
     }
     /*Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
@@ -158,188 +144,3 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
     }
 
 /* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-/* Gäller för sidan "cv.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-
-    #mainContentCv .pageHeading {
-        margin: 1rem;
-    }
-
-        #gridContainerCv {
-            display: grid;
-            grid-template-columns: auto;
-            grid-template-rows: auto auto auto auto auto auto;
-            margin: 1rem;
-        }
-
-            #gridItemCv0 {
-                grid-row: 1;
-                grid-column: 1;
-            }
-
-            #gridItemCv1 {
-                grid-row: 2;
-                grid-column: 1;
-            }
-
-            #gridItemCv2 {
-                grid-row: 3;
-                grid-column: 1;
-            }
-
-            #gridItemCv3 {
-                grid-row: 4;
-                grid-column: 1;
-            }
-
-            #gridItemCv4 {
-                grid-row: 5;
-                grid-column: 1;
-            }
-
-            #gridItemCv5 {
-                grid-row: 6;
-                grid-column: 1;
-            }
-
-/* Gäller för sidan "cv.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-/* Gäller för sidan "contact.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-
-    #gridContainerContact {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto;
-        text-align: center;
-    }
-
-        #gridItemContact0 {
-            grid-row: 1;
-            grid-column: 1;
-        }
-
-        #gridItemContact1 {
-            grid-row: 2;
-            grid-column: 1;
-        }
-
-        #gridItemContact2 {
-            grid-row: 3;
-            grid-column: 1;
-        }
-
-            .icon {
-                width: 150px;
-                padding: 2rem;
-            }
-
-/* Gäller för sidan "contact.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-/* Gäller för sidan "projects.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-
-#gridContainerProjects {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
-    text-align: center;
-}
-
-    #gridItemProjects0 {
-        grid-row: 1;
-        grid-column: 1;
-    }
-
-    #gridItemProjects1 {
-        grid-row: 2;
-        grid-column: 1;
-    }
-
-    #gridItemProjects2 {
-        grid-row: 3;
-        grid-column: 1;
-    }
-
-        #gridItemProjects0 ul, #gridItemProjects1 ul, #gridItemProjects2 ul {
-            list-style-position: inside;
-        }
-
-        #gridItemProjects0 a, #gridItemProjects1 a, #gridItemProjects2 a {
-            color: blue;
-        }
-    
-/* Gäller för sidan "projects.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-
-/* Gäller för sidan "apps.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-
-#gridContainerApps {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
-    text-align: center;
-}
-
-    #gridItemApps0 {
-        grid-row: 1;
-        grid-column: 1;
-        margin-bottom: 1rem;
-    }
-
-        #number0, #number1, #number2, #number3, #number4, #number5, #number6, #number7, #number8, #number9, #add, #subtract, #equals, #multiply, #divide {
-            display: inline-block;
-            width: 2rem;
-            cursor: pointer;
-        }
-
-            #number0:hover, #number1:hover, #number2:hover, #number3:hover, #number4:hover, #number5:hover, #number6:hover, #number7:hover, #number8:hover, #number9:hover, #add:hover, #subtract:hover, #multiply:hover, #divide:hover {
-                background-color: red;
-            }
-
-        #equals {
-            width: 4.3rem;
-            background-color: green;
-        }
-
-    #gridItemApps1 {
-        grid-row: 2;
-        grid-column: 1;
-        border-top: 2px solid white
-    }
-
-        #gridItemApps1 button {
-            margin-bottom: 2rem;
-            border-radius: 25px;
-            width: 10rem;
-            height: 3rem;
-            font-size: 120%;
-            cursor: pointer;
-        }
-
-            #gridItemApps1 button:hover {
-                background-color: rgb(120, 186, 243);
-            }
-
-    #gridItemApps2 {
-        grid-row: 3;
-        grid-column: 1;
-    }
-
-        .productContainer {
-            float: left;
-            margin-right: 10rem;
-        }
-
-        .productContainer img {
-            max-width: 10rem;
-            height: auto;
-        }
-
-    #gridContainerApps h3 {
-        font-size: 200%;
-    }
-    
-    #gridContainerApps h4 {
-        font-size: 140%;
-    }
-
-    #gridContainerApps h5 {
-        font-size: 110%;
-    }
-
-/* Gäller för sidan "apps.html". ---------------------------------------------------------------------------------------------------------------------------------- */
