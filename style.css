@@ -126,21 +126,48 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         }
         /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
 
-/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Gäller globalt och för sidorna "index.html", "cv.html" och "contact.html". -------------------------------------------------------------------------------------- */
-
     #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentAbout {
         flex: 1;
     }
     /*Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
     stort eller för litet beroende på skärmstorleken. */
 
-/* Gäller globalt och för sidorna "index.html", "cv.html" och "contact.html". -------------------------------------------------------------------------------------- */
-/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-    #indexContentContainer {
-        text-align: center;
-        margin-top: 7rem;
+    #gridItemBook {
+        grid-column: 1;
+        grid-row: 1;
     }
+    /* Placerar grid-item:et i den första kolumnen och på den första raden. */
 
-/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+        #calendar {
+            display: none;
+        }
+        /* Kalendern visas inte som standard då det är svårt att använda den med touch-kontroller. */
+
+        form {
+            text-align: center;
+        }
+        /* Centrerar texten i form:en. */
+        
+            form input, #message {
+                display: block;
+                width: 11rem;
+                height: 3rem;
+                margin: auto;
+            }
+            /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
+            Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
+            Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
+
+                #submit {
+                    width: 9rem;
+                }
+                /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+
+            #message {
+                height: initial;
+                resize: none;
+            }
+            /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
+            då det skulle förstöra layout:en. */

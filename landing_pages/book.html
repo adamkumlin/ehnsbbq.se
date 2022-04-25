@@ -53,10 +53,19 @@
 
     <div id="mainContentAbout">
 
-        <h2 class="pageHeading">Kommer snart</h2>
+        <h2 class="pageHeading">Boka</h2>
 
-        <div id="aboutContentContainer">
-
+        <div id="bookGridContainer">
+            <div id="bookGridItem">
+                <form>
+                    <label for="date">Dag och tid (obligatoriskt)<input type="date" id="date"></label>
+                    <label for="name">Namn (obligatoriskt)<input type="text" id="name" required placeholder="Anna Andersson"></label>
+                    <label for="phone">Telefon (obligatoriskt)<input type="tel" id="phone" required placeholder="0123456789"></label>
+                    <label for="email">E-post<input type="email" id="email" placeholder="example@example.com"></label>
+                    <label for="firstName">Meddelande (obligatoriskt)<textarea id="message" required placeholder="Önskemål, allergier, "></textarea></label>
+                    <label for="submit">Skicka<input type="submit"></label>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -64,7 +73,7 @@
         <p>© 2022 Ehn's BBQ.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
     
 </body>
 </html>
