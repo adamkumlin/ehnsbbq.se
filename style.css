@@ -202,7 +202,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             text-align: center;
         }
     
-    .slideShowSlide img, .slideShowSlide video{
+    .slideShowSlide img {
         max-width: 300px;
         height: auto;
         border: 10px solid transparent;
@@ -230,6 +230,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         #aboutGridItem0 {
             grid-column: 1;
             grid-row: 1;
+            text-align: center;
         }
 
             #aboutGridItem0 img {

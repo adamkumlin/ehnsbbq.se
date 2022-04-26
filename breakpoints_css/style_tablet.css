@@ -50,6 +50,6 @@ form input, textarea {
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
-.slideShowSlide img, .slideShowSlide video{
+.slideShowSlide img {
     max-width: 500px;
 }
