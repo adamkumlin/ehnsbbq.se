@@ -44,7 +44,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             .siteName {
                 font-size: 400%;
                 margin: .5rem;
-                font-family: 'Rancho', cursive;
+                font-family: 'Rye', cursive;
             }
             
             a {
@@ -126,13 +126,13 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         left: 0;
         z-index: -1;
         background: black;
-        opacity: 90%;
+        opacity: 80%;
     }
 
     .pageHeading {
         text-align: center;
         font-size: 300%;
-        font-family: 'Rancho', cursive;
+        font-family: 'Rye', cursive;
     }
     /* Centrerar samtliga sidtitlar. */
     
