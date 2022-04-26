@@ -8,11 +8,6 @@
 
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
-    .darkModeToggle, .lightModeToggle{
-        position: absolute;
-        right: 410px;
-    }
-
     .headerNav {
         flex-direction: row;
     }
@@ -43,12 +38,12 @@
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
-form input, #message {
+form input, textarea {
     width: 15rem;
 }
 /* Ökar bredden till 15rem så de är lättare att använda på en större tablet. */
 
-    #submit {
+    input[type="submit"] {
         width: 13rem;
     }
     /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */

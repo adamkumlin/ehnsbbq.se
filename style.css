@@ -70,7 +70,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                         list-style: none;
                     }
 
-                        body.index li.index, body.book li.book, body.images li.images, body.about li.about {
+                        body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
                             background-color: green;
                         }
 
@@ -126,7 +126,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         }
         /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
 
-    #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentAbout {
+    #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
         flex: 1;
     }
     /*Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
@@ -139,18 +139,13 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         grid-row: 1;
     }
     /* Placerar grid-item:et i den första kolumnen och på den första raden. */
-
-        #calendar {
-            display: none;
-        }
-        /* Kalendern visas inte som standard då det är svårt att använda den med touch-kontroller. */
-
+    
         form {
             text-align: center;
         }
         /* Centrerar texten i form:en. */
         
-            form input, #message {
+            form input, textarea {
                 display: block;
                 width: 11rem;
                 height: 3rem;
@@ -160,14 +155,31 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
             Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
 
-                #submit {
+                input[type="submit"] {
                     width: 9rem;
                 }
                 /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
-            #message {
-                height: initial;
+            textarea {
                 resize: none;
+                height: 7rem;
             }
             /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
             då det skulle förstöra layout:en. */
+    
+    .slideShowSlide img, .slideShowSlide video{
+        width: 400px;
+        height: auto;
+    }
+
+    .progressDot {
+        height: 20px;
+        width: 20px;
+        background-color: rgb(212, 208, 208);
+        border-radius: 25px;
+        display: inline-block;
+    }
+
+        .active {
+            background-color: black;
+        }

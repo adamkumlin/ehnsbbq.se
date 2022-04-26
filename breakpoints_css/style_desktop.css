@@ -12,7 +12,7 @@ form input {
 /* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
 textboxarna inte vara lika stora. */
 
-    #submit {
+    input[type="submit"] {
         width: initial;
         display: inline;
     }

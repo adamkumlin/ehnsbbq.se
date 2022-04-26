@@ -45,6 +45,7 @@
                     <li class="index"><a href="../index.html">Hem</a></li>
                     <li class="book"><a href="book.html">Boka</a></li>
                     <li class="images"><a href="images.html">Bilder</a></li>
+                    <li class="contact"><a href="contact.html">Kontakt</a></li>
                     <li class="about"><a href="about.html">Om oss</a></li>
                 <ul>
             </div>
@@ -57,13 +58,13 @@
 
         <div id="bookGridContainer">
             <div id="bookGridItem">
-                <form>
-                    <label for="date">Dag och tid (obligatoriskt)<input type="date" id="date"></label>
-                    <label for="name">Namn (obligatoriskt)<input type="text" id="name" required placeholder="Anna Andersson"></label>
-                    <label for="phone">Telefon (obligatoriskt)<input type="tel" id="phone" required placeholder="0123456789"></label>
-                    <label for="email">E-post<input type="email" id="email" placeholder="example@example.com"></label>
-                    <label for="firstName">Meddelande (obligatoriskt)<textarea id="message" required placeholder="Önskemål, allergier, "></textarea></label>
-                    <label for="submit">Skicka<input type="submit"></label>
+                <form method="post">
+                    <label for="bookDate">Datum (obligatoriskt)<input type="date" id="bookDate"></label>
+                    <label for="bookName">Namn (obligatoriskt)<input type="text" id="bookName" required placeholder="Anna Andersson"></label>
+                    <label for="bookPhone">Telefon (obligatoriskt)<input type="tel" id="bookPhone" required placeholder="0123456789"></label>
+                    <label for="bookEmail">E-post<input type="email" id="bookEmail" placeholder="example@example.com"></label>
+                    <label for="bookMessage">Meddelande<textarea id="bookMessage" placeholder="Önskemål, allergier, "></textarea></label>
+                    <label for="bookSubmit">Skicka<input type="submit" id="bookSubmit"></label>
                 </form>
             </div>
         </div>
@@ -74,6 +75,7 @@
     </footer>
 
     <script src="../script.js"></script>
+    <script src="scripts/book.js"></script>
     
 </body>
 </html>
