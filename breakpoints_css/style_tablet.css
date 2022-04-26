@@ -49,3 +49,7 @@ form input, textarea {
     /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+.slideShowSlide img, .slideShowSlide video{
+    max-width: 500px;
+}

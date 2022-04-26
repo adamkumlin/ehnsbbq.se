@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: white;
 }
 /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Sätter också body:ns bakgrund till en bild. Body:n blir till ett flexobjekt vilket
 gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
@@ -40,9 +41,9 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         }
         
             .siteName {
-                font-size: 150%;
+                font-size: 400%;
                 margin: .5rem;
-                color: rgb(37, 36, 37);
+                font-family: 'Rancho', cursive;
             }
             
             a {
@@ -68,6 +69,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             
                     .navLinks li {
                         list-style: none;
+                        background-color: white;
                     }
 
                         body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
@@ -103,18 +105,37 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 .navToggle .bar {
                     height: 3px;
                     width: 100%;
-                    background-color: black;
+                    background-color: white;
                     border-radius: 10px;
                 }
-        
+
+    .background video {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        min-width: 100%;
+        z-index: -2;
+    }
+
+    .backgroundOverlay {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: black;
+        opacity: 90%;
+    }
+
     .pageHeading {
         text-align: center;
         font-size: 300%;
+        font-family: 'Rancho', cursive;
     }
     /* Centrerar samtliga sidtitlar. */
     
     footer {
-        color: white;
         background-color: rgb(12, 12, 12);
         text-align: center;
         font-weight: bold;
@@ -150,6 +171,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 width: 11rem;
                 height: 3rem;
                 margin: auto;
+                border-radius: 11px;
             }
             /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
             Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
@@ -166,20 +188,34 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             }
             /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
             då det skulle förstöra layout:en. */
+
+    #imagesGridContainer {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+        #imagesGridItem {
+            grid-row: 1;
+            grid-column: 1;
+            text-align: center;
+        }
     
     .slideShowSlide img, .slideShowSlide video{
-        width: 400px;
+        max-width: 300px;
         height: auto;
+        border: 10px solid transparent;
+        border-image: url("media/background_border.jpg") 12;
     }
 
     .progressDot {
         height: 20px;
         width: 20px;
-        background-color: rgb(212, 208, 208);
+        background-color: rgb(116, 116, 116);
         border-radius: 25px;
         display: inline-block;
     }
 
         .active {
-            background-color: black;
+            background-color: white;
         }

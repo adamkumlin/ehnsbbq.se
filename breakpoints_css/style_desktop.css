@@ -7,7 +7,7 @@ kan innehållet visas mer utspritt (både horisontellt och vertikalt) på en dat
 för olika plattformar som webbplatsen kan besökas på. Detta är en plattformsanpassning. */
 
 form input {
-    height: initial;
+    height: 2rem;
 }
 /* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
 textboxarna inte vara lika stora. */
