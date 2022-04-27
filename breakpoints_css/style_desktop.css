@@ -6,11 +6,11 @@ fortsättningsvis mycket hjälpsamma när det gäller plattformsanpassning. En w
 kan innehållet visas mer utspritt (både horisontellt och vertikalt) på en dator och mer koncentrerat (endast vertikalt) på en mobiltelefon. Då är layouten mer anpassad
 för olika plattformar som webbplatsen kan besökas på. Detta är en plattformsanpassning. */
 
-form input {
-    height: 2rem;
-}
-/* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
-textboxarna inte vara lika stora. */
+    form input {
+        height: 2rem;
+    }
+    /* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
+    textboxarna inte vara lika stora. */
 
     input[type="submit"] {
         width: initial;
@@ -18,5 +18,27 @@ textboxarna inte vara lika stora. */
     }
     /* Överskriver ändringarna ovan med hjälp av "initial". Knappen är nu mindre, då sticker den ut från resten av input-elementen.
     Den visas nu också istället i inline-form så att den kan placeras bredvid sin label. */
+    
+    footer img {
+        max-width: 200px;
+        margin-right: 100vw;
+        padding: 0.5rem;
+    }
+    /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
 
+    .footerAbout {
+        position: absolute;
+        bottom: 10;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    /* Footern:s avsnitt om företaget placeras nere på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
+
+    .footerCopyright {
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    /* Footern:s uppehovsrättstext placeras längst ned på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
 }

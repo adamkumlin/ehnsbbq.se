@@ -203,23 +203,10 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
 
         footer img {
             max-width: 200px;
-            margin-right: 100vw;
-            padding: 0.5rem;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
         }
-
-        .footerAbout {
-            position: absolute;
-            bottom: 10;
-            right: 50%;
-            transform: translateX(50%);
-        }
-
-        .footerCopyright {
-            bottom: 0;
-            position: absolute;
-            right: 50%;
-            transform: translateX(50%);
-        }
+        /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
 
     #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
         flex: 1;
