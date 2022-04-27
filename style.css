@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
 }
 /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Sätter också body:ns bakgrund till en bild. Body:n blir till ett flexobjekt vilket
 gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
@@ -43,7 +44,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         
             .siteName {
                 font-size: 300%;
-                margin: .5rem;
+                margin: 0;
                 font-family: 'Rye', cursive;
             }
             
@@ -52,12 +53,44 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             }
         
             .navLinks {
-                width: 100%;
                 display: none;
+                border: 3px solid white;
+                border-radius: 4px;
+                letter-spacing: 0.3ch;
+                position: relative;
+                background-image: url("media/nav_background.jpg");
             }
+
+                .navLinks::before {
+                    content: '';
+                    border: 2px solid white;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
+                    border-radius: 3px;
+                }
+
+                .navLinks::after {
+                    content: '';
+                    border: 1px solid white;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
+                    border-radius: 3px;
+                }
 
                 .navLinks.active {
                     display: flex;
+                    width: 90%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 2rem;
                 }
             
                 .navLinks ul {
@@ -70,23 +103,15 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             
                     .navLinks li {
                         list-style: none;
-                        background-color: rgb(245, 232, 207);
+                        z-index: 1;
                     }
 
-                        li.index {
-                            border-bottom-left-radius: 25px;
-                        }
-
-                        li.about {
-                            border-bottom-right-radius: 10px;
-                        }
-
                         body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
-                            background-color: rgb(182, 149, 118);
+                            background-color: rgba(152, 224, 93, 0.5);
                         }
 
                         .navLinks li:hover {
-                            background-color: rgb(182, 149, 118);
+                            background-color: rgba(152, 224, 93, 0.5);
                         }
 
                         .navLinks ul li {
@@ -96,8 +121,9 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                         .navLinks li a {
                             display: block;
                             text-decoration: none;
-                            color: black;
+                            color: white;
                             padding: 1rem;
+                            font-weight: bolder;
                         }
             
             .navToggle {
@@ -164,44 +190,60 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
 
 /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-    #gridItemBook {
-        grid-column: 1;
-        grid-row: 1;
+
+    #bookGridContainer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
     }
-    /* Placerar grid-item:et i den första kolumnen och på den första raden. */
-    
-        form {
-            text-align: center;
+
+        #bookGridItem {
+            grid-column: 2;
+            grid-row: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
         }
-        /* Centrerar texten i form:en. */
+        /* Placerar grid-item:et i den första kolumnen och på den första raden. */
         
-            form input, textarea {
-                display: block;
-                width: 11rem;
-                height: 3rem;
-                margin: auto;
-                border-radius: 11px;
+            /*#bookGridItem img {
+                z-index: -1;
+                position: absolute;
+                opacity: 0.3;
+            }*/
+
+            form {
+                text-align: center;
             }
-            /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
-            Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
-            Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
-
-                input[type="submit"] {
-                    width: 9rem;
+            /* Centrerar texten i form:en. */
+            
+                form input, textarea {
+                    display: block;
+                    width: 11rem;
+                    height: 3rem;
+                    margin: auto;
+                    border-radius: 11px;
                 }
-                /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+                /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
+                Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
+                Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
 
-                textarea {
-                    resize: none;
-                    height: 7rem;
+                    input[type="submit"] {
+                        width: 9rem;
+                    }
+                    /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+
+                    textarea {
+                        resize: none;
+                        height: 7rem;
+                    }
+                    /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
+                    då det skulle förstöra layout:en. */
+
+                form label {
+                    display: block;
+                    margin-top: 1rem;
                 }
-                /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
-                då det skulle förstöra layout:en. */
-
-            form label {
-                display: block;
-                margin-top: 1rem;
-            }
 
     #imagesGridContainer {
         display: grid;
@@ -219,7 +261,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         max-width: 300px;
         height: auto;
         border: 10px solid transparent;
-        border-image: url("media/background_border.jpg") 12;
+        border-image: url("media/nav_background.jpg") 12;
     }
 
     .progressDot {

@@ -17,6 +17,14 @@
             width: initial;
         }
 
+            .navLinks::before {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
+            }
+
+            .navLinks::after {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
+            }
+
             .navLinks ul {
                 flex-direction: row;
                 width: initial;
