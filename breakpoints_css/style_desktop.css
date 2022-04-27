@@ -20,9 +20,8 @@ för olika plattformar som webbplatsen kan besökas på. Detta är en plattforms
     Den visas nu också istället i inline-form så att den kan placeras bredvid sin label. */
     
     footer img {
-        max-width: 200px;
         margin-right: 100vw;
-        padding: 0.5rem;
+        padding: 1rem;
     }
     /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
 
@@ -41,4 +40,10 @@ för olika plattformar som webbplatsen kan besökas på. Detta är en plattforms
         transform: translateX(50%);
     }
     /* Footern:s uppehovsrättstext placeras längst ned på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
+    
+    .slideShowSlide img {
+        width: 500x;
+        height: 400px;
+    }
+    /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
 }

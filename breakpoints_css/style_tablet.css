@@ -67,5 +67,7 @@ form input, textarea {
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
 .slideShowSlide img {
-    max-width: 500px;
+    width: 400px;
+    height: 300px;
 }
+/* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
