@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Sätter också body:ns bakgrund till en bild. Body:n blir till ett flexobjekt vilket
 gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
@@ -42,7 +42,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         }
         
             .siteName {
-                font-size: 400%;
+                font-size: 300%;
                 margin: .5rem;
                 font-family: 'Rye', cursive;
             }
@@ -70,15 +70,23 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             
                     .navLinks li {
                         list-style: none;
-                        background-color: white;
+                        background-color: rgb(245, 232, 207);
                     }
 
+                        li.index {
+                            border-bottom-left-radius: 25px;
+                        }
+
+                        li.about {
+                            border-bottom-right-radius: 10px;
+                        }
+
                         body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
-                            background-color: green;
+                            background-color: rgb(182, 149, 118);
                         }
 
                         .navLinks li:hover {
-                            background-color: #555;
+                            background-color: rgb(182, 149, 118);
                         }
 
                         .navLinks ul li {
@@ -131,7 +139,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
 
     .pageHeading {
         text-align: center;
-        font-size: 300%;
+        font-size: 200%;
         font-family: 'Rye', cursive;
     }
     /* Centrerar samtliga sidtitlar. */
@@ -183,12 +191,17 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 }
                 /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
-            textarea {
-                resize: none;
-                height: 7rem;
+                textarea {
+                    resize: none;
+                    height: 7rem;
+                }
+                /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
+                då det skulle förstöra layout:en. */
+
+            form label {
+                display: block;
+                margin-top: 1rem;
             }
-            /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
-            då det skulle förstöra layout:en. */
 
     #imagesGridContainer {
         display: grid;
