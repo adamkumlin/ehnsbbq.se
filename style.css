@@ -136,8 +136,9 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
                             display: block;
                             padding: 1rem;
                             font-weight: bolder;
+                            color: white;
                         }
-                        /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. */
+                        /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. Gör också länkarna vita. */
             
             .navToggle {
                 position: absolute;
@@ -188,9 +189,10 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
     /* Centrerar samtliga sidtitlar och ger de en större teckenstorlek och ett annat teckensnitt. */
     
     footer {
-        background-color: rgb(12, 12, 12);
+        background-color: black;
         text-align: center;
         font-weight: bold;
+        margin-top: 5rem;
     }
     /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. */
 
@@ -198,6 +200,26 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
             color: white;
         }
         /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
+
+        footer img {
+            max-width: 200px;
+            margin-right: 100vw;
+            padding: 0.5rem;
+        }
+
+        .footerAbout {
+            position: absolute;
+            bottom: 10;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .footerCopyright {
+            bottom: 0;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+        }
 
     #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
         flex: 1;
