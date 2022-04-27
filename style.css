@@ -10,11 +10,11 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
-/* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Sätter också body:ns bakgrund till en bild. Body:n blir till ett flexobjekt vilket
+/* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir till ett flexobjekt vilket
 gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
-konsekvent avstånd mellan footer:n och övrigt innehåll, vilket är jättebra. Den minsta höjden som body:n kan ha sätts till 100vh.
-Den tar nu alltså alltid upp fönstrets storlek. Bakgrundsbilden ska få webbplatsen att likna en sorts meny på en restaurang. Denna sorts bakgrund riktar sig till eventuella
-restauranggäster, vilket också är den huvudsakliga målgruppen.*/
+konsekvent avstånd mellan footer:n och övrigt innehåll. Den minsta höjden som body:n kan ha sätts till 100vh.
+Den tar nu alltså alltid upp fönstrets storlek. Textfärgen ändras till vitt samtidigt som typsnittet ändras. Även "overflow-x: hidden;" läggs till så att 
+allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
 
     .skipToMainContent {
         position: absolute;
@@ -30,8 +30,8 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             border: 1px solid white;
         }
         /* När länken får fokus (med hjälp av tabb-tangenten) blir texten större så den är lättare att märka. Länkens position återgår till det normala med hjälp av
-        "position: static". Genom att dölja denna länk som standard så underlättar det för de användare som inte använder t.ex. en skärmläsare för att navigera (de är
-        också mycket troligen majoriteten av användarna). Webbplatsens design påverkas inte alls av länken, om den inte används. Ger länken en annan färg och en annan
+        "position: static". Genom att dölja denna länk som standard så underlättar det för de användare som inte använder t.ex. en skärmläsare för att navigera. Webbplatsens design påverkas 
+        inte alls av länken, om den inte används. Ger länken en annan färg och en annan
         bakgrundsfärg samt ger den en border. Dessa ändringar gör så att den sticker ut från den vanliga webbsidan. */
         
         .headerNav {
@@ -41,16 +41,20 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             justify-content: space-between;
             align-items: flex-start;
         }
+        /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
+        så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
         
             .siteName {
                 font-size: 300%;
                 margin: 0;
                 font-family: 'Rye', cursive;
             }
+            /* Ökar teckenstorleken och tar bort margin, ändrar också typsnittet. */
             
             a {
                 text-decoration: none;
             }
+            /* Tar bort samtliga länkars textdekoration. */
         
             .navLinks {
                 display: none;
@@ -60,6 +64,8 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 position: relative;
                 background-image: url("media/nav_background.jpg");
             }
+            /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 0,3ch mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
+            en bakgrundsbild. */
 
                 .navLinks::before {
                     content: '';
@@ -72,6 +78,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                     transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
                     border-radius: 3px;
                 }
+                /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
 
                 .navLinks::after {
                     content: '';
@@ -84,6 +91,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                     transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
                     border-radius: 3px;
                 }
+                /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
 
                 .navLinks.active {
                     display: flex;
@@ -92,6 +100,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                     margin-right: auto;
                     margin-top: 2rem;
                 }
+                /* När ".navLinks" har klassen ".active" så visas den som ett flexobjekt som tar upp 90% av skärmens bredd. Den ges också en margin överallt förutom längst ned. */
             
                 .navLinks ul {
                     display: flex;
@@ -100,31 +109,35 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                     margin: 0;
                     padding: 0;
                 }
+                /* Elementet visas som ett flexobjekt som visas horisontellt. Den tar upp hela containern, även padding samt margin tas bort. */
             
                     .navLinks li {
                         list-style: none;
                         z-index: 1;
                     }
+                    /* Tar bort punkterna vid li-elementen, gör så att de syns överst. */
 
                         body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
                             background-color: rgba(152, 224, 93, 0.5);
                         }
+                        /* När en viss sida är aktiv sä ändras sidans li-element:s bakgrundsfärg i navigationen. */
 
                         .navLinks li:hover {
                             background-color: rgba(152, 224, 93, 0.5);
                         }
+                        /* När musen är över en navigationsknapp så ändras dess bakgrundsfärg. */
 
                         .navLinks ul li {
                             text-align: center;
                         }
+                        /* Centrerar elementen. */
 
                         .navLinks li a {
                             display: block;
-                            text-decoration: none;
-                            color: white;
                             padding: 1rem;
                             font-weight: bolder;
                         }
+                        /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. */
             
             .navToggle {
                 position: absolute;
@@ -136,6 +149,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                 width: 30px;
                 height: 21px;
             }
+            /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. */
             
                 .navToggle .bar {
                     height: 3px;
@@ -143,6 +157,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                     background-color: white;
                     border-radius: 10px;
                 }
+                /* Sätter en höjd och bredd på strecken och ändrar bakgrundsfärgen. Ger den också en radie. */
 
     .background video {
         position: fixed;
@@ -151,6 +166,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         min-width: 100%;
         z-index: -2;
     }
+    /* Ger videon en fixad position med minst 100% bredd. Den placeras bakom alla andra element. */
 
     .backgroundOverlay {
         height: 100%;
@@ -162,20 +178,21 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         background: black;
         opacity: 80%;
     }
+    /* Skapar en svart overlay för videon, den görs svart med 80% opacitet. Den placeras framför videon. */
 
     .pageHeading {
         text-align: center;
         font-size: 200%;
         font-family: 'Rye', cursive;
     }
-    /* Centrerar samtliga sidtitlar. */
+    /* Centrerar samtliga sidtitlar och ger de en större teckenstorlek och ett annat teckensnitt. */
     
     footer {
         background-color: rgb(12, 12, 12);
         text-align: center;
         font-weight: bold;
     }
-    /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. Footer:n sticker nu ut mer, vilket är poängen. */
+    /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. */
 
         footer a {
             color: white;
@@ -185,7 +202,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
     #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
         flex: 1;
     }
-    /*Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
+    /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
     stort eller för litet beroende på skärmstorleken. */
 
 /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -196,6 +213,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         grid-template-columns: auto auto auto;
         grid-template-rows: auto;
     }
+    /* Skapar en grid-container med tre kolumner och en rad. */
 
         #bookGridItem {
             grid-column: 2;
@@ -204,7 +222,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
             overflow: hidden;
             border-radius: 25px;
         }
-        /* Placerar grid-item:et i den första kolumnen och på den första raden. */
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
         
             /*#bookGridItem img {
                 z-index: -1;
@@ -237,25 +255,28 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
                         resize: none;
                         height: 7rem;
                     }
-                    /* Överskriver höjdändringen ovan med hjälp av "initial" så att elementet sticker ut mer. Gör så att textarea:ns storlek inte kan justeras av användaren
+                    /* Överskriver höjdändringen ovan. Gör så att textarea:ns storlek inte kan justeras av användaren
                     då det skulle förstöra layout:en. */
 
                 form label {
                     display: block;
                     margin-top: 1rem;
                 }
+                /* Gör så att samtliga label:s visas som block, ger de en border längst ned. */
 
     #imagesGridContainer {
         display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto;
     }
+    /* Skapar en grid-container med tre kolumner och en rad. */
 
         #imagesGridItem {
             grid-row: 1;
             grid-column: 1;
             text-align: center;
         }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
     
     .slideShowSlide img {
         max-width: 300px;
@@ -263,6 +284,7 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         border: 10px solid transparent;
         border-image: url("media/nav_background.jpg") 12;
     }
+    /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
 
     .progressDot {
         height: 20px;
@@ -271,23 +293,28 @@ restauranggäster, vilket också är den huvudsakliga målgruppen.*/
         border-radius: 25px;
         display: inline-block;
     }
+    /* Bestämmer punkternas höjd och bredd samt bakgrundsfärg. De ges en radie och de visas istället som inline-block. */
 
         .active {
             background-color: white;
         }
+        /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
 
     #aboutGridContainer {
         display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto;
     }
+    /* Skapar en grid-container med tre kolumner och en rad. */
 
         #aboutGridItem0 {
             grid-column: 1;
             grid-row: 1;
             text-align: center;
         }
+       /* Placerar grid-item:et i den andra kolumnen och på den första raden. */ 
 
             #aboutGridItem0 img {
                 max-width: 300px;
             }
+            /* Bestämmer bildens maxbredd. */
