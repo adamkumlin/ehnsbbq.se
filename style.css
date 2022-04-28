@@ -40,6 +40,7 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
+            margin-bottom: 1rem;
         }
         /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
         så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */

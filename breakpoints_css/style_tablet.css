@@ -8,46 +8,16 @@
 
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
-    .headerNav {
-        flex-direction: row;
+
+    .headerNav img {
+        max-width: 400px;
+        margin-left: 1rem;
     }
-    /* Navigationen sträcker nu ut sig på en rad istället. */
+    /* Ger bilden en maxbredd med en margin till höger och till vänster. */
 
-        .headerNav img {
-            max-width: 400px;
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-        /* Ger bilden en maxbredd med en margin till höger och till vänster. */
-
-        .navLinks {
-            display: flex;
-            width: initial;
-        }
-        /* Nu visas länkarna, deras bredd nollställs. */
-
-            .navLinks::before {
-                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
-            }
-            /* Skapar en border som är roterad runt elementet. */
-
-            .navLinks::after {
-                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
-            }
-            /* Skapar en border som är roterad runt elementet. */
-
-            .navLinks ul {
-                flex-direction: row;
-                width: initial;
-            }
-            
-
-        .navToggle {
-            display: none;
-        }
 
     .pageHeading {
-        font-size: 295%;
+        font-size: 230%
     }
 
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */

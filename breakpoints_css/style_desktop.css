@@ -15,6 +15,36 @@ för olika plattformar som webbplatsen kan besökas på. Detta är en plattforms
     /* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
     textboxarna inte vara lika stora. */
 
+    .headerNav {
+        flex-direction: row;
+    }
+    /* Navigationen sträcker nu ut sig på en rad istället. */
+
+        .navLinks {
+            display: flex;
+            overflow: hidden;
+        }
+        /* Nu visas länkarna, deras bredd nollställs. */
+
+            .navLinks::before {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
+            }
+            /* Skapar en border som är roterad runt elementet. */
+
+            .navLinks::after {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
+            }
+            /* Skapar en border som är roterad runt elementet. */
+
+            .navLinks ul {
+                flex-direction: row;
+                width: initial;
+            }
+            
+        .navToggle {
+            display: none;
+        }
+
     input[type="submit"] {
         width: initial;
         display: inline;
