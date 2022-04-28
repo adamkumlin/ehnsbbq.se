@@ -71,3 +71,47 @@ form input, textarea {
     height: 300px;
 }
 /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
+
+#imagesGridContainer {
+grid-template-rows: auto auto auto;
+grid-template-columns: auto auto;
+}
+
+#imagesGridItem0 {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+    
+        #imagesGridItem1 {
+            grid-row: 1;
+            grid-column: 2;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+        #imagesGridItem2 {
+            grid-row: 2;
+            grid-column: 1;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+        #imagesGridItem3 {
+            grid-row: 2;
+            grid-column: 2;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+        #imagesGridItem4 {
+            grid-row: 3;
+            grid-column: 1;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+        #imagesGridItem5 {
+            grid-row: 3;
+            grid-column: 2;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+
+
