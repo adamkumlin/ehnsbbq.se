@@ -1,362 +1,366 @@
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
-body {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html {
     overflow-x: hidden;
 }
-/* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir till ett flexobjekt vilket
-gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
-konsekvent avstånd mellan footer:n och övrigt innehåll. Den minsta höjden som body:n kan ha sätts till 100vh.
-Den tar nu alltså alltid upp fönstrets storlek. Textfärgen ändras till vitt samtidigt som typsnittet ändras. Även "overflow-x: hidden;" läggs till så att 
-allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
+/* Gömmer innehåll från html-elementet som finns utanför skärmens x-axel. */
 
-    .skipToMainContent {
-        position: absolute;
-        left: -500px;
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        color: white;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
     }
-    /* Länken placeras utanför webbsidan, 500 pixlar till vänster. "position: absolute" gör det möjligt att placera ett element utanför visningsytan. */
+    /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir till ett flexobjekt vilket
+    gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
+    konsekvent avstånd mellan footer:n och övrigt innehåll. Den minsta höjden som body:n kan ha sätts till 100vh.
+    Den tar nu alltså alltid upp fönstrets storlek. Textfärgen ändras till vitt samtidigt som typsnittet ändras. Även "overflow-x: hidden;" läggs till så att 
+    allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
 
-        .skipToMainContent:focus {
-            font-size: 200%;
-            position: static;
-            background-color: black;
-            color: white;
-            border: 1px solid white;
+        .skipToMainContent {
+            position: absolute;
+            left: -500px;
         }
-        /* När länken får fokus (med hjälp av tabb-tangenten) blir texten större så den är lättare att märka. Länkens position återgår till det normala med hjälp av
-        "position: static". Genom att dölja denna länk som standard så underlättar det för de användare som inte använder t.ex. en skärmläsare för att navigera. Webbplatsens design påverkas 
-        inte alls av länken, om den inte används. Ger länken en annan färg och en annan
-        bakgrundsfärg samt ger den en border. Dessa ändringar gör så att den sticker ut från den vanliga webbsidan. */
-        
-        .headerNav {
-            display: flex;
-            position: relative;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
-        så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
-        
-            .headerNav img {
-                max-width: 270px;
+        /* Länken placeras utanför webbsidan, 500 pixlar till vänster. "position: absolute" gör det möjligt att placera ett element utanför visningsytan. */
+
+            .skipToMainContent:focus {
+                font-size: 200%;
+                position: static;
+                background-color: black;
+                color: white;
+                border: 1px solid white;
             }
-            /* Ger bilden en maxbredd. */
+            /* När länken får fokus (med hjälp av tabb-tangenten) blir texten större så den är lättare att märka. Länkens position återgår till det normala med hjälp av
+            "position: static". Genom att dölja denna länk som standard så underlättar det för de användare som inte använder t.ex. en skärmläsare för att navigera. Webbplatsens design påverkas 
+            inte alls av länken, om den inte används. Ger länken en annan färg och en annan
+            bakgrundsfärg samt ger den en border. Dessa ändringar gör så att den sticker ut från den vanliga webbsidan. */
             
-            a {
-                text-decoration: none;
-            }
-            /* Tar bort samtliga länkars textdekoration. */
-        
-            .navLinks {
-                display: none;
-                border: 3px solid white;
-                border-radius: 4px;
-                letter-spacing: 0.3ch;
-                position: relative;
-                background-image: url("media/nav_background.jpg");
-            }
-            /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 0,3ch mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
-            en bakgrundsbild. */
-
-                .navLinks::before {
-                    content: '';
-                    border: 2px solid white;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
-                    border-radius: 3px;
-                }
-                /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
-
-                .navLinks::after {
-                    content: '';
-                    border: 1px solid white;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
-                    border-radius: 3px;
-                }
-                /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
-
-                .navLinks.active {
-                    display: flex;
-                    width: 90%;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 2rem;
-                }
-                /* När ".navLinks" har klassen ".active" så visas den som ett flexobjekt som tar upp 90% av skärmens bredd. Den ges också en margin överallt förutom längst ned. */
-            
-                .navLinks ul {
-                    display: flex;
-                    flex-direction: column;
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-                /* Elementet visas som ett flexobjekt som visas horisontellt. Den tar upp hela containern, även padding samt margin tas bort. */
-            
-                    .navLinks li {
-                        list-style: none;
-                        z-index: 1;
-                    }
-                    /* Tar bort punkterna vid li-elementen, gör så att de syns överst. */
-
-                        body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
-                            background-color: rgba(152, 224, 93, 0.5);
-                        }
-                        /* När en viss sida är aktiv sä ändras sidans li-element:s bakgrundsfärg i navigationen. */
-
-                        .navLinks li:hover {
-                            background-color: rgba(152, 224, 93, 0.5);
-                        }
-                        /* När musen är över en navigationsknapp så ändras dess bakgrundsfärg. */
-
-                        .navLinks ul li {
-                            text-align: center;
-                        }
-                        /* Centrerar elementen. */
-
-                        .navLinks li a {
-                            display: block;
-                            padding: 1rem;
-                            font-weight: bolder;
-                            color: white;
-                        }
-                        /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. Gör också länkarna vita. */
-            
-            .navToggle {
-                position: absolute;
-                top: .75rem;
-                right: 1rem;
+            .headerNav {
                 display: flex;
+                position: relative;
                 flex-direction: column;
                 justify-content: space-between;
-                width: 30px;
-                height: 21px;
+                align-items: flex-start;
+                margin-bottom: 1rem;
             }
-            /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. */
+            /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
+            så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
             
-                .navToggle .bar {
-                    height: 3px;
-                    width: 100%;
-                    background-color: white;
-                    border-radius: 10px;
+                .headerNav img {
+                    max-width: 270px;
                 }
-                /* Sätter en höjd och bredd på strecken och ändrar bakgrundsfärgen. Ger den också en radie. */
-
-    .background video {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        min-width: 100%;
-        z-index: -2;
-    }
-    /* Ger videon en fixad position med minst 100% bredd. Den placeras bakom alla andra element. */
-
-    .backgroundOverlay {
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        background: black;
-        opacity: 80%;
-    }
-    /* Skapar en svart overlay för videon, den görs svart med 80% opacitet. Den placeras framför videon. */
-
-    .pageHeading {
-        text-align: center;
-        font-size: 200%;
-        font-family: 'Rye', cursive;
-    }
-    /* Centrerar samtliga sidtitlar och ger de en större teckenstorlek och ett annat teckensnitt. */
-    
-    footer {
-        background-color: black;
-        text-align: center;
-        font-weight: bold;
-        margin-top: 5rem;
-    }
-    /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. */
-
-        footer a {
-            color: white;
-        }
-        /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
-
-        footer img {
-            max-width: 150px;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-        /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
-
-    #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
-        flex: 1;
-    }
-    /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
-    stort eller för litet beroende på skärmstorleken. */
-
-/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-    #bookGridContainer {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto;
-    }
-    /* Skapar en grid-container med tre kolumner och en rad. */
-
-        #bookGridItem {
-            grid-column: 2;
-            grid-row: 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 25px;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
-        
-            /*#bookGridItem img {
-                z-index: -1;
-                position: absolute;
-                opacity: 0.3;
-            }*/
-
-            form {
-                text-align: center;
-            }
-            /* Centrerar texten i form:en. */
+                /* Ger bilden en maxbredd. */
+                
+                a {
+                    text-decoration: none;
+                }
+                /* Tar bort samtliga länkars textdekoration. */
             
-                form input, textarea {
-                    display: block;
-                    width: 11rem;
-                    height: 3rem;
-                    margin: auto;
-                    border-radius: 11px;
+                .navLinks {
+                    display: none;
+                    border: 3px solid white;
+                    border-radius: 4px;
+                    letter-spacing: 0.3ch;
+                    position: relative;
+                    background-image: url("media/nav_background.jpg");
                 }
-                /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
-                Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
-                Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
+                /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 0,3ch mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
+                en bakgrundsbild. */
 
-                    input[type="submit"] {
-                        width: 9rem;
+                    .navLinks::before {
+                        content: '';
+                        border: 2px solid white;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
+                        border-radius: 3px;
                     }
-                    /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+                    /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
 
-                    textarea {
-                        resize: none;
-                        height: 7rem;
+                    .navLinks::after {
+                        content: '';
+                        border: 1px solid white;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
+                        border-radius: 3px;
                     }
-                    /* Överskriver höjdändringen ovan. Gör så att textarea:ns storlek inte kan justeras av användaren
-                    då det skulle förstöra layout:en. */
+                    /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
 
-                form label {
-                    display: block;
-                    margin-top: 1rem;
+                    .navLinks.active {
+                        display: flex;
+                        width: 90%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 2rem;
+                    }
+                    /* När ".navLinks" har klassen ".active" så visas den som ett flexobjekt som tar upp 90% av skärmens bredd. Den ges också en margin överallt förutom längst ned. */
+                
+                    .navLinks ul {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    /* Elementet visas som ett flexobjekt som visas horisontellt. Den tar upp hela containern, även padding samt margin tas bort. */
+                
+                        .navLinks li {
+                            list-style: none;
+                            z-index: 1;
+                        }
+                        /* Tar bort punkterna vid li-elementen, gör så att de syns överst. */
+
+                            body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
+                                background-color: rgba(152, 224, 93, 0.5);
+                            }
+                            /* När en viss sida är aktiv sä ändras sidans li-element:s bakgrundsfärg i navigationen. */
+
+                            .navLinks li:hover {
+                                background-color: rgba(152, 224, 93, 0.5);
+                            }
+                            /* När musen är över en navigationsknapp så ändras dess bakgrundsfärg. */
+
+                            .navLinks ul li {
+                                text-align: center;
+                            }
+                            /* Centrerar elementen. */
+
+                            .navLinks li a {
+                                display: block;
+                                padding: 1rem;
+                                font-weight: bolder;
+                                color: white;
+                            }
+                            /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. Gör också länkarna vita. */
+                
+                .navToggle {
+                    position: absolute;
+                    top: .75rem;
+                    right: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 30px;
+                    height: 21px;
                 }
-                /* Gör så att samtliga label:s visas som block, ger de en border längst ned. */
+                /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. */
+                
+                    .navToggle .bar {
+                        height: 3px;
+                        width: 100%;
+                        background-color: white;
+                        border-radius: 10px;
+                    }
+                    /* Sätter en höjd och bredd på strecken och ändrar bakgrundsfärgen. Ger den också en radie. */
 
-    #imagesGridContainer {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto auto auto auto;
-        text-align: center;
-    }
-    /* Skapar en grid-container med tre kolumner och en rad. */
-
-        #imagesGridContainer img {
-            width: 200px;
-            height: 200px;
-            margin-top: 2rem;
+        .background video {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            min-width: 100%;
+            z-index: -2;
         }
-        /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
+        /* Ger videon en fixad position med minst 100% bredd. Den placeras bakom alla andra element. */
 
-        #imagesGridItem0 {
-            grid-row: 1;
-            grid-column: 1;
+        .backgroundOverlay {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: black;
+            opacity: 80%;
         }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+        /* Skapar en svart overlay för videon, den görs svart med 80% opacitet. Den placeras framför videon. */
 
-            .slideShowSlide img {
-                object-fit: cover;
-            }
-            /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
+        .pageHeading {
+            text-align: center;
+            font-size: 200%;
+            font-family: 'Rye', cursive;
+        }
+        /* Centrerar samtliga sidtitlar och ger de en större teckenstorlek och ett annat teckensnitt. */
         
-            .progressDot {
-                height: 20px;
-                width: 20px;
-                background-color: rgb(116, 116, 116);
+        footer {
+            background-color: black;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5rem;
+        }
+        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. */
+
+            footer a {
+                color: white;
+            }
+            /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
+
+            footer img {
+                max-width: 150px;
+                border-bottom-left-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+            /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
+
+        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
+            flex: 1;
+        }
+        /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
+        stort eller för litet beroende på skärmstorleken. */
+
+    /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+        #bookGridContainer {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto;
+        }
+        /* Skapar en grid-container med tre kolumner och en rad. */
+
+            #bookGridItem {
+                grid-column: 2;
+                grid-row: 1;
+                position: relative;
+                overflow: hidden;
                 border-radius: 25px;
-                display: inline-block;
             }
-            /* Bestämmer punkternas höjd och bredd samt bakgrundsfärg. De ges en radie och de visas istället som inline-block. */
-        
-                .active {
-                    background-color: white;
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            
+                /*#bookGridItem img {
+                    z-index: -1;
+                    position: absolute;
+                    opacity: 0.3;
+                }*/
+
+                form {
+                    text-align: center;
                 }
-                /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
-    
-        #imagesGridItem1 {
-            grid-row: 2;
-            grid-column: 1;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+                /* Centrerar texten i form:en. */
+                
+                    form input, textarea {
+                        display: block;
+                        width: 11rem;
+                        height: 3rem;
+                        margin: auto;
+                        border-radius: 11px;
+                    }
+                    /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
+                    Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
+                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
 
-        #imagesGridItem2 {
-            grid-row: 3;
-            grid-column: 1;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+                        input[type="submit"] {
+                            width: 9rem;
+                        }
+                        /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
-        #imagesGridItem3 {
-            grid-row: 4;
-            grid-column: 1;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+                        textarea {
+                            resize: none;
+                            height: 7rem;
+                        }
+                        /* Överskriver höjdändringen ovan. Gör så att textarea:ns storlek inte kan justeras av användaren
+                        då det skulle förstöra layout:en. */
 
-        #imagesGridItem4 {
-            grid-row: 5;
-            grid-column: 1;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+                    form label {
+                        display: block;
+                        margin-top: 1rem;
+                    }
+                    /* Gör så att samtliga label:s visas som block, ger de en border längst ned. */
 
-        #imagesGridItem5 {
-            grid-row: 6;
-            grid-column: 1;
-        }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
-
-    #aboutGridContainer {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-    }
-    /* Skapar en grid-container med tre kolumner och en rad. */
-
-        #aboutGridItem0 {
-            grid-column: 1;
-            grid-row: 1;
+        #imagesGridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto auto auto auto;
             text-align: center;
         }
-       /* Placerar grid-item:et i den andra kolumnen och på den första raden. */ 
+        /* Skapar en grid-container med tre kolumner och en rad. */
 
-            #aboutGridItem0 img {
-                max-width: 300px;
+            #imagesGridContainer img {
+                width: 200px;
+                height: 200px;
+                margin-top: 2rem;
             }
-            /* Bestämmer bildens maxbredd. */
+            /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
+
+            #imagesGridItem0 {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+                .slideShowSlide img {
+                    object-fit: cover;
+                }
+                /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
+            
+                .progressDot {
+                    height: 20px;
+                    width: 20px;
+                    background-color: rgb(116, 116, 116);
+                    border-radius: 25px;
+                    display: inline-block;
+                }
+                /* Bestämmer punkternas höjd och bredd samt bakgrundsfärg. De ges en radie och de visas istället som inline-block. */
+            
+                    .active {
+                        background-color: white;
+                    }
+                    /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
+        
+            #imagesGridItem1 {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+            #imagesGridItem2 {
+                grid-row: 3;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+            #imagesGridItem3 {
+                grid-row: 4;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+            #imagesGridItem4 {
+                grid-row: 5;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+            #imagesGridItem5 {
+                grid-row: 6;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+        #aboutGridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+        }
+        /* Skapar en grid-container med tre kolumner och en rad. */
+
+            #aboutGridItem0 {
+                grid-column: 1;
+                grid-row: 1;
+                text-align: center;
+            }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. */ 
+
+                #aboutGridItem0 img {
+                    max-width: 300px;
+                }
+                /* Bestämmer bildens maxbredd. */
