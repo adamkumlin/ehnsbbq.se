@@ -44,12 +44,10 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
         /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
         så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
         
-            .siteName {
-                font-size: 300%;
-                margin: 0;
-                font-family: 'Rye', cursive;
+            .headerNav img {
+                max-width: 270px;
             }
-            /* Ökar teckenstorleken och tar bort margin, ändrar också typsnittet. */
+            /* Ger bilden en maxbredd. */
             
             a {
                 text-decoration: none;
@@ -283,20 +281,18 @@ allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
 
         #imagesGridContainer img {
             width: 200px;
+            height: 200px;
+            margin-top: 2rem;
         }
+        /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
 
         #imagesGridItem0 {
             grid-row: 1;
             grid-column: 1;
-            text-align: center;
         }
         /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
 
             .slideShowSlide img {
-                width: 200px;
-                height: 200px;
-                border: 10px solid transparent;
-                border-image: url("media/nav_background.jpg") 12;
                 object-fit: cover;
             }
             /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */

@@ -11,32 +11,40 @@
     .headerNav {
         flex-direction: row;
     }
+    /* Navigationen sträcker nu ut sig på en rad istället. */
+
+        .headerNav img {
+            max-width: 400px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        /* Ger bilden en maxbredd med en margin till höger och till vänster. */
 
         .navLinks {
             display: flex;
             width: initial;
         }
+        /* Nu visas länkarna, deras bredd nollställs. */
 
             .navLinks::before {
                 transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
             }
+            /* Skapar en border som är roterad runt elementet. */
 
             .navLinks::after {
                 transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
             }
+            /* Skapar en border som är roterad runt elementet. */
 
             .navLinks ul {
                 flex-direction: row;
                 width: initial;
             }
+            
 
         .navToggle {
             display: none;
         }
-
-    .siteName {
-        font-size: 395%;
-    }
 
     .pageHeading {
         font-size: 295%;
@@ -50,7 +58,6 @@
     }
 
 /* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
-}
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -71,3 +78,44 @@ form input, textarea {
     height: 300px;
 }
 /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
+
+#imagesGridContainer {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+}
+
+#imagesGridItem0 {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+#imagesGridItem1 {
+    grid-row: 1;
+    grid-column: 2;
+}
+/* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+#imagesGridItem2 {
+    grid-row: 2;
+    grid-column: 1;
+}
+/* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+#imagesGridItem3 {
+    grid-row: 2;
+    grid-column: 2;
+}
+/* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+#imagesGridItem4 {
+    grid-row: 3;
+    grid-column: 1;
+}
+/* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+
+#imagesGridItem5 {
+    grid-row: 3;
+    grid-column: 2;
+}
+/* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+}

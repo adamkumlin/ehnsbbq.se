@@ -6,6 +6,9 @@ fortsättningsvis mycket hjälpsamma när det gäller plattformsanpassning. En w
 kan innehållet visas mer utspritt (både horisontellt och vertikalt) på en dator och mer koncentrerat (endast vertikalt) på en mobiltelefon. Då är layouten mer anpassad
 för olika plattformar som webbplatsen kan besökas på. Detta är en plattformsanpassning. */
 
+    .headerNav img{
+        max-width: 500px;
+    }
     form input {
         height: 2rem;
     }
@@ -34,16 +37,13 @@ för olika plattformar som webbplatsen kan besökas på. Detta är en plattforms
     /* Footern:s avsnitt om företaget placeras nere på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
 
     .footerCopyright {
-        position: absolute;
-        bottom: 0;
-        right: 50%;
-        transform: translateX(50%);
+        display: block;
+        margin-top: 1rem;
     }
     /* Footern:s uppehovsrättstext placeras längst ned på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
     
-    .slideShowSlide img {
-        width: 500x;
+    #imagesGridContainer img {
+        width: 400px;
         height: 400px;
     }
-    /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
 }
