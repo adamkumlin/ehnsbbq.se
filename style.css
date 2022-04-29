@@ -276,29 +276,24 @@ html {
                     }
                     /* Gör så att samtliga label:s visas som block, ger de en border längst ned. */
 
-        #imagesGridContainer {
+        #indexGridContainer {
             display: grid;
             grid-template-columns: auto;
-            grid-template-rows: auto auto auto auto auto auto;
-            text-align: center;
+            grid-template-rows: auto;
         }
-        /* Skapar en grid-container med tre kolumner och en rad. */
+        /* Skapar en grid-container med en kolumn och en rad. */
 
-            #imagesGridContainer img {
-                width: 200px;
-                height: 200px;
-                margin-top: 2rem;
-            }
-            /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
-
-            #imagesGridItem0 {
+            #indexGridItem0 {
                 grid-row: 1;
                 grid-column: 1;
+                text-align: center;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten. */
 
                 .slideShowSlide img {
                     object-fit: cover;
+                    width: 200px;
+                    height: 300px;
                 }
                 /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
             
@@ -315,36 +310,58 @@ html {
                         background-color: white;
                     }
                     /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
+
+        #imagesGridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto auto auto auto;
+            text-align: center;
+        }
+        /* Skapar en grid-container med tre kolumner och en rad. */
+
+            #imagesGridContainer img {
+                object-fit: cover;
+                width: 200px;
+                height: 200px;
+                margin-top: 2rem;
+            }
+            /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
+
+            #imagesGridItem0 {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
         
             #imagesGridItem1 {
                 grid-row: 2;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
             #imagesGridItem2 {
                 grid-row: 3;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
             #imagesGridItem3 {
                 grid-row: 4;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
             #imagesGridItem4 {
                 grid-row: 5;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
             #imagesGridItem5 {
                 grid-row: 6;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
         #aboutGridContainer {
             display: grid;
@@ -361,6 +378,8 @@ html {
         /* Placerar grid-item:et i den andra kolumnen och på den första raden. */ 
 
                 #aboutGridItem0 img {
-                    max-width: 300px;
+                    width: 200px;
+                    height: 200px;
+                    object-fit: cover;
                 }
                 /* Bestämmer bildens maxbredd. */

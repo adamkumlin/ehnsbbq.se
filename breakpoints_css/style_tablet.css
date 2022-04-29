@@ -33,7 +33,7 @@
         width: 400px;
         height: 300px;
     }
-    /* Sätter bildernas bredd till 400px höjd till 300px. */
+    /* Sätter bildernas bredd till 400px och höjd till 300px. */
 
     #imagesGridContainer {
         grid-template-columns: auto auto;

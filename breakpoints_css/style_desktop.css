@@ -1,5 +1,5 @@
-@media screen and (min-width: 1025px) {
-/* När bredden på skärmen är 1025px eller mer. För laptop:s och andra desktop:s. */
+@media screen and (min-width: 1024px) {
+/* När bredden på skärmen är 1024px eller mer. För laptop:s och andra desktop:s. */
 
     .headerNav img{
         max-width: 500px;
@@ -68,9 +68,21 @@
         margin-top: 1rem;
     }
     /* Footern:s uppehovsrättstext placeras längst ned på footer:ns mitt. Detta görs med metoderna "right" och "transform". */
+
+    .slideShowSlide img {
+        width: 500px;
+        height: 400px;
+    }
+    /* Sätter bildernas bredd till 500px och höjd till 400px. */
     
     #imagesGridContainer img {
         width: 400px;
         height: 400px;
+    }
+
+    #aboutGridItem0 {
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: pre-wrap;
     }
 }
