@@ -66,7 +66,7 @@ html {
                     border-radius: 4px;
                     letter-spacing: 0.3ch;
                     position: relative;
-                    background-image: url("media/nav_background.jpg");
+                    background-image: url("../media/nav_background.jpg");
                 }
                 /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 0,3ch mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
                 en bakgrundsbild. */
@@ -194,23 +194,32 @@ html {
         
         footer {
             background-color: black;
-            text-align: center;
             font-weight: bold;
-            margin-top: 5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
         }
-        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. */
+        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. Ger elementet också en padding och margin längst upp. */
 
-            footer a {
+            footer a { 
                 color: white;
             }
             /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
-
-            footer img {
-                max-width: 150px;
-                border-bottom-left-radius: 50px;
-                border-bottom-right-radius: 50px;
+            
+            .footerAbout, .footerIcons {
+                text-align: center;
             }
-            /* Lägger till en bild i footer:n, den ges en maximal bredd och en margin på högersidan. Även padding ges, samt en radie längst ner till höger och längst ner till vänster. */
+            /* Centrerar bilderna. */
+            
+                .footerIcons img {
+                    width: 100px;
+                    height: 100px;
+                }
+                /* Sätter en konstant höjd och bredd. */
+
+            .footerLogo {
+                display: none;
+            }
+            /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
 
         #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
             flex: 1;
@@ -231,15 +240,13 @@ html {
                 grid-column: 2;
                 grid-row: 1;
                 position: relative;
-                overflow: hidden;
-                border-radius: 25px;
             }
             /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
                 form {
                     text-align: center;
                 }
-                /* Centrerar texten i form:en. */
+                /* Centrerar texten i alla formulär. */
                 
                     form input, textarea {
                         display: block;
@@ -248,27 +255,27 @@ html {
                         margin: auto;
                         border-radius: 11px;
                     }
-                    /* Centrerar textboxarna och knapparna i form:en med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
+                    /* Centrerar textboxarna och knapparna i alla formulär med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
                     Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
                     Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
 
                         input[type="submit"] {
                             width: 9rem;
                         }
-                        /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+                        /* Gör knappar med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
                         textarea {
                             resize: none;
                             height: 7rem;
                         }
-                        /* Överskriver höjdändringen ovan. Gör så att textarea:ns storlek inte kan justeras av användaren
+                        /* Överskriver höjdändringen ovan. Gör så att textarea:rnas storlek inte kan justeras av användaren
                         då det skulle förstöra layout:en. */
 
                     form label {
                         display: block;
                         margin-top: 1rem;
                     }
-                    /* Gör så att samtliga label:s visas som block, ger de en border längst ned. */
+                    /* Gör så att samtliga labels visas som block, ger de en border längst ned. */
 
         #indexGridContainer {
             display: grid;
@@ -300,7 +307,7 @@ html {
                 }
                 /* Bestämmer punkternas höjd och bredd samt bakgrundsfärg. De ges en radie och de visas istället som inline-block. */
             
-                    .active {
+                    .activeDot {
                         background-color: white;
                     }
                     /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
@@ -311,7 +318,7 @@ html {
             grid-template-rows: auto auto auto auto auto auto;
             text-align: center;
         }
-        /* Skapar en grid-container med tre kolumner och en rad. */
+        /* Skapar en grid-container med en kolumn och sex rader. Centrerar objekten. */
 
             #imagesGridContainer img {
                 object-fit: cover;
@@ -319,65 +326,68 @@ html {
                 height: 200px;
                 margin-top: 2rem;
             }
-            /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. */
+            /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
+            med hjälp av "object-fit: cover;". */
 
             #imagesGridContainer img:active {
                 transform: scale(1.3);
             }
+            /* Gör bilderna större när de klickas på. */
 
             #imagesGridItem0 {
                 grid-row: 1;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. */
         
             #imagesGridItem1 {
                 grid-row: 2;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den andra raden. */
 
             #imagesGridItem2 {
                 grid-row: 3;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den tredje raden. */
 
             #imagesGridItem3 {
                 grid-row: 4;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den fjärde raden. */
 
             #imagesGridItem4 {
                 grid-row: 5;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den femte raden. */
 
             #imagesGridItem5 {
                 grid-row: 6;
                 grid-column: 1;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+            /* Placerar grid-item:et i den första kolumnen och på den sjätte raden. */
 
         #aboutGridContainer {
             display: grid;
             grid-template-columns: auto;
             grid-template-rows: auto;
         }
-        /* Skapar en grid-container med tre kolumner och en rad. */
+        /* Skapar en grid-container med en kolumn och en rad. */
 
             #aboutGridItem0 {
                 grid-column: 1;
                 grid-row: 1;
                 text-align: center;
             }
-        /* Placerar grid-item:et i den andra kolumnen och på den första raden. */ 
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */ 
 
                 #aboutGridItem0 img {
                     width: 200px;
                     height: 200px;
                     object-fit: cover;
                 }
-                /* Bestämmer bildens maxbredd. */
+                /* Bestämmer bildens maxbredd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
+                med hjälp av "object-fit: cover;". */
