@@ -76,4 +76,26 @@
         grid-column: 2;
     }
     /* Placerar grid-item:et i den andra kolumnen och på den tredje raden. */
+
+    #aboutGridContainer, #indexGridContainer {
+        grid-template-columns: 15% 70% 15%;
+    }
+    /* Skapar en grid-container med tre kolumner och en rad. */
+
+        #aboutGridItem0 {
+            grid-column: 2;
+        }
+        /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+
+        #indexGridItem0 {
+            grid-column: 2;
+        }
+
+    #aboutGridItem0 img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        text-align: center;
+    }
+    /* Bestämmer bildens maxbredd. */
 }

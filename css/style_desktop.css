@@ -80,9 +80,12 @@
         height: 400px;
     }
 
-    #aboutGridItem0 {
-        word-wrap: break-word;
-        word-break: break-all;
-        white-space: pre-wrap;
+        #imagesGridContainer img:hover {
+            transform: scale(1.3);
+        }
+
+    #aboutGridContainer, #indexGridContainer {
+        grid-template-columns: 20% 60% 20%;
     }
+    /* Skapar en grid-container med tre kolumner och en rad. */
 }

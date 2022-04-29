@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ehn's BBQ - Boka</title>
+    <title>Ehn's BBQ - Bilder</title>
     <!--Skriver ut webbsidans titel. -->
 
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--Länkar en stilmall.-->
 
-    <link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="../breakpoints_css/style_tablet.css">
-    <link rel="stylesheet" type="text/css" media="(min-width: 1025px)" href="../breakpoints_css/style_desktop.css">
+    <link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="css/style_tablet.css">
+    <link rel="stylesheet" type="text/css" media="(min-width: 1024px)" href="css/style_desktop.css">
     <!--Länkar tre stilmallar som endast läses in beroende på skärmbredden. Genom att dessa extra stilmallar inte läses in direkt så blir webbplatsen snabbare.
     Prestandan ökar. Detta är ett bättre alternativ till att t.ex. alla stilmallar läses in, oavsett om skärmen upfyller de krav så läses de ändå in. Detta är en
     prestandaanpassning.-->
@@ -27,10 +27,10 @@
     
 </head>
 
-<body class="book">
+<body class="images">
     <header>
 
-        <a href="#mainContentBook" class="skipToMainContent">Hoppa till huvudinnehållet</a>
+        <a href="#mainContentImages" class="skipToMainContent">Hoppa till huvudinnehållet</a>
         <!-- Skapar en länk som användaren kan klicka. Den tar hen till huvudinnehållet på sidan. Detta är ett vektyg som gör webbplatsen mer tillgänglig. Den låter
         t.ex. användare med nedsatt syn kunne använda webbplaysen med skärmläsare. Denna länk är bra att ha även för de med små enheter som vill komma till innehållet direkt
         utan att behöva scrolla förbi en massa annat. Den är bättre att ha än att inte ha, även fast den inte alltid behövs. Denna länk, samt alla andra länkar kan kommas åt med
@@ -38,7 +38,7 @@
         webbplatsen med endast ett tangentbord.-->
 
         <nav class="headerNav">
-            <img src="../media/logo3.png">
+            <img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp">
             <!--Lägger till en bild.-->
             
             <a href="#" class="navToggle">
@@ -50,7 +50,7 @@
 
             <div class="navLinks">
                 <ul>
-                    <li class="index"><a href="../index.html">HEM</a></li>
+                    <li class="index"><a href="index.html">HEM</a></li>
                     <li class="book"><a href="book.html">BOKA</a></li>
                     <li class="images"><a href="images.html">BILDER</a></li>
                     <li class="contact"><a href="contact.html">KONTAKTA OSS</a></li>
@@ -64,31 +64,42 @@
     <div class="background">
         <div class="backgroundOverlay"></div>
         <video autoplay muted loop playsinline>
-            <source src="../media/background_video2.mp4" type="video/mp4">
+            <source src="media/background_video1.mp4" type="video/mp4">
         </video>
     </div>
     <!--Lägger in en bakgrundsvideo med en overlay på. Videon spelas automatiskt och är tystad. Den loopar också.-->
 
-    <div id="mainContentBook">
+    <div id="mainContentImages">
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
 
-        <h2 class="pageHeading">Boka</h2>
+        <h2 class="pageHeading">Bilder</h2>
         <!--Skriver ut webbsidans titel. -->
 
-        <div id="bookGridContainer">
+        <div id="imagesGridContainer">
         <!--Skapar en grid-container som kommer innehålla alla grid-items. -->
 
-            <div id="bookGridItem">
-                <!--<img src="../media/content_background.jpg" alt="">-->
-                <form method="post">
-                    <label for="bookDate">Datum<input type="date" id="bookDate"></label>
-                    <label for="bookName">Namn<input type="text" id="bookName" required placeholder="Anna Andersson"></label>
-                    <label for="bookPhone">Telefon<input type="tel" id="bookPhone" required placeholder="0123456789"></label>
-                    <label for="bookEmail">E-post (valfritt)<input type="email" id="bookEmail" placeholder="example@example.com"></label>
-                    <label for="bookMessage">Meddelande<textarea id="bookMessage" required placeholder="Önskemål, allergier, "></textarea></label>
-                    <label for="bookSubmit">Skicka<input type="submit" id="bookSubmit"></label>
-                </form>
-                <!--Skapar ett formulär.-->
+            <div id="imagesGridItem0">
+                <img src="media/burgers.jpeg" alt="Bild på flera hamburgare">
+            </div>
+
+            <div id="imagesGridItem1">
+                <img src="media/meat4.jpg" alt="Bild på kött">
+            </div>
+
+            <div id="imagesGridItem2">
+                <img src="media/meat5.jpg" alt="Bild på kött">
+            </div>
+
+            <div id="imagesGridItem3">
+                <img src="media/burger.jpg" alt="Bild på en hamburgare">
+            </div>
+
+            <div id="imagesGridItem4">
+                <img src="media/meat6.jpg" alt="Bild på kött">
+            </div>
+
+            <div id="imagesGridItem5">
+                <img src="media/meat7.jpg" alt="Bild på kött">
             </div>
         </div>
     </div>
@@ -98,14 +109,13 @@
         Ehn's BBQ<br>
         Tel: <a href="tel:0733464592">073-346 45 92</a><br>
         E-post: <a href="mailto:mattiasehn@hotmail.com">mattiasehn@hotmail.com</a><br>
-        © 2022 Ehn's BBQ.</p>
-        <img src="../media/logo1.png" alt="Bild på en av Ehn's BBQ:s logotyper">    
+        <span class="footerCopyright">© 2022 Ehn's BBQ.</span></p>
+        <img src="media/logo1.png" alt="Bild på Ehn's BBQ:s sekundärlogotyp">
     </footer>
     <!--Skapar en footer som innehåller information om företaget samt företagets logotyp.-->
 
-    <script src="../script.js"></script>
-    <script src="scripts/book.js"></script>
+    <script src="script.js"></script>
+    <script src="scripts/images.js"></script>
     <!--Länkar två JavaScript-filer.-->
-    
 </body>
 </html>
