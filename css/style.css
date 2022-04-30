@@ -221,7 +221,7 @@ html {
             }
             /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
 
-        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentThankYou {
+        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess, #mainContentFailure {
             flex: 1;
         }
         /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
@@ -425,13 +425,13 @@ html {
                 /* Bestämmer bildens maxbredd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". */
 
-        #thankYouText {
+        #successText, #failureText {
             font-size: 200%;
             text-align: center;
         }
-        /* Centrerar texten och gör den större. */
+        /* Centrerar texterna och gör dem större. */
 
-        #thankYouButton {
+        #successButton, #failureButton {
             display: block;
             border: 2px solid white;
             color: black;
@@ -446,5 +446,10 @@ html {
             padding: 1rem;
             border-radius: 30px;
         }
-        /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
-        och texten görs större samt tjockare. Slutligen centreras knappen och ges en höjd samt en radie.
+        /* Länkarna visas som block. De ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
+        och texten görs större samt tjockare. Slutligen centreras länkarna och ges en höjd samt en radie. */
+
+            #failureButton {
+                background-color: rgb(202, 75, 75);
+            }
+            /* Överskrider ändringen ovan. Knappen ges en annan bakgrundsfärg. */

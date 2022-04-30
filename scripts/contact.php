@@ -18,19 +18,29 @@
         Namn: $user_name\n
         Meddelande: $user_message";
         // Skapar meddelandet som faktiskt mejlet ska innehålla. I meddelandet skrivs användarens mejladress, namn och meddelande ut.
-
-        $send = mail($to,$subject,$message,$headers);
-        // Slutligen ska mejlet skickas, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämmne ($subject),
-        // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$send" kopplas till funktionen.
-
-        if ($send = true) {
-        // Om variabeln har värdet "true", vilket betyder att funktionen mail() lyckades (mejlet skickades).
-
-                header("Location: ../thank_you.html");
-                // Skickar vidare användaren till sidan "thank_you.html".
-
+        
+        if (preg_match("/(http|https|ftp|mailto)/", $user_message)) {
+                // Om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto".
+                        
+                exit;
+                // Avbryter skriptet. Detta är för att minska mängden spam-meddelanden som kan komma fram.
+                
         } else {
-                echo("Fel! Meddelandet skickades inte.");
-                // Annars skrivs ett felmeddelande ut.
+
+                $mail_sent = mail($to,$subject,$message,$headers);
+                // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämmne ($subject),
+                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$send" kopplas till funktionen.
+        
+        }
+
+        if ($mail_sent = true) {
+        // Om variabeln har värdet "true", vilket betyder att mejlet skickades.
+        
+                header("Location: ../success.html");
+                // Skickar vidare användaren till sidan "success.html".
+        } else if ($mail_sent = false) {
+                        
+                header("Location: ../failure.html");
+                // Annars skickas användaren vidare till sidan "failure.html".
         }
 ?>
