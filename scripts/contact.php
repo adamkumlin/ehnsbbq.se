@@ -19,7 +19,18 @@
         Meddelande: $user_message";
         // Skapar meddelandet som faktiskt mejlet ska innehålla. I meddelandet skrivs användarens mejladress, namn och meddelande ut.
 
-        mail($to,$subject,$message,$headers);
+        $send = mail($to,$subject,$message,$headers);
         // Slutligen ska mejlet skickas, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämmne ($subject),
-        // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)).
+        // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$send" kopplas till funktionen.
+
+        if ($send = true) {
+        // Om variabeln har värdet "true", vilket betyder att funktionen mail() lyckades (mejlet skickades).
+
+                header("Location: ../thank_you.html");
+                // Skickar vidare användaren till sidan "thank_you.html".
+
+        } else {
+                echo("Fel! Meddelandet skickades inte.");
+                // Annars skrivs ett felmeddelande ut.
+        }
 ?>

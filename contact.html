@@ -38,8 +38,8 @@
         webbplatsen med endast ett tangentbord.-->
 
         <nav class="headerNav">
-            <img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp">
-            <!--Lägger till en bild.-->
+            <a href="index.html"><img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp"></a>
+            <!--Lägger till en bild som också tar användaren till startsidan.-->
             
             <a href="#" class="navToggle">
                 <span class="bar"></span>
@@ -72,13 +72,30 @@
     <div id="mainContentContact">
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
 
-        <h2 class="pageHeading">Kontakta oss</h2>
+        <h1 class="pageHeading">Kontakta oss</h1>
         <!--Skriver ut webbsidans titel. -->
 
         <div id="contactGridContainer">
         <!--Skapar en grid-container som kommer innehålla alla grid-items. -->
 
-            <div id="contactGridItem">
+            <div id="contactGridItem0">
+            <!--Skapar ett grid-item.-->
+
+                <p>
+                    Kontakta oss gärna genom telefon på <br><a href="tel:0733464592"><img src="media/phone_icon.png" alt="Bild på en telefonikon">073-346 45 92</a> eller via e-post på 
+                    <br><a href="mailto:mattiasehn@hotmail.com"><img src="media/email_icon.png" alt="Bild på en e-postikon">mattiasehn@hotmail.com</a>. Det går också bra att skriva till oss på 
+                    <br><a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon_white.png" alt="Bild på Instagrams logotyp i vitt">Instagram</a> 
+                    eller <br><a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/">
+                    <img src="media/facebook_icon_white.png" alt="Bild på Facebooks logotyp i vitt">Facebook</a>.
+                </p>
+                <!--Skriver en text med länkar och bilder inbäddade.-->
+
+                <p>Du får också gärna använda formuläret nedan:</p>
+            </div>
+
+            <div id="contactGridItem1">
+            <!--Skapar ett grid-item.-->
+
                 <form action="scripts/contact.php" method="POST" name="contactForm">
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" required placeholder="Anna Andersson"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" required placeholder="example@example.com"></label>
@@ -95,7 +112,7 @@
 
             <div class="footerIcons">
                 <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp"></a>
-                <a href="https://m.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
+                <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
             </div>
 
             <div class="footerAbout">

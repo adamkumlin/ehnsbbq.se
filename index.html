@@ -38,8 +38,8 @@
         webbplatsen med endast ett tangentbord.-->
 
         <nav class="headerNav">
-            <img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp">
-            <!--Lägger till en bild.-->
+            <a href="index.html"><img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp"></a>
+            <!--Lägger till en bild som också tar användaren till startsidan.-->
             
             <a href="#" class="navToggle">
                 <span class="bar"></span>
@@ -72,7 +72,7 @@
     <div id="mainContentIndex">
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
 
-        <h2 class="pageHeading">Hem</h2>
+        <h1 class="pageHeading">Hem</h1>
         <!--Skriver ut webbsidans titel. -->
 
         <div id="indexGridContainer">
@@ -80,7 +80,10 @@
 
             <div id="indexGridItem0">
             <!--Skapar ett grid-item.-->
+
                 <div id="slideShow">
+                <!--Skapar en div för ett bildspel.-->
+
                     <div class="slideShowSlide">
                         <img src="media/meat3.jpeg" alt="Bild på en rätt med kött och grönsaker">
                     </div>
@@ -108,7 +111,7 @@
                     <div class="slideShowSlide">
                         <img src="media/grill1.jpg" alt="Bild på kött">
                     </div>
-                    <!--Lägger till 7 bilder.-->
+                    <!--Lägger till 7 bilder som ska visas i bildspelet.-->
                 </div>
                                 
                 <div>
@@ -120,7 +123,7 @@
                     <span class="progressDot" id="progressDot5" onclick="showSlide(5)"></span>
                     <span class="progressDot" id="progressDot6" onclick="showSlide(6)"></span>
                 </div>
-                <!--Lägger till 7 punkter.-->
+                <!--Lägger till 7 punkter som ska informera om vilken bild som visas.-->
 
                 <p>
                     Hej och välkommen till Ehn's BBQ! Ska ni ha event, födelsedagsmiddag, företagsfest, student, eller privatfest? Vi grillar där och när du vill.
@@ -136,7 +139,7 @@
 
             <div class="footerIcons">
                 <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp"></a>
-                <a href="https://m.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
+                <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
             </div>
 
             <div class="footerAbout">
@@ -155,7 +158,7 @@
 
     <script src="scripts/script.js"></script>
     <script src="scripts/index.js"></script>
-    <!--Länkar en JavaScript-fil.-->
+    <!--Länkar två JavaScript-filer.-->
     
 </body>
 </html>

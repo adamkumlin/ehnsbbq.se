@@ -131,6 +131,11 @@
     }
     /* Placerar grid-item:et i den andra kolumnen och på den tredje raden. */
 
+    #contactGridItem0 br {
+        display: none;
+    }
+    /* Tar bort br-taggarna så texten inte bryts efter länkarna. */
+
     #aboutGridContainer, #indexGridContainer {
         grid-template-columns: 15% 70% 15%;
     }

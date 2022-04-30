@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ehn's BBQ - Om oss</title>
+    <title>Ehn's BBQ - Tack!</title>
     <!--Skriver ut webbsidans titel. -->
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -27,10 +27,10 @@
     
 </head>
 
-<body class="about">
+<body class="index">
     <header>
 
-        <a href="#mainContentAbout" class="skipToMainContent">Hoppa till huvudinnehållet</a>
+        <a href="#mainContentThankYou" class="skipToMainContent">Hoppa till huvudinnehållet</a>
         <!-- Skapar en länk som användaren kan klicka. Den tar hen till huvudinnehållet på sidan. Detta är ett vektyg som gör webbplatsen mer tillgänglig. Den låter
         t.ex. användare med nedsatt syn kunne använda webbplaysen med skärmläsare. Denna länk är bra att ha även för de med små enheter som vill komma till innehållet direkt
         utan att behöva scrolla förbi en massa annat. Den är bättre att ha än att inte ha, även fast den inte alltid behövs. Denna länk, samt alla andra länkar kan kommas åt med
@@ -38,60 +38,30 @@
         webbplatsen med endast ett tangentbord.-->
 
         <nav class="headerNav">
-            <a href="index.html"><img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp"></a>
-            <!--Lägger till en bild som också tar användaren till startsidan.-->
-            
-            <a href="#" class="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <!--Skapar en hamburgemeny.-->
-
-            <div class="navLinks">
-                <ul>
-                    <li class="index"><a href="index.html">HEM</a></li>
-                    <li class="book"><a href="book.html">BOKA</a></li>
-                    <li class="images"><a href="images.html">BILDER</a></li>
-                    <li class="contact"><a href="contact.html">KONTAKTA OSS</a></li>
-                    <li class="about"><a href="about.html">OM OSS</a></li>
-                    <!--Lägger till länkar till webbsidorna. -->
-                <ul>
-            </div>
+            <img src="media/logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp">
+            <!--Lägger till en bild.-->
         </nav>
     </header>
 
     <div class="background">
         <div class="backgroundOverlay"></div>
         <video autoplay muted loop playsinline>
-            <source src="media/background_video3.mp4" type="video/mp4">
+            <source src="media/background_video.mp4" type="video/mp4">
         </video>
     </div>
     <!--Lägger in en bakgrundsvideo med en overlay på. Videon spelas automatiskt och är tystad. Den loopar också.-->
 
-    <div id="mainContentAbout">
+    <div id="mainContentThankYou">
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
 
-        <h1 class="pageHeading">Om oss</h1>
-        <!--Skriver ut webbsidans titel. -->
+        <h1 class="pageHeading">Tack!</h1>
+        <!--Skriver ut en titel. -->
 
-        <div id="aboutGridContainer">
-        <!--Skapar en grid-container som kommer innehålla alla grid-items. -->
+        <p id="thankYouText">Vi har tagit emot ditt meddelande. Vi återkommer så snart vi kan, tack för att du kontaktade Ehn's BBQ!</p>
+        <!--Skriver ut ett tackmeddelande.-->
 
-            <div id="aboutGridItem0">
-            <!--Skapar ett grid-item.-->
+        <a id="thankYouButton" href="index.html">Tillbaka till förstasidan</a>
 
-                <img src="media/ehns.jpg" alt="Bild på Ehn's">
-                <!--Lägger till en bild-->
-
-                <p>
-                    Ehn's BBQ startades 2017, mest som en rolig grej eftersom jag och min sambo (som är kock) älskar att grilla. Om sanningen ska fram så är det så att vid
-                    ett tillfälle så sa min sambo: "Vi kan inte äta all mat som du vill grilla, starta ett företag istället." Då väcktes tanken om att starta någonting, därefter
-                    kom vi fram till EHN's BBQ.
-                </p>
-                <!--Lägger till en beskrivning av företaget.-->
-            </div>
-        </div>
     </div>
 
     <footer>

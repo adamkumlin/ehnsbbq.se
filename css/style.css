@@ -221,61 +221,13 @@ html {
             }
             /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
 
-        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout {
+        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentThankYou {
             flex: 1;
         }
         /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
         stort eller för litet beroende på skärmstorleken. */
 
     /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-        #bookGridContainer {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto;
-        }
-        /* Skapar en grid-container med tre kolumner och en rad. */
-
-            #bookGridItem {
-                grid-column: 2;
-                grid-row: 1;
-                position: relative;
-            }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
-
-                form {
-                    text-align: center;
-                }
-                /* Centrerar texten i alla formulär. */
-                
-                    form input, textarea {
-                        display: block;
-                        width: 11rem;
-                        height: 3rem;
-                        margin: auto;
-                        border-radius: 11px;
-                    }
-                    /* Centrerar textboxarna och knapparna i alla formulär med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
-                    Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
-                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
-
-                        input[type="submit"] {
-                            width: 9rem;
-                        }
-                        /* Gör knappar med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
-
-                        textarea {
-                            resize: none;
-                            height: 7rem;
-                        }
-                        /* Överskriver höjdändringen ovan. Gör så att textarea:rnas storlek inte kan justeras av användaren
-                        då det skulle förstöra layout:en. */
-
-                    form label {
-                        display: block;
-                        margin-top: 1rem;
-                    }
-                    /* Gör så att samtliga labels visas som block, ger de en border längst ned. */
 
         #indexGridContainer {
             display: grid;
@@ -311,6 +263,55 @@ html {
                         background-color: white;
                     }
                     /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
+
+        #bookGridContainer {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto;
+        }
+        /* Skapar en grid-container med tre kolumner och en rad. */
+
+            #bookGridItem {
+                grid-column: 2;
+                grid-row: 1;
+                position: relative;
+            }
+            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
+
+                form {
+                    text-align: center;
+                }
+                /* Centrerar texten i alla formulär. */
+                
+                    form input, textarea {
+                        display: block;
+                        width: 11rem;
+                        height: 3rem;
+                        margin: auto;
+                        border-radius: 11px;
+                    }
+                    /* Centrerar textboxarna och knapparna i alla formulär med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
+                    Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
+                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
+
+                        input[type="submit"] {
+                            width: 9rem;
+                            cursor: pointer;
+                        }
+                        /* Gör knappar med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+
+                        textarea {
+                            resize: none;
+                            height: 7rem;
+                        }
+                        /* Överskriver höjdändringen ovan. Gör så att textarea:rnas storlek inte kan justeras av användaren
+                        då det skulle förstöra layout:en. */
+
+                    form label {
+                        display: block;
+                        margin-top: 1rem;
+                    }
+                    /* Gör så att samtliga labels visas som block, ger de en border längst ned. */
 
         #imagesGridContainer {
             display: grid;
@@ -370,6 +371,38 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den sjätte raden. */
 
+        #contactGridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+        }
+        /* Skapar en grid-container med en kolumn och två rader. */
+
+            #contactGridItem0 {
+                grid-column: 1;
+                grid-row: 1;
+                text-align: center;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten. */ 
+
+                #contactGridItem0 a {
+                    color: white;
+                    text-decoration: underline;
+                }
+                /* Ändrar länkens färg och lägger till en textdekoration. */
+
+                #contactGridItem0 img {
+                    height: 25px;
+                    display: inline;
+                }
+                /* Bestämmer bildernas höjd, de visas nu också som inline. */
+
+            #contactGridItem1 {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den andra raden. */ 
+
         #aboutGridContainer {
             display: grid;
             grid-template-columns: auto;
@@ -391,3 +424,27 @@ html {
                 }
                 /* Bestämmer bildens maxbredd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". */
+
+        #thankYouText {
+            font-size: 200%;
+            text-align: center;
+        }
+        /* Centrerar texten och gör den större. */
+
+        #thankYouButton {
+            display: block;
+            border: 2px solid white;
+            color: black;
+            text-align: center;
+            background-color: rgba(168, 189, 53, 0.9);
+            width: 50%;
+            font-size: 200%;
+            font-weight: bolder;
+            margin-left: auto;
+            margin-right: auto;
+            height: fit-content;
+            padding: 1rem;
+            border-radius: 30px;
+        }
+        /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
+        och texten görs större samt tjockare. Slutligen centreras knappen och ges en höjd samt en radie.
