@@ -1,8 +1,9 @@
 <?php
-        $user_name = $_POST["contactName"];
-        $user_email = $_POST["contactEmail"];
-        $user_message = $_POST["contactMessage"];
-        // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler.
+        $user_name = htmlspecialchars($_POST["contactName"]);
+        $user_email = htmlspecialchars($_POST["contactEmail"]);
+        $user_message = htmlspecialchars($_POST["contactMessage"]);
+        // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar 
+        användaren att skriva html-taggar i strängarna.
 
         $from = "info@ehnsbbq.se";
         $to = "ehnsbbq@gmail.com";
