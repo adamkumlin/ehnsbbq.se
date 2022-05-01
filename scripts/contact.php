@@ -38,9 +38,4 @@
         
                 header("Location: ../success.html");
                 // Skickar vidare användaren till sidan "success.html".
-        } else if ($mail_sent = false) {
-                        
-                header("Location: ../failure.html");
-                // Annars skickas användaren vidare till sidan "failure.html".
         }
-?>
