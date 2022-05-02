@@ -45,16 +45,17 @@ html {
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-start;
-                margin-bottom: 1rem;
+                margin-bottom: 3rem;
             }
             /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
             så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
             
                 .headerNav img {
-                    max-width: 270px;
+                    width: 270px;
+                    height: auto;
                 }
-                /* Ger bilden en maxbredd. */
-            
+                /* Ger bilden en bredd och en automatisk höjd (att den bestäms av webbläsaren). */
+
                 .navLinks {
                     display: none;
                     border: 3px solid white;
@@ -143,18 +144,18 @@ html {
                 
                 .navToggle {
                     position: absolute;
-                    top: .75rem;
-                    right: 1rem;
+                    top: 0.7rem;
+                    right: 0.5rem;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    width: 30px;
-                    height: 21px;
+                    width: 40px;
+                    height: 35px;
                 }
                 /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. */
                 
                     .navToggle .bar {
-                        height: 3px;
+                        height: 5px;
                         width: 100%;
                         background-color: white;
                         border-radius: 10px;
@@ -226,6 +227,7 @@ html {
 
         #mainContentIndex, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess {
             flex: 1;
+
         }
         /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
         stort eller för litet beroende på skärmstorleken. */
@@ -247,61 +249,11 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */
 
-                .slideShowSlide img {
-                    object-fit: cover;
-                    width: 200px;
-                    height: 300px;
+                #indexGridItem0 img {
+                    width: 260px;
+                    height: auto;
                 }
-                /* Sätter bildernas maxbredd till 300px och ger de en osynlig border. Höjden sätts automatiskt. Border:n ges en bild. */
-            
-                .progressDot {
-                    height: 20px;
-                    width: 20px;
-                    background-color: rgb(116, 116, 116);
-                    border-radius: 25px;
-                    display: inline-block;
-                }
-                /* Bestämmer punkternas höjd och bredd samt bakgrundsfärg. De ges en radie och de visas istället som inline-block. */
-            
-                    .activeDot {
-                        background-color: white;
-                    }
-                    /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
-
-                form {
-                    text-align: center;
-                }
-                /* Centrerar texten i alla formulär. */
-                
-                    form input, textarea {
-                        display: block;
-                        width: 11rem;
-                        height: 3rem;
-                        margin: auto;
-                        border-radius: 11px;
-                    }
-                    /* Centrerar textboxarna och knapparna i alla formulär med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sina containrar.
-                    Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
-                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
-
-                        input[type="submit"] {
-                            width: 9rem;
-                            cursor: pointer;
-                        }
-                        /* Gör knappar med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
-
-                        textarea {
-                            resize: none;
-                            height: 7rem;
-                        }
-                        /* Överskriver höjdändringen ovan. Gör så att textarea:rnas storlek inte kan justeras av användaren
-                        då det skulle förstöra layout:en. */
-
-                    form label {
-                        display: block;
-                        margin-top: 1rem;
-                    }
-                    /* Gör så att samtliga labels visas som block, ger de en border längst ned. */
+                /* Sätter bildens bredd till 260px och höjd till auto (att den bestäms av webbläsaren) */
 
         #imagesGridContainer {
             display: grid;
@@ -390,6 +342,41 @@ html {
                 font-size: 135%;
             }
             /* Placerar grid-item:et i den första kolumnen och på den andra raden. Gör texten större. */ 
+
+                #contactGridItem1 form {
+                    text-align: center;
+                }
+                /* Centrerar texten i formuläret. */
+                
+                    #contactGridItem1 form input, #contactGridItem1 form textarea {
+                        display: block;
+                        width: 11rem;
+                        height: 3rem;
+                        margin: auto;
+                        border-radius: 11px;
+                    }
+                    /* Centrerar textboxarna och knapparna i formuläret med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sin container.
+                    Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
+                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
+
+                        #contactGridItem1 form input[type="submit"] {
+                            width: 9rem;
+                            cursor: pointer;
+                        }
+                        /* Gör knappen med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+
+                        #contactGridItem1 form textarea {
+                            resize: none;
+                            height: 7rem;
+                        }
+                        /* Överskriver höjdändringen ovan. Gör så att textarea:ns storlek inte kan justeras av användaren
+                        då det skulle förstöra layout:en. */
+
+                    #contactGridItem1 form label {
+                        display: block;
+                        margin-top: 1rem;
+                    }
+                    /* Gör så att samtliga labels visas som block, ger de en margin högst upp. */
 
         #aboutGridContainer {
             display: grid;

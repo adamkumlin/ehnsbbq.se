@@ -2,11 +2,10 @@
 /* När bredden på skärmen är 1024px eller mer. För laptop:s och andra desktop:s. */
 
     .headerNav img{
-        max-width: 500px;
         margin-right: 1rem;
         margin-left: 1rem;
     }
-    /* Ger bilden en maxbredd och en margin till höger och till vänster. */
+    /* Ger en margin till höger och till vänster. */
     
     form input {
         height: 2rem;
@@ -58,11 +57,10 @@
     }
     /* Bestämmer ikonernas höjd och bredd. */
 
-    .slideShowSlide img {
+    #indexGridItem0 img {
         width: 500px;
-        height: 400px;
     }
-    /* Sätter bildernas bredd till 500px och höjd till 400px. */
+    /* Sätter bildens bredd till 500px. */
     
     #imagesGridContainer img {
         width: 400px;
@@ -74,6 +72,16 @@
             transform: scale(1.3);
         }
         /* Gör bilderna större när muspekaren är över dem. */
+
+    #contactGridContainer {
+        grid-template-columns: 20% 60% 20%;
+    }
+    /* Ändrar grid-container:ns kolumners storlek. */
+
+        #contactGridItem0, #contactGridItem1 {
+            grid-column: 2;
+        }
+        /* Grid-items:en placers i den andra kolumnen. */
 
     #aboutGridContainer, #indexGridContainer {
         grid-template-columns: 20% 60% 20%;

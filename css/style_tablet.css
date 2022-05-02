@@ -1,12 +1,23 @@
+
+@media screen and (min-width: 460px) {
+/* När bredden på skärmen är 460px eller mer. För större mobiltelefoner och mindre tablets. */
+
+    .headerNav img {
+        width: 415px;
+    }
+    /* Sätter bildends bredd. */
+
+}
+
 @media screen and (min-width: 768px) {
     /* När bredden på skärmen är 768px eller mer. För tablet:s (och resterande enheter). */
 
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
     .headerNav img {
-        max-width: 400px;
+        width: 500px;
     }
-    /* Ger bilden en maxbredd. */
+    /* Ger bilden en max. */
 
     .pageHeading {
         font-size: 230%
@@ -83,11 +94,10 @@
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
-    .slideShowSlide img {
+    #indexGridItem0 img {
         width: 400px;
-        height: 300px;
     }
-    /* Sätter bildernas bredd till 400px och höjd till 300px. */
+    /* Sätter bildens bredd till 400px. */
 
     #imagesGridContainer {
         grid-template-columns: auto auto;
