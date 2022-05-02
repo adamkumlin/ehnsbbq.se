@@ -151,7 +151,7 @@
         }
         /* Placerar grid-item:et i den andra kolumnen. */
 
-    #aboutGridItem0 img {
+    #aboutImage {
         width: 400px;
         height: 400px;
         object-fit: cover;
@@ -159,4 +159,8 @@
     }
     /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
     med hjälp av "object-fit: cover;". Centrerar bilderna. */
+
+    #aboutLogo {
+        height: 170px;
+    }
 }

@@ -12,7 +12,7 @@ html {
         flex-direction: column;
         min-height: 100vh;
         color: white;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Barlow Condensed', sans-serif;
         overflow-x: hidden;
     }
     /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir till ett flexobjekt vilket
@@ -54,11 +54,6 @@ html {
                     max-width: 270px;
                 }
                 /* Ger bilden en maxbredd. */
-                
-                a {
-                    text-decoration: none;
-                }
-                /* Tar bort samtliga länkars textdekoration. */
             
                 .navLinks {
                     display: none;
@@ -67,9 +62,10 @@ html {
                     letter-spacing: 0.3ch;
                     position: relative;
                     background-image: url("../media/nav_background.jpg");
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 }
                 /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 0,3ch mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
-                en bakgrundsbild. */
+                en bakgrundsbild och ändrar typsnittet. */
 
                     .navLinks::before {
                         content: '';
@@ -121,7 +117,7 @@ html {
                         }
                         /* Tar bort punkterna vid li-elementen, gör så att de syns överst. */
 
-                            body.index li.index, body.book li.book, body.images li.images, body.contact li.contact, body.about li.about {
+                            body.index li.index, body.images li.images, body.contact li.contact, body.about li.about {
                                 background-color: rgba(152, 224, 93, 0.5);
                             }
                             /* När en viss sida är aktiv sä ändras sidans li-element:s bakgrundsfärg i navigationen. */
@@ -141,8 +137,9 @@ html {
                                 padding: 1rem;
                                 font-weight: bolder;
                                 color: white;
+                                text-decoration: none;
                             }
-                            /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. Gör också länkarna vita. */
+                            /* Gör så länkarna visas som block istället för inline, lägger till en padding och gör texten fetare. Gör också länkarna vita samt tar bort textdekorationen. */
                 
                 .navToggle {
                     position: absolute;
@@ -197,8 +194,9 @@ html {
             font-weight: bold;
             margin-top: 2rem;
             padding-top: 2rem;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. Ger elementet också en padding och margin längst upp. */
+        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. Ger elementet också en padding och margin längst upp. Ändrar slutligen typsnittet. */
 
             footer a { 
                 color: white;
@@ -216,12 +214,17 @@ html {
                 }
                 /* Sätter en konstant höjd och bredd. */
 
+                    .footerIcons img:hover, .footerIcons img:active {
+                        transform: scale(1.3);
+                    }
+                    /* När musen är över ikonerna eller när de klickas på så blir de större. */
+
             .footerLogo {
                 display: none;
             }
             /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
 
-        #mainContentIndex, #mainContentBook, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess {
+        #mainContentIndex, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess {
             flex: 1;
         }
         /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
@@ -240,8 +243,9 @@ html {
                 grid-row: 1;
                 grid-column: 1;
                 text-align: center;
+                font-size: 150%;
             }
-            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten. */
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */
 
                 .slideShowSlide img {
                     object-fit: cover;
@@ -263,20 +267,6 @@ html {
                         background-color: white;
                     }
                     /* Punkter med klassen ".active" ges en annan bakgrundsfärg. */
-
-        #bookGridContainer {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto;
-        }
-        /* Skapar en grid-container med tre kolumner och en rad. */
-
-            #bookGridItem {
-                grid-column: 2;
-                grid-row: 1;
-                position: relative;
-            }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. */
 
                 form {
                     text-align: center;
@@ -326,14 +316,10 @@ html {
                 width: 200px;
                 height: 200px;
                 margin-top: 2rem;
+                border-radius: 20%;
             }
             /* Ger alla bilder i grid-containern en bredd och höjd med en margin högst upp. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
-            med hjälp av "object-fit: cover;". */
-
-            #imagesGridContainer img:active {
-                transform: scale(1.3);
-            }
-            /* Gör bilderna större när de klickas på. */
+            med hjälp av "object-fit: cover;". Lägger slutligen till en radie. */
 
             #imagesGridItem0 {
                 grid-row: 1;
@@ -382,11 +368,12 @@ html {
                 grid-column: 1;
                 grid-row: 1;
                 text-align: center;
+                font-size: 150%;
             }
-            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten. */ 
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 
 
                 #contactGridItem0 a {
-                    color: white;
+                    color: rgb(0, 204, 255);
                     text-decoration: underline;
                 }
                 /* Ändrar länkens färg och lägger till en textdekoration. */
@@ -400,8 +387,9 @@ html {
             #contactGridItem1 {
                 grid-column: 1;
                 grid-row: 2;
+                font-size: 135%;
             }
-            /* Placerar grid-item:et i den första kolumnen och på den andra raden. */ 
+            /* Placerar grid-item:et i den första kolumnen och på den andra raden. Gör texten större. */ 
 
         #aboutGridContainer {
             display: grid;
@@ -414,16 +402,32 @@ html {
                 grid-column: 1;
                 grid-row: 1;
                 text-align: center;
+                font-size: 140%;
             }
             /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */ 
 
-                #aboutGridItem0 img {
+                #aboutImage {
                     width: 200px;
                     height: 200px;
                     object-fit: cover;
                 }
-                /* Bestämmer bildens maxbredd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
+                /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". */
+
+                #aboutLogo {
+                    height: 100px;
+                }
+                /* Bestämmer bildens höjd. */
+
+                    #aboutLogo:hover, #aboutLogo:active {
+                        transform: scale(1.2);
+                    }
+                    /* När musen är över logotypen eller när den klickas på så blir den större. */
+
+                #aboutGridItem0 a {
+                    color: rgb(0, 204, 255);
+                }
+                /* Ändrar länkarnas färg. */
 
         #successText {
             font-size: 200%;
