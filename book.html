@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="sv">
+<html lang="sv-SE">
 <!--Ändrar webbsidans språk till svenska. -->
 
 <head>
@@ -10,6 +10,15 @@
 
     <title>Ehn's BBQ - Boka</title>
     <!--Skriver ut webbsidans titel. -->
+
+    <meta name="description" content="Ska du ha företagsevent, fest eller något annat och är grillsugen? Ehn's BBQ löser det, boka nu!">
+    <!--Lägger till en beskrivning av webbsidans innehåll, detta förbättrar sökmotoroptimeringen.-->
+
+    <meta name="keywords" content="Ehn's BBQ, Ehns BBQ, Boka">
+    <!--Lägger till sökord för webbsidan, detta förbättrar sökmotoroptimeringen.-->
+
+    <meta name="author" content="Adam Kumlin">
+    <!--Lägger till skaparens namn.-->
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--Länkar en stilmall.-->
@@ -80,12 +89,12 @@
 
             <div id="bookGridItem">
                 <!--<img src="../media/content_background.jpg" alt="">-->
-                <form method="post">
-                    <label for="bookDate">Datum<input type="date" id="bookDate"></label>
-                    <label for="bookName">Namn<input type="text" id="bookName" required placeholder="Anna Andersson"></label>
-                    <label for="bookPhone">Telefon<input type="tel" id="bookPhone" required placeholder="0123456789"></label>
-                    <label for="bookEmail">E-post (valfritt)<input type="email" id="bookEmail" placeholder="example@example.com"></label>
-                    <label for="bookMessage">Meddelande<textarea id="bookMessage" required placeholder="Önskemål, allergier, "></textarea></label>
+                <form action="scripts/book.php" method="post" name="bookForm">
+                    <label for="bookDate">Önskat datum<input type="date" id="bookDate" name="bookDate" required></label>
+                    <label for="bookName">Namn<input type="text" id="bookName" name="bookName" required placeholder="Anna Andersson"></label>
+                    <label for="bookPhone">Telefon (frivilligt)<input type="tel" id="bookPhone" name="bookPhone" placeholder="0123456789"></label>
+                    <label for="bookEmail">E-post<input type="email" id="bookEmail" name="bookEmail" required placeholder="example@example.com"></label>
+                    <label for="bookMessage">Meddelande<textarea id="bookMessage" name="bookMessage" required placeholder="Adress, tid, eventuella allergier, m.m."></textarea></label>
                     <label for="bookSubmit">Skicka<input type="submit" id="bookSubmit"></label>
                 </form>
                 <!--Skapar ett formulär.-->

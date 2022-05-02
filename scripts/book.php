@@ -1,35 +1,38 @@
 <?php
-        $user_name = htmlspecialchars($_POST["contactName"]);
-        $user_phone = htmlspecialchars($_POST["contactPhone"]);
-        $user_email = htmlspecialchars($_POST["contactEmail"]);
-        $user_message = htmlspecialchars($_POST["contactMessage"]);
-        // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
+        $user_date = $_POST["bookDate"];
+        $user_name = htmlspecialchars($_POST["bookName"]);
+        $user_phone = htmlspecialchars($_POST["bookPhone"]);
+        $user_email = htmlspecialchars($_POST["bookEmail"]);
+        $user_message = htmlspecialchars($_POST["bookMessage"]);
+        // Hämtar datumet, namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
         // att användaren skriver in html-taggar i texboxarna.
 
         $from = "info@ehnsbbq.se";
         $to = "ehnsbbq@gmail.com";
         // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
 
-        $subject = "Nytt meddelande från en användare på ehnsbbq.se";
+        $subject = "Ny bokning från en användare på ehnsbbq.se";
         // Specificerar ämnet som kommer synas i mejlet.
 
         $headers = "From: $from\n";
         // Headers (en valfri parameter) ges variabeln "$from":s värde.
 
         $message = "E-postadress: $user_email\n
+        Datum: $user_date\n
         Namn: $user_name\n
         Telefonnummer: $user_phone\n
         Meddelande: $user_message";
-        // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
+        // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, valt datum, namn, telefonnummer och meddelande ut.
 
-        $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
+        $subject_confirmation = "Vi har tagit emot din bokning på ehnsbbq.se";
         // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren.
 
         $message_confirmation = 
         "Hej $user_name!\n
-        Vi har tagit emot ditt meddelande.\n
-        Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
-        Ditt meddelande: $user_message\n
+        Vi har tagit emot din bokning.\n
+        Tack för att du bokade hos Ehn's BBQ! Vi kommer titta på din bokning och återkommer så snart vi kan.\n
+        Önskat datum: $user_date\n
+        Meddelande: $user_message\n
         OBS: du kan inte svara på detta mejl!";
         // Skapar ett konfirmationsmeddelande till användaren.
 
