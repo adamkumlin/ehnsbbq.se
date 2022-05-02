@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    /* När bredden på skärmen är 768px eller mer. För tablet:s (och resterande enheter). */
+/* När bredden på skärmen är 768px eller mer. För tablet:s (och resterande enheter). */
 
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -28,69 +28,69 @@
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
-    form input, textarea {
+    form input, form textarea {
         width: 15rem;
     }
     /* Ökar bredden till 15rem så de är lättare att använda på en tablet. */
 
-        input[type="submit"] {
+        form input[type="submit"] {
             width: 13rem;
         }
         /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
-        footer {
-            margin-top: 0;
-            padding-top: 0;
-        }
-        /* Tar bort padding och margin längst upp. */
+    footer {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    /* Tar bort padding och margin längst upp. */
 
         .footerContent {
             display: flex;
             width: 100%;
         }
         /* Div:en visas som flex med en bredd som sträcker sig över hela sidan. */
-    
-        .footerIcons {
-            flex: 1 1 0;
-            text-align: left;
-            margin-bottom: 0;
-            padding: 0;
-        }
-        /* Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar det till vänster och tar bort padding och margin längst ned. */
-    
-            .footerIcons img {
-                margin: 0.5rem;
-                height: 70px;
-                width: 70px;
-                padding-top: 40px;
+
+            .footerIcons {
+                flex: 1 1 0;
+                text-align: left;
+                margin-bottom: 0;
+                padding: 0;
             }
-            /* Lägger till en margin och bestämmer bildernas höjd och bredd. Lägger till en padding längst upp så den är mer centrerad. */
+            /* Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar det till vänster och tar bort padding och margin längst ned. */
+
+                .footerIcons img {
+                    margin: 0.5rem;
+                    height: 70px;
+                    width: 70px;
+                    padding-top: 40px;
+                }
+                /* Lägger till en margin och bestämmer bildernas höjd och bredd. Lägger till en padding längst upp så den är mer centrerad. */
             
-        .footerAbout {
-            position: initial;
-            flex: 1 1 0;
-            text-align: center;
-            transform: none;
-            padding-top: 2rem;
-        }
-        /* Objektets position ändras till det som var innan. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Centrerar objektet 
-        och tar bort transformationen. Slutligen läggs en padding till längst upp så att objektet är mer centrerat. */
-    
-        .footerLogo {
-            display: initial;
-            flex: 1 1 0;
-            text-align: right;
-        }
-        /* Objektet görs synligt. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar objektet till höger. */
-    
-            .footerLogo img {
-                height: 100px;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                margin-right: 1rem;
-                padding-top: 1rem;
+            .footerAbout {
+                position: initial;
+                flex: 1 1 0;
+                text-align: center;
+                transform: none;
+                padding-top: 2rem;
             }
-            /* Bestämmer en höjd och lägger till en radie längst ner till höger och längst ner till vänster. Lägger till en margin till höger och en padding längst upp. */
+            /* Objektets position ändras till det som var innan. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Centrerar objektet 
+            och tar bort transformationen. Slutligen läggs en padding till längst upp så att objektet är mer centrerat. */
+
+            .footerLogo {
+                display: initial;
+                flex: 1 1 0;
+                text-align: right;
+            }
+            /* Objektet görs synligt. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar objektet till höger. */
+
+                .footerLogo img {
+                    height: 100px;
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                    margin-right: 1rem;
+                    padding-top: 1rem;
+                }
+                /* Bestämmer en höjd och lägger till en radie längst ner till höger och längst ner till vänster. Lägger till en margin till höger och en padding längst upp. */
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -101,7 +101,7 @@
 
     #imagesGridContainer {
         grid-template-columns: auto auto;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto;
     }
     /* Skapar en grid-container som ges två kolumner och tre rader. */
 
@@ -141,6 +141,42 @@
     }
     /* Placerar grid-item:et i den andra kolumnen och på den tredje raden. */
 
+    #imagesGridItem6 {
+        grid-row: 4;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den fjärde raden. */
+
+    #imagesGridItem7 {
+        grid-row: 4;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den fjärde raden. */
+
+    #imagesGridItem8 {
+        grid-row: 5;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den femte raden. */
+
+    #imagesGridItem9 {
+        grid-row: 5;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den femte raden. */
+
+    #imagesGridItem10 {
+        grid-row: 6;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den sjätte raden. */
+
+    #imagesGridItem11 {
+        grid-row: 6;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den sjätte raden. */
+
     #contactGridItem0 br {
         display: none;
     }
@@ -173,4 +209,5 @@
     #aboutLogo {
         height: 170px;
     }
+    /* Sätter bildens höjd till 170px. */
 }
