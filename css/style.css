@@ -433,12 +433,12 @@ html {
                 /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". */
 
-                .aboutLogo {
+                .aboutLogo img{
                     height: 100px;
                 }
                 /* Bestämmer bildernas höjd. */
 
-                    .aboutLogo:hover, .aboutLogo:active {
+                    .aboutLogo img:hover, .aboutLogo img:active {
                         transform: scale(1.2);
                     }
                     /* När musen är över logotyperna eller när de klickas på så blir de större. */
