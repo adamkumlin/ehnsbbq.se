@@ -200,7 +200,7 @@ html {
             }
             /* Gör alla a-element inne i footer:n vita så att de passar in med den övriga texten i footer:n. */
             
-            .footerContent .footerAbout, .footerContent .footerIcons {
+            .footerAbout, .footerIcons {
                 text-align: center;
             }
             /* Centrerar bilderna. */
@@ -216,7 +216,7 @@ html {
                     }
                     /* När musen är över ikonerna eller när de klickas på så blir de större. */
 
-            .footerContent .footerLogo {
+            .footerLogo {
                 display: none;
             }
             /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
@@ -433,15 +433,15 @@ html {
                 /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". */
 
-                #aboutLogo {
+                .aboutLogo {
                     height: 100px;
                 }
-                /* Bestämmer bildens höjd. */
+                /* Bestämmer bildernas höjd. */
 
-                    #aboutLogo:hover, #aboutLogo:active {
+                    .aboutLogo:hover, .aboutLogo:active {
                         transform: scale(1.2);
                     }
-                    /* När musen är över logotypen eller när den klickas på så blir den större. */
+                    /* När musen är över logotyperna eller när de klickas på så blir de större. */
 
                 #aboutGridItem0 a {
                     color: rgb(0, 204, 255);

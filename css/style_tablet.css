@@ -77,7 +77,7 @@
             och tar bort transformationen. Slutligen läggs en padding till längst upp så att objektet är mer centrerat. */
 
             .footerLogo {
-                display: initial;
+                display: block;
                 flex: 1 1 0;
                 text-align: right;
             }
@@ -206,8 +206,8 @@
     /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
     med hjälp av "object-fit: cover;". Centrerar bilderna. */
 
-    #aboutLogo {
+    .aboutLogo {
         height: 170px;
     }
-    /* Sätter bildens höjd till 170px. */
+    /* Sätter bildernas höjd till 170px. */
 }
