@@ -206,8 +206,8 @@
     /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
     med hjälp av "object-fit: cover;". Centrerar bilderna. */
 
-    .aboutLogo {
-        height: 170px;
+    #aboutLogo {
+        width: 170px;
     }
-    /* Sätter bildernas höjd till 170px. */
+    /* Sätter bildens bredd till 170px. */
 }
