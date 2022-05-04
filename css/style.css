@@ -468,6 +468,7 @@ html {
             height: fit-content;
             padding: 1rem;
             border-radius: 30px;
+            text-decoration: none;
         }
         /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
-        och texten görs större samt tjockare. Slutligen centreras länken och ges en höjd samt en radie. */
+        och texten görs större samt tjockare. Slutligen centreras länken, deng es en höjd samt en radie och textdekorationen tas bort. */
