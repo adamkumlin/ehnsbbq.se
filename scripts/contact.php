@@ -4,7 +4,7 @@
         $user_email = htmlspecialchars($_POST["contactEmail"]);
         $user_message = htmlspecialchars($_POST["contactMessage"]);
         // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
-        // att användaren skriver in html-taggar i texboxarna.
+        // att användaren skriver in html-taggar i textboxarna.
 
         $from = "info@ehnsbbq.se";
         $to = "ehnsbbq@gmail.com";
@@ -60,7 +60,7 @@
         } else {
 
                 mail($to,$subject,$message,$headers);
-                // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämmne ($subject),
+                // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
                 // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen.
 
                 mail($user_email,$subject_confirmation,$message_confirmation,$headers);
