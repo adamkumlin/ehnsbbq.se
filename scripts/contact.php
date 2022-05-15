@@ -27,7 +27,7 @@
 
         $message_confirmation = 
         "Hej $user_name!\n
-        Vi har tagit emot ditt meddelande.\n
+        Ditt meddelande har skickats.\n
         Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
         Ditt meddelande: $user_message\n
         OBS: du kan inte svara på detta mejl!";
@@ -55,17 +55,27 @@
                 // Om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
                         
                 echo "Vänligen använd inga länkar i meddelanderutan.";
-                // Skapar ett felmeddelande.
+                // Skriver ut ett felmeddelande.
 
         } else {
 
-                mail($to,$subject,$message,$headers);
+                $mail_sent = mail($to,$subject,$message,$headers);
                 // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
-                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen.
+                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen. Funktionen kopplas
+                // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
+        }
 
+        if (!$mail_sent) {
+        // Om variabeln har värdet "false".
+
+                echo "Ett oväntat fel inträffade.";
+                // Skriver ut ett felmeddelande.
+
+        } else {
+                                
                 mail($user_email,$subject_confirmation,$message_confirmation,$headers);
-                // Ett konfirmationsmejl skickas också till användaren för att försäkra hen om att hens meddelande kom fram.
+                // Annars skickas först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
                 
                 header("Location: ../success.html");
-                // Skickar vidare användaren till sidan "success.html".
+                // Sedan skickas användaren vidare till sidan "success.html".
         }
