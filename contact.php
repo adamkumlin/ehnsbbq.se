@@ -37,10 +37,93 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
-    
+
 </head>
 
 <body class="contact">
+
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Om server:n får en POST-request.
+
+            $user_name = htmlspecialchars($_POST["contactName"]);
+            $user_phone = htmlspecialchars($_POST["contactPhone"]);
+            $user_email = htmlspecialchars($_POST["contactEmail"]);
+            $user_message = htmlspecialchars($_POST["contactMessage"]);
+            // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
+            // att användaren skriver in html-taggar i textboxarna.
+    
+            $from = "info@ehnsbbq.se";
+            $to = "ehnsbbq@gmail.com";
+            // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
+    
+            $subject = "Nytt meddelande från en användare på ehnsbbq.se";
+            // Specificerar ämnet som kommer synas i mejlet.
+    
+            $headers = "From: $from\n";
+            // Headers (en valfri parameter) ges variabeln "$from":s värde.
+    
+            $message = "E-postadress: $user_email\n
+            Namn: $user_name\n
+            Telefonnummer: $user_phone\n
+            Meddelande: $user_message";
+            // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
+    
+            $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
+            // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren.
+    
+            $message_confirmation = 
+            "Hej $user_name!\n
+            Ditt meddelande har skickats.\n
+            Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
+            Ditt meddelande: $user_message\n
+            OBS: du kan inte svara på detta mejl!";
+            // Skapar ett konfirmationsmeddelande till användaren.
+    
+            if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
+            // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
+                            
+                echo "<h2>Vänligen använd endast bokstäver (A-Ö) och mellanslag i namnrutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (!preg_match("/^[0-9]*$/", $user_phone)) {
+            // Om telefonnumret som användaren skrev in inte endast innehåller siffror.
+                            
+                echo "<h2>Vänligen använd endast siffror i telefonrutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+            // Om textboxen är tom eller om e-postadressen som användaren skrev in inte är giltig.
+    
+                echo "<h2>E-postadressen är inte giltig.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (empty($user_message) || preg_match("/(http|https|ftp|mailto)/", $user_message)) {
+            // Om textboxen är tom eller om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
+                            
+                echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } else {
+    
+                $mail_sent = mail($to,$subject,$message,$headers);
+                // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
+                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen. Funktionen kopplas
+                // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
+            }
+    
+            if ($mail_sent === true) {
+            // Om variabeln har värdet "sant".
+            
+                mail($user_email,$subject_confirmation,$message_confirmation,$headers);
+                // Annars skickas först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
+                
+                header("Location: success.html");
+                // Sedan skickas användaren vidare till sidan "success.html".
+            }
+        }
+    ?>
+
     <header>
 
         <a href="#mainContentContact" class="skipToMainContent">Hoppa till huvudinnehållet</a>
@@ -65,7 +148,7 @@
                 <ul>
                     <li class="index"><a href="index.html">HEM</a></li>
                     <li class="images"><a href="images.html">BILDER</a></li>
-                    <li class="contact"><a href="contact.html">KONTAKTA OSS</a></li>
+                    <li class="contact"><a href="contact.php">KONTAKTA OSS</a></li>
                     <li class="about"><a href="about.html">OM OSS</a></li>
                     <!--Lägger till länkar till webbsidorna. -->
                 </ul>
@@ -108,12 +191,12 @@
             <div id="contactGridItem1">
             <!--Skapar ett grid-item.-->
 
-                <form action="scripts/contact.php" method="post" name="contactForm">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" name="contactForm">
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" required placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" required placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" required placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
-                    <label for="contactSubmit">Skicka<input type="submit" id="contactSubmit"></label>
+                    <label for="contactSubmit">Skicka<input type="submit" id="contactSubmit" name="contactSubmit"></label>
                 </form>
                 <!--Skapar ett formulär.-->
             </div>
