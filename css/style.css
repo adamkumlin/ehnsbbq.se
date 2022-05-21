@@ -221,7 +221,7 @@ html {
             }
             /* Logotypen visas inte då den inte kan visas på ett bra sätt med denna skärmstorlek. */
 
-        #mainContentIndex, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess {
+        #mainContentIndex, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess, #mainContentPrivacy {
             flex: 1;
 
         }
@@ -356,11 +356,11 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 
 
-                #contactGridItem0 a {
+                #contactGridItem0 a, #contactGridItem1 a, #privacyGridItem0 a {
                     color: rgb(0, 204, 255);
                     text-decoration: underline;
                 }
-                /* Ändrar länkens färg och lägger till en textdekoration. */
+                /* Ändrar länkarnas färg och lägger till en textdekoration. */
 
                 #contactGridItem0 img {
                     height: 25px;
@@ -423,7 +423,7 @@ html {
                 text-align: center;
                 font-size: 140%;
             }
-            /* Placerar grid-item:et i den andra kolumnen och på den första raden. Centrerar objekten. */ 
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 
 
                 #aboutImage {
                     width: 200px;
@@ -472,3 +472,18 @@ html {
         }
         /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
         och texten görs större samt tjockare. Slutligen centreras länken, deng es en höjd samt en radie och textdekorationen tas bort. */
+
+        #privacyGridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+        }
+        /* Skapar en grid-container med en kolumn och en rad. */
+
+            #privacyGridItem0 {
+                grid-column: 1;
+                grid-row: 1;
+                font-size: 130%;
+                text-align: center;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 

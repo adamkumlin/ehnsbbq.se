@@ -199,6 +199,11 @@
                     <label for="contactSubmit">Skicka<input type="submit" id="contactSubmit" name="contactSubmit"></label>
                 </form>
                 <!--Skapar ett formulär.-->
+
+                <p>
+                    Vi på Ehn's BBQ följer GDPR. För att kunna återkomma till dig om du kontaktar oss via mejl så måste vi behandla (spara) dina personuppgifter som t.ex. namn, telefonnummer och e-postadress.
+                    Du kan läsa mer om hur och varför vi behandlar personuppgifter på sidan om vår <a href="privacy.html">integritetspolicy</a>.
+                </p>
             </div>
         </div>
     </div>
@@ -217,6 +222,7 @@
                 Ehn's BBQ<br>
                 Tel: <a href="tel:0733464592">073-346 45 92</a><br>
                 E-post: <a href="mailto:ehnsbbq@gmail.com">ehnsbbq@gmail.com</a><br>
+                <a href="privacy.html">Integritetspolicy</a><br>
                 &copy; 2022 Ehn's BBQ.
             </div>
 

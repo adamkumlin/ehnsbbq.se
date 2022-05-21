@@ -42,7 +42,7 @@
         .navToggle {
             display: none;
         }
-        /* Gömmer hamburgemenyn. */
+        /* Gömmer hamburgermenyn. */
 
     input[type="submit"] {
         width: initial;
@@ -73,18 +73,14 @@
         }
         /* Gör bilderna större när muspekaren är över dem. */
 
-    #contactGridContainer {
-        grid-template-columns: 20% 60% 20%;
-    }
-    /* Ändrar grid-container:ns kolumners storlek. */
-
-        #contactGridItem0, #contactGridItem1 {
-            grid-column: 2;
-        }
-        /* Grid-items:en placers i den andra kolumnen. */
-
-    #aboutGridContainer, #indexGridContainer {
+    #aboutGridContainer, #indexGridContainer, #contactGridContainer, #privacyGridContainer {
         grid-template-columns: 20% 60% 20%;
     }
     /* Ändrar grid-container:nas kolumners storlek. */
+
+        #contactGridItem0, #contactGridItem1, #privacyGridItem0 {
+            grid-column: 2;
+        }
+        /* Grid-items:en placers i den andra kolumnen. */
 }
+    
