@@ -191,7 +191,7 @@
             <div id="contactGridItem1">
             <!--Skapar ett grid-item.-->
 
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" name="contactForm">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm()" name="contactForm">
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" required placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" required placeholder="example@example.com"></label>
@@ -236,7 +236,8 @@
     <!--Skapar en footer som innehåller information om företaget, ikoner för sociala medier samt företagets logotyp.-->
 
     <script src="scripts/script.js"></script>
-    <!--Länkar en JavaScript-fil.-->
+    <script src="scripts/contact.js"></script>
+    <!--Länkar två JavaScript-filer.-->
     
 </body>
 </html>
