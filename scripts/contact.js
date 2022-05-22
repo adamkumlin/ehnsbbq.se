@@ -1,27 +1,59 @@
-let name = document.getElementById("contactName").value;
-let email = document.getElementById("contactEmail").value;
-let phone = document.getElementById("contactPhone").value;
-let message = document.getElementById("contactMessage").value;
+let username = document.getElementById("contactName");
+let email = document.getElementById("contactEmail");
+let phone = document.getElementById("contactPhone");
+let message = document.getElementById("contactMessage");
 // Skapar fyra variabler och kopplar dem till respektive element.
 
-if (name == "" || email == "" || message == "") {
-// Om någon variabel är tom.
-  
-alert("Var snäll fyll i alla nödvändiga fält.");
-// Skriver ut ett felmeddelande.
-} else if (!name.includes("/^([a-öA-Ö' ]+)$/") {
-// Om variebeln inte innehåller bokstäver och/eller mellanslag.
-    
-alert("Vad snäll använd endast bokstäver och mellanslag i namnfältet.");
-// Skriver ut ett felmeddelande.
-} else if (!phone.includes("/^[0-9]*$/") {
-// Om variabeln inte innehåller siffror.
+function validateForm() {
 
-alert("Var snäll använd endast siffror i telefonfältet.");
-// Skriver ut ett felmeddelande.
-} else if (message.includes("/(http|https|ftp|mailto)/") {
-// Om meddelandet immehåller "http", "https", "ftp" eller "mailto".
+    if (username.value == "" || email.value == "" || message.value == "") {
+    // Om någon variabel är tom.
+          
+        alert("Var snäll fyll i alla nödvändiga fält.");
+        // Skriver ut ett felmeddelande.
+
+        return false;
+        // Returnerar "false".
+
+    } else if (!username.value.match(/^([a-öA-Ö' ]+)$/)) {
+    // Om variabeln inte endast består av bokstäver och/eller mellanslag.
+
+        alert("Vad snäll använd endast bokstäver och mellanslag i namnfältet.");
+        // Skriver ut ett felmeddelande.
+
+        return false;
+        // Returnerar "false".
+
+    } else if (!email.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    // Om variabeln inte matchar kriterierna för att vara en giltig e-postadress.
+        
+        alert("Vänligen dubbelkolla din mejladress. Den verkar inte vara giltig.");
+        // Skriver ut ett felmeddelande.
+
+        return false;
+        // Returnerar "false".
+
+    } else if (!phone.value.match(/^[0-9]*$/)) {
+        // Om variabeln inte endast består av siffror.
+        
+            alert("Var snäll använd endast siffror i telefonfältet.");
+            // Skriver ut ett felmeddelande.
+
+            return false;
+            // Returnerar "false".
     
-alert("Var snäll använd inga länkar i meddelandefältet.");
-// Skriver ut ett felmeddelande.
+        } else if (message.value.includes("http")) {
+        // Om meddelandet innehåller "http".
+            
+            alert("Var snäll använd inga länkar i meddelandefältet.");
+            // Skriver ut ett felmeddelande.
+
+            return false;
+            // Returnerar "false".
+    
+        } else {
+
+            return true;
+            // Annars returneras "true".
+        }
 }

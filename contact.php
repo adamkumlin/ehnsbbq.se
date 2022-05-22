@@ -191,11 +191,11 @@
             <div id="contactGridItem1">
             <!--Skapar ett grid-item.-->
 
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm()" name="contactForm">
-                    <label for="contactName">Namn<input type="text" id="contactName" name="contactName" required placeholder="Anna Andersson"></label>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm();" name="contactForm" novalidate>
+                    <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
-                    <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" required placeholder="example@example.com"></label>
-                    <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" required placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
+                    <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
+                    <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
                     <label for="contactSubmit">Skicka<input type="submit" id="contactSubmit" name="contactSubmit"></label>
                 </form>
                 <!--Skapar ett formulär.-->
