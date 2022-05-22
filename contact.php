@@ -201,7 +201,7 @@
                 <!--Skapar ett formulär.-->
 
                 <p>
-                    Vi på Ehn's BBQ följer GDPR. För att kunna återkomma till dig om du kontaktar oss via mejl så måste vi behandla (spara) dina personuppgifter som t.ex. namn, telefonnummer och e-postadress.
+                    Vi på Ehn's BBQ följer GDPR. För att kunna återkomma till dig om du kontaktar oss via mejl så måste vi behandla (spara) dina personuppgifter som till exempel namn, telefonnummer och e-postadress.
                     Du kan läsa mer om hur och varför vi behandlar personuppgifter på sidan om vår <a href="privacy.html">integritetspolicy</a>.
                 </p>
             </div>
