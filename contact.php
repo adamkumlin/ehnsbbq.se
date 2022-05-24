@@ -38,6 +38,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>
+    <!--Lägger in kod för reCAPTCHA v3.-->
+
 </head>
 
 <body class="contact">
@@ -46,83 +49,129 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
 
-            $user_name = htmlspecialchars($_POST["contactName"]);
-            $user_phone = htmlspecialchars($_POST["contactPhone"]);
-            $user_email = htmlspecialchars($_POST["contactEmail"]);
-            $user_message = htmlspecialchars($_POST["contactMessage"]);
-            // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
-            // att användaren skriver in html-taggar i textboxarna.
-    
-            $from = "info@ehnsbbq.se";
-            $to = "ehnsbbq@gmail.com";
-            // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
-    
-            $subject = "Nytt meddelande från en användare på ehnsbbq.se";
-            // Specificerar ämnet som kommer synas i mejlet.
-    
-            $headers = "From: $from\n";
-            // Headers (en valfri parameter) ges variabeln "$from":s värde.
-    
-            $message = "E-postadress: $user_email\n
-            Namn: $user_name\n
-            Telefonnummer: $user_phone\n
-            Meddelande: $user_message";
-            // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
-    
-            $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
-            // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren.
-    
-            $message_confirmation = 
-            "Hej $user_name!\n
-            Ditt meddelande har skickats.\n
-            Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
-            Ditt meddelande: $user_message\n
-            OBS: du kan inte svara på detta mejl!";
-            // Skapar ett konfirmationsmeddelande till användaren.
-    
-            if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
-            // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
-                            
-                echo "<h2>Vänligen använd endast bokstäver (A-Ö) och mellanslag i namnrutan.</h2>";
-                // Skriver ut ett felmeddelande.
-    
-            } elseif (!preg_match("/^[0-9]*$/", $user_phone)) {
-            // Om telefonnumret som användaren skrev in inte endast innehåller siffror.
-                            
-                echo "<h2>Vänligen använd endast siffror i telefonrutan.</h2>";
-                // Skriver ut ett felmeddelande.
-    
-            } elseif (empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
-            // Om textboxen är tom eller om e-postadressen som användaren skrev in inte är giltig.
-    
-                echo "<h2>E-postadressen är inte giltig.</h2>";
-                // Skriver ut ett felmeddelande.
-    
-            } elseif (empty($user_message) || preg_match("/(http|https|ftp|mailto)/", $user_message)) {
-            // Om textboxen är tom eller om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
-                            
-                echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
-                // Skriver ut ett felmeddelande.
-    
-            } else {
-    
-                $mail_sent = mail($to,$subject,$message,$headers);
-                // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
-                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen. Funktionen kopplas
-                // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
-            }
-    
-            if ($mail_sent === true) {
-            // Om variabeln har värdet "sant".
+            $url = "https://www.google.com/recaptcha/api/siteverify";
+            //Skapar en variabel för URL:en som kommer utföra verifieringen.
+
+            $data = [
+                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
+                "response" => $_POST["token"],
+                "remoteip" => $_SERVER["REMOTE_ADDR"]
+            ];
+            // Skapar en array "data" med olika variabler.
+
+            $options = array (
+                "http" => array (
+                "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
+                "method"  => "POST",
+                "content" => http_build_query($data)
+                // Skapar en HTTP-request som innehåller variablerna från array:en "data".
+                )
+            );
+            // Skapar en array "options" med olika variabler.
             
-                mail($user_email,$subject_confirmation,$message_confirmation,$headers);
-                // Annars skickas först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
-                
-                header("Location: success.html");
-                // Sedan skickas användaren vidare till sidan "success.html".
+            $context  = stream_context_create($options);
+            // Skickar en stream-context med $options. Här skickas själva HTTP-request:en.
+
+            $response = file_get_contents($url, false, $context);
+            // Hämtar variablernas innehåll.
+
+            $res = json_decode($response, true);
+            // Och avkodar JSON-datan.
+
+            if ($res["success"] == true && $res["score"] >= 0.5) {
+            // Om verifieringen lyckas och "score" har värdet 0.5 eller mindre.
+
+                $user_name = htmlspecialchars($_POST["contactName"]);
+                $user_phone = htmlspecialchars($_POST["contactPhone"]);
+                $user_email = htmlspecialchars($_POST["contactEmail"]);
+                $user_message = htmlspecialchars($_POST["contactMessage"]);
+                // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
+                // att användaren skriver in html-taggar i textboxarna.
+        
+                $from = "info@ehnsbbq.se";
+                $to = "ehnsbbq@gmail.com";
+                // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
+        
+                $subject = "Nytt meddelande från en användare på ehnsbbq.se";
+                // Specificerar ämnet som kommer synas i mejlet.
+        
+                $headers = "From: $from\n";
+                // Headers (en valfri parameter) ges variabeln "$from":s värde.
+        
+                $message = "E-postadress: $user_email\n
+                Namn: $user_name\n
+                Telefonnummer: $user_phone\n
+                Meddelande: $user_message";
+                // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
+        
+                $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
+                // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren.
+        
+                $message_confirmation = 
+                "Hej $user_name!\n
+                Ditt meddelande har skickats.\n
+                Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
+                Ditt meddelande: $user_message\n
+                OBS: du kan inte svara på detta mejl!";
+                // Skapar ett konfirmationsmeddelande till användaren.
+        
+                if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
+                // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
+                                
+                    echo "<h2>Vänligen använd endast bokstäver (A-Ö) och mellanslag i namnrutan.</h2>";
+                    // Skriver ut ett felmeddelande.
+        
+                } elseif (!preg_match("/^[0-9]*$/", $user_phone)) {
+                // Om telefonnumret som användaren skrev in inte endast innehåller siffror.
+                                
+                    echo "<h2>Vänligen använd endast siffror i telefonrutan.</h2>";
+                    // Skriver ut ett felmeddelande.
+        
+                } elseif (empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+                // Om textboxen är tom eller om e-postadressen som användaren skrev in inte är giltig.
+        
+                    echo "<h2>E-postadressen är inte giltig.</h2>";
+                    // Skriver ut ett felmeddelande.
+        
+                } elseif (empty($user_message) || preg_match("/(http|https|ftp|mailto)/", $user_message)) {
+                // Om textboxen är tom eller om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
+                                
+                    echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
+                    // Skriver ut ett felmeddelande.
+        
+                } else {
+        
+                    $mail_sent = mail($to,$subject,$message,$headers);
+                    // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
+                    // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen. Funktionen kopplas
+                    // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
+                }
+        
+                if ($mail_sent) {
+                // Om variabeln har värdet "sant".
+
+                    http_response_code(200);
+                    // Och om HTTP-response-code:en är 200 (att det lyckades).
+
+                    mail($user_email,$subject_confirmation,$message_confirmation,$headers);
+                    // Skickar först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
+                    
+                    header("Location: success.html");
+                    // Sedan skickas användaren vidare till sidan "success.html".
+                } else {
+                    http_response_code(500);
+                    // Eller om HTTP-response-code:en är 500 (att det misslyckades).
+
+                    echo "<h2>Något gick fel. Ditt meddelande skickades inte.</h2>";
+                    // Skriver ut ett felmeddelande.
+                }
+
+            } else {
+                echo "<h2>CAPTCHA:n returnerade ett förbjudet värde. Försök igen.</h2>";
+                // Skriver ut ett felmeddelande.
             }
         }
-    ?>
+    ?> 
 
     <header>
 
@@ -192,6 +241,7 @@
             <!--Skapar ett grid-item.-->
 
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm();" name="contactForm" novalidate>
+                    <input type="hidden" id="token" name="token">
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
@@ -238,6 +288,15 @@
     <script src="scripts/script.js"></script>
     <script src="scripts/contact.js"></script>
     <!--Länkar två JavaScript-filer.-->
+
+    <script>
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
+              document.getElementById("token").value = token;
+              // Ger elementet variabeln "token":s värde.
+          });
+        });
+  </script>
     
 </body>
 </html>
