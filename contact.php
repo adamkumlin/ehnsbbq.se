@@ -246,13 +246,12 @@
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
-                    <label for="contactSubmit">Skicka<input type="submit" id="contactSubmit" name="contactSubmit"></label>
+                    <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
                 <!--Skapar ett formulär.-->
 
                 <p>
-                    Vi på Ehn's BBQ följer GDPR. För att kunna återkomma till dig om du kontaktar oss via mejl så måste vi behandla (spara) dina personuppgifter som till exempel namn, telefonnummer och e-postadress.
-                    Du kan läsa mer om hur och varför vi behandlar personuppgifter på sidan om vår <a href="privacy.html">integritetspolicy</a>.
+                    Du kan läsa om hur och varför vi behandlar personuppgifter på sidan om vår <a href="privacy.html">integritetspolicy</a>.
                 </p>
             </div>
         </div>
@@ -262,10 +261,8 @@
         <div class="footerContent">
 
             <div class="footerIcons">
-                <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp" loading="lazy"></a>
-                <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp" loading="lazy"></a>
-                <!--Bilderna ges attributet loading="lazy", då laddas de inte alla när webbsidan startas utan när användaren väljer att se dem och detta gör så webbsidan laddar 
-                snabbare.-->
+                <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp"></a>
+                <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
             </div>
 
             <div class="footerAbout">
@@ -275,15 +272,9 @@
                 <a href="privacy.html">Integritetspolicy</a><br>
                 &copy; 2022 Ehn's BBQ.
             </div>
-
-            <div class="footerLogo">
-                <img src="media/ehns_bbq_logo1.png" alt="Bild på Ehn's BBQ:s sekundärlogotyp" loading="lazy">
-                <!--Bilderna ges attributet loading="lazy", då laddas de inte alla när webbsidan startas utan när användaren väljer att se dem och detta gör så webbsidan laddar 
-                snabbare.-->
-            </div>
         </div>
     </footer>
-    <!--Skapar en footer som innehåller information om företaget, ikoner för sociala medier samt företagets logotyp.-->
+    <!--Skapar en footer som innehåller information om företaget och ikoner för sociala medier. -->
 
     <script src="scripts/script.js"></script>
     <script src="scripts/contact.js"></script>

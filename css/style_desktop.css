@@ -51,12 +51,6 @@
     /* Överskriver ändringarna ovan med hjälp av "initial". Knappen är nu mindre, då sticker den ut från resten av input-elementen.
     Den visas nu också istället i inline-form så att den kan placeras bredvid sin label. */
 
-    .footerIcons img {
-        height: 50px;
-        width: 50px;
-    }
-    /* Bestämmer ikonernas höjd och bredd. */
-
     #indexGridItem0 img {
         width: 500px;
     }
@@ -67,11 +61,6 @@
         height: 400px;
     }
     /* Sätter bildernas bredd och höjd till 400px. */
-
-        #imagesGridContainer img:hover {
-            transform: scale(1.3);
-        }
-        /* Gör bilderna större när muspekaren är över dem. */
 
     #aboutGridContainer, #indexGridContainer, #contactGridContainer, #privacyGridContainer {
         grid-template-columns: 20% 60% 20%;

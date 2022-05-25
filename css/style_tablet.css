@@ -39,58 +39,32 @@
         /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
     footer {
-        margin-top: 0;
+        margin-top: 4rem;
         padding-top: 0;
     }
     /* Tar bort padding och margin längst upp. */
 
-        .footerContent {
-            display: flex;
-            width: 100%;
+        .footerIcons {
+            margin-top: 4rem;
+            float: left;
+            position: absolute;
         }
-        /* Div:en visas som flex med en bredd som sträcker sig över hela sidan. */
+        /* Ger objektet en margin längst upp. Ger det "float: left;" så att det alltid är till vänster i footer:n. Objektet placeras absolut så att det inte täcker över det övriga
+        objektet i footer:n. */
 
-            .footerIcons {
-                flex: 1 1 0;
-                text-align: left;
-                margin-bottom: 0;
-                padding: 0;
+            .footerIcons img {
+                margin: 0.5rem;
+                height: 70px;
+                width: 70px;
             }
-            /* Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar det till vänster och tar bort padding och margin längst ned. */
-
-                .footerIcons img {
-                    margin: 0.5rem;
-                    height: 70px;
-                    width: 70px;
-                    padding-top: 40px;
-                }
-                /* Lägger till en margin och bestämmer bildernas höjd och bredd. Lägger till en padding längst upp så den är mer centrerad. */
-            
-            .footerAbout {
-                position: initial;
-                flex: 1 1 0;
-                text-align: center;
-                transform: none;
-                padding-top: 2rem;
-            }
-            /* Objektets position ändras till det som var innan. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Centrerar objektet 
-            och tar bort transformationen. Slutligen läggs en padding till längst upp så att objektet är mer centrerat. */
-
-            .footerLogo {
-                display: block;
-                flex: 1 1 0;
-                text-align: right;
-            }
-            /* Objektet görs synligt. Flex-objektet kommer alltid vara samma storlek och det kommer inte kunna växa. Placerar objektet till höger. */
-
-                .footerLogo img {
-                    height: 100px;
-                    border-bottom-left-radius: 30px;
-                    border-bottom-right-radius: 30px;
-                    margin-right: 1rem;
-                    padding-top: 1rem;
-                }
-                /* Bestämmer en höjd och lägger till en radie längst ner till höger och längst ner till vänster. Lägger till en margin till höger och en padding längst upp. */
+            /* Lägger till en margin och bestämmer bildernas höjd och bredd. Lägger till en padding längst upp så den är mer centrerad. */
+        
+        .footerAbout {
+            text-align: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        /* Centrerar texten och lägger till en padding längst upp och längst ned.  */
 
 /* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
 
