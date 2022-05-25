@@ -116,8 +116,9 @@ html {
                             list-style: none;
                             z-index: 1;
                             text-align: center;
+                            padding-top: 1rem;
                         }
-                        /* Tar bort punkterna vid li-elementen, gör så att de syns överst. Centrerar elementen.*/
+                        /* Tar bort punkterna vid li-elementen, gör så att de syns överst. Centrerar elementen och lägger till en padding längst upp.*/
 
                             body.index li.index, body.images li.images, body.contact li.contact, body.about li.about {
                                 background-color: rgba(152, 224, 93, 0.5);
@@ -243,6 +244,7 @@ html {
                 #indexGridItem0 img {
                     width: 260px;
                     height: auto;
+                    border-radius: 20%;
                 }
                 /* Sätter bildens bredd till 260px och höjd till auto (att den bestäms av webbläsaren) */
 
@@ -426,9 +428,10 @@ html {
                     width: 200px;
                     height: 200px;
                     object-fit: cover;
+                    border-radius: 20%;
                 }
                 /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
-                med hjälp av "object-fit: cover;". */
+                med hjälp av "object-fit: cover;". Lägger också till en radie. */
 
                 #aboutLogo {
                     width: 100px;
