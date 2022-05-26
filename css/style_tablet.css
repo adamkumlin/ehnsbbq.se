@@ -15,7 +15,7 @@
 /* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
 
     .headerNav img {
-        width: 500px;
+        width: 450px;
     }
     /* Ger bilden en max. */
 
@@ -180,7 +180,7 @@
     /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
     med hjälp av "object-fit: cover;". Centrerar bilderna. */
 
-    #aboutLogo {
+    .aboutLogo {
         width: 170px;
     }
     /* Sätter bildens bredd till 170px. */

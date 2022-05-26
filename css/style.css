@@ -116,9 +116,8 @@ html {
                             list-style: none;
                             z-index: 1;
                             text-align: center;
-                            padding-top: 1rem;
                         }
-                        /* Tar bort punkterna vid li-elementen, gör så att de syns överst. Centrerar elementen och lägger till en padding längst upp.*/
+                        /* Tar bort punkterna vid li-elementen, gör så att de syns överst. Centrerar elementen. */
 
                             body.index li.index, body.images li.images, body.contact li.contact, body.about li.about {
                                 background-color: rgba(152, 224, 93, 0.5);
@@ -433,12 +432,13 @@ html {
                 /* Bestämmer bildens bredd och höjd. Bilderna undviker se konstiga ut med den bestämda storleken och bredden
                 med hjälp av "object-fit: cover;". Lägger också till en radie. */
 
-                #aboutLogo {
+                .aboutLogo {
                     width: 100px;
+                    margin: 1rem;
                 }
                 /* Bestämmer bildens bredd. */
 
-                    #aboutLogo:hover, #aboutLogo:active {
+                    .aboutLogo:hover, .aboutLogo:active {
                         transform: scale(1.2);
                     }
                     /* När musen är över logotyperna eller när de klickas på så blir de större. */

@@ -1,7 +1,7 @@
 @media screen and (min-width: 1024px) {
 /* När bredden på skärmen är 1024px eller mer. För laptop:s och andra desktop:s. */
 
-    .headerNav img{
+    .headerNav img {
         margin-right: 1rem;
         margin-left: 1rem;
     }
@@ -72,4 +72,17 @@
         }
         /* Grid-items:en placers i den andra kolumnen. */
 }
-    
+
+@media screen and (min-width: 1246px) {
+/* När bredden på skärmen är 1246px eller mer. För större desktops. */
+
+    .headerNav img {
+        width: 600px;
+    }
+    /* Ökar bildens bredd. */
+
+    .navLinks ul li {
+        padding: 1rem;
+    }
+    /* Lägger till en padding. */
+}
