@@ -7,11 +7,11 @@
     }
     /* Ger en margin till höger och till vänster. */
     
-    form input {
+    #contactGridItem1 input {
         height: 2rem;
     }
-    /* Överskriver ändringarna av form:ens input-element med hjälp av "initial". Användaren förutsätts använda en mus så då behöver
-    textboxarna inte vara lika stora. */
+    /* Ändrar höjden. Användaren förutsätts använda en mus så då behöver inte
+    textboxarna vara lika stora. */
 
     .headerNav {
         flex-direction: row;
@@ -21,7 +21,7 @@
         .navLinks {
             display: flex;
         }
-        /* Nu visas länkarna, deras bredd nollställs. */
+        /* Nu visas länkarna med hjälp av "display: flex;". */
 
             .navLinks::before {
                 transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
