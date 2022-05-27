@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="sv-SE">
-<!--Ändrar webbsidans språk till svenska. -->
+<!--Ändrar webbsidans språk till svenska.-->
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ehn's BBQ - Kontakta oss</title>
-    <!--Skriver ut webbsidans titel. -->
+    <!--Skriver ut webbsidans titel.-->
 
     <meta name="description" content="Har du några frågor om vad vi på Ehn's BBQ gör? Vill du boka ett besök? Kontakta oss direkt så löser vi tillsammans!">
     <!--Lägger till en beskrivning av webbsidans innehåll, detta förbättrar sökmotoroptimeringen.-->
@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rancho&family=Rye&display=swap" rel="stylesheet">
-    <!--Länkar en Google-font. -->
+    <!--Länkar en Google-font.-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,22 +73,22 @@
             // Skickar en stream-context med $options. Här skickas själva HTTP-request:en.
 
             $response = file_get_contents($url, false, $context);
-            // Hämtar variablernas innehåll.
+            // Hämtar variablernas innehåll. De verifieras med variabeln "url".
 
             $res = json_decode($response, true);
             // Och avkodar JSON-datan.
 
             if ($res["success"] == true && $res["score"] >= 0.5) {
-            // Om verifieringen lyckas och "score" har värdet 0.5 eller mindre.
+            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
 
                 $user_name = htmlspecialchars($_POST["contactName"]);
                 $user_phone = htmlspecialchars($_POST["contactPhone"]);
                 $user_email = htmlspecialchars($_POST["contactEmail"]);
                 $user_message = htmlspecialchars($_POST["contactMessage"]);
-                // Hämtar namnet, e-postadressen och meddelandet från formuläret och tilldelar dem tre olika variabler. Gör om strängarna till text, detta förhindrar
+                // Hämtar namnet, telefonnumret, e-postadressen och meddelandet från formuläret och tilldelar sina egna variabler. Gör om strängarna till text, detta förhindrar
                 // att användaren skriver in html-taggar i textboxarna.
         
-                $from = "info@ehnsbbq.se";
+                $from = "noreply@ehnsbbq.se";
                 $to = "ehnsbbq@gmail.com";
                 // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
         
@@ -96,7 +96,7 @@
                 // Specificerar ämnet som kommer synas i mejlet.
         
                 $headers = "From: $from\n";
-                // Headers (en valfri parameter) ges variabeln "$from":s värde.
+                // Headers (en valfri parameter) ges variabeln "from":s värde.
         
                 $message = "E-postadress: $user_email\n
                 Namn: $user_name\n
@@ -105,7 +105,7 @@
                 // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
         
                 $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
-                // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren.
+                // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren om mejlet går fram.
         
                 $message_confirmation = 
                 "Hej $user_name!\n
@@ -142,8 +142,8 @@
                 } else {
         
                     $mail_sent = mail($to,$subject,$message,$headers);
-                    // Annars skickas mejlet, detta görs med funktionen mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
-                    // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till funktionen. Funktionen kopplas
+                    // Annars skickas mejlet, detta görs med metoden mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
+                    // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till metoden. Metoden kopplas
                     // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
                 }
         
@@ -186,7 +186,7 @@
             <a href="index.html"><img src="media/ehns_bbq_logo.png" alt="Bild på Ehn's BBQ:s huvudlogotyp"></a>
             <!--Lägger till en bild som också tar användaren till startsidan.-->
             
-            <a href="#" class="navToggle">
+            <a class="navToggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -211,7 +211,7 @@
             <source src="media/background_video2.mp4" type="video/mp4">
         </video>
     </div>
-    <!--Lägger in en bakgrundsvideo med en overlay på. Videon spelas automatiskt och är tystad. Den loopar också. Video av Karolina Grabowska från Pexels (https://www.pexels.com/video/close-up-video-of-flame-on-grill-4725809/).-->
+    <!--Lägger in en bakgrundsvideo med en overlay på. Videon spelas automatiskt och är tystad. Den loopar också. "playsinline" gör så att videon spelas av samtliga webbläsare. Video av Karolina Grabowska från Pexels (https://www.pexels.com/video/close-up-video-of-flame-on-grill-4725809/).-->
 
     <div id="mainContentContact">
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
@@ -220,7 +220,7 @@
         <!--Skriver ut webbsidans titel. -->
 
         <div id="contactGridContainer">
-        <!--Skapar en grid-container som kommer innehålla alla grid-items. -->
+        <!--Skapar en grid-container som kommer innehålla alla grid-items.-->
 
             <div id="contactGridItem0">
             <!--Skapar ett grid-item.-->
@@ -241,7 +241,11 @@
             <!--Skapar ett grid-item.-->
 
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm();" name="contactForm" novalidate>
-                    <input type="hidden" id="token" name="token">
+                <!--Formuläret skickar datan med POST-metoden. När den skickas in så kontrolleras den först med funktionen "validateForm()". "novalidate" förhindrar att formuläret istället
+                valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
+                att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
+        
+                    <input type="hidden" id="token" name="token"> <!--Här kommer token:en från reCAPTCHA:n att sparas för att skickas till server:n.-->
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
@@ -251,30 +255,28 @@
                 <!--Skapar ett formulär.-->
 
                 <p>
-                    Du kan läsa om hur och varför vi behandlar personuppgifter på sidan om vår <a href="privacy.html">integritetspolicy</a>.
+                    Genom att kontakta oss via kontaktformuläret eller via e-post så godkänner du vår <a href="privacy.html">integritetspolicy</a>.
                 </p>
+                <!--Skriver en text som länkar till integritetspolicyn.-->
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="footerContent">
+        <div class="footerIcons">
+            <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp"></a>
+            <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
+        </div>
 
-            <div class="footerIcons">
-                <a href="https://www.instagram.com/ehnsbbq/" target="_blank"><img src="media/instagram_icon.png" alt="Bild på Instagrams logotyp"></a>
-                <a href="https://www.facebook.com/Ehns-Bbq-1771708099778296/" target="_blank"><img src="media/facebook_icon.png" alt="Bild på Facebooks logotyp"></a>
-            </div>
-
-            <div class="footerAbout">
-                Ehn's BBQ<br>
-                Tel: <a href="tel:0733464592">073-346 45 92</a><br>
-                E-post: <a href="mailto:ehnsbbq@gmail.com">ehnsbbq@gmail.com</a><br>
-                <a href="privacy.html">Integritetspolicy</a><br>
-                &copy; 2022 Ehn's BBQ.
-            </div>
+        <div class="footerAbout">
+            Ehn's BBQ<br>
+            Tel: <a href="tel:0733464592">073-346 45 92</a><br>
+            E-post: <a href="mailto:ehnsbbq@gmail.com">ehnsbbq@gmail.com</a><br>
+            <a href="privacy.html">Integritetspolicy</a><br>
+            &copy; 2022 Ehn's BBQ.
         </div>
     </footer>
-    <!--Skapar en footer som innehåller information om företaget och ikoner för sociala medier. -->
+    <!--Skapar en footer som innehåller information om företaget och ikoner för sociala medier.-->
 
     <script src="scripts/script.js"></script>
     <script src="scripts/contact.js"></script>
@@ -282,6 +284,7 @@
 
     <script>
         grecaptcha.ready(function() {
+        // Funktionen krävs för att reCAPTCHA:n ska fungera.
           grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
               document.getElementById("token").value = token;
               // Ger elementet variabeln "token":s värde.

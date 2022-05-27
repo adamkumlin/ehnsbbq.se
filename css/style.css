@@ -60,12 +60,12 @@ html {
                     position: relative;
                     display: none;
                     border: 3px solid white;
-                    border-radius: 10%;
+                    border-radius: 5px;
                     background-image: url("../media/nav_background.jpg");
                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     letter-spacing: 3px;
                 }
-                /* Gömmer navigationslänkarna som standard, ger dem en border med radien 10% med 3px mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
+                /* Gömmer navigationslänkarna som standard, ger dem en border med radien 5px med 3px mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
                 en bakgrundsbild och ändrar typsnittet samt avståndet mellan bokstäverna. */
 
                     .navLinks::before {
@@ -77,9 +77,9 @@ html {
                         top: 50%;
                         left: 50%;
                         transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
-                        border-radius: 10%;
+                        border-radius: 5px;
                     }
-                    /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 10%. ""content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
+                    /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 5px. ""content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
 
                     .navLinks::after {
                         content: '';
@@ -90,9 +90,9 @@ html {
                         top: 50%;
                         left: 50%;
                         transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
-                        border-radius: 3px;
+                        border-radius: 5px;
                     }
-                    /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. "content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
+                    /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 5px. "content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
 
                     .navLinks.active {
                         display: flex;
@@ -154,7 +154,7 @@ html {
                         height: 5px;
                         width: 100%;
                         background-color: white;
-                        border-radius: 30%;
+                        border-radius: 15%;
                     }
                     /* Sätter en höjd och bredd på strecken och ändrar bakgrundsfärgen. Ger den också en radie. */
 
@@ -380,7 +380,7 @@ html {
                         width: 11rem;
                         height: 3rem;
                         margin: auto;
-                        border-radius: 20%;
+                        border-radius: 17px;
                     }
                     /* Centrerar textboxarna och knappen i formuläret med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sin container.
                     Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
@@ -466,7 +466,7 @@ html {
             margin-right: auto;
             height: fit-content;
             padding: 1rem;
-            border-radius: 40%;
+            border-radius: 20px;
             text-decoration: none;
         }
         /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms

@@ -34,26 +34,26 @@ function validateForm() {
         // Returnerar "false".
 
     } else if (!phone.value.match(/^[0-9]*$/)) {
-        // Om variabeln inte endast består av siffror.
+    // Om variabeln inte endast består av siffror.
+    
+        alert("Var snäll använd endast siffror i telefonfältet.");
+        // Skriver ut ett felmeddelande.
+
+        return false;
+        // Returnerar "false".
+
+    } else if (message.value.includes("http")) {
+    // Om meddelandet innehåller "http".
         
-            alert("Var snäll använd endast siffror i telefonfältet.");
-            // Skriver ut ett felmeddelande.
+        alert("Var snäll använd inga länkar i meddelandefältet.");
+        // Skriver ut ett felmeddelande.
 
-            return false;
-            // Returnerar "false".
-    
-        } else if (message.value.includes("http")) {
-        // Om meddelandet innehåller "http".
-            
-            alert("Var snäll använd inga länkar i meddelandefältet.");
-            // Skriver ut ett felmeddelande.
+        return false;
+        // Returnerar "false".
 
-            return false;
-            // Returnerar "false".
-    
-        } else {
-
-            return true;
-            // Annars returneras "true".
-        }
+    } else {
+        
+        return true;
+        // Annars returneras "true".
+    }
 }
