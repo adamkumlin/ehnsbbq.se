@@ -15,7 +15,7 @@ html {
         font-family: 'Barlow Condensed', sans-serif;
         overflow-x: hidden;
     }
-    /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir till ett flexobjekt vilket
+    /* Tar bort alla standardinställningar för padding och margin som webbläsaren har. Body:n blir ett flexobjekt vilket
     gör den mer anpassbar till olika skärmstorlekar. Body:n kommer nu alltid att vara över footer:n så att inget innehåll blockeras av den. Det kommer också att finnas ett
     konsekvent avstånd mellan footer:n och övrigt innehåll. Den minsta höjden som body:n kan ha sätts till 100vh.
     Den tar nu alltså alltid upp fönstrets storlek. Textfärgen ändras till vitt samtidigt som typsnittet ändras. Även "overflow-x: hidden;" läggs till så att 
@@ -48,7 +48,7 @@ html {
                 margin-bottom: 3rem;
             }
             /* Gör navigationen till ett flexobjekt, samt gör så den placeras relativt till body:ns position. Med hjälp av "flex-direction: column;" och "justify-content: space-between;"
-            så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om de ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
+            så sträcker innehållet ut sig horisontellt istället för vertikalt samtidigt om innehållsdelarna ges utrymme mellan varandra. Slutligen positioneras elementen utifrån objektens början. */
             
                 .headerNav img {
                     width: 270px;
@@ -60,13 +60,13 @@ html {
                     position: relative;
                     display: none;
                     border: 3px solid white;
-                    border-radius: 4px;
+                    border-radius: 10%;
                     background-image: url("../media/nav_background.jpg");
                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     letter-spacing: 3px;
                 }
-                /* Gömmer navigationslänkarna som standard, ger dem en border med radien 4px med 3px mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
-                en bakgrundsbild och ändrar typsnittet. */
+                /* Gömmer navigationslänkarna som standard, ger dem en border med radien 10% med 3px mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
+                en bakgrundsbild och ändrar typsnittet samt avståndet mellan bokstäverna. */
 
                     .navLinks::before {
                         content: '';
@@ -77,9 +77,9 @@ html {
                         top: 50%;
                         left: 50%;
                         transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
-                        border-radius: 3px;
+                        border-radius: 10%;
                     }
-                    /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
+                    /* Ger ".navLinks" en till border runt sig med hjälp av "::before". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 10%. ""content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
 
                     .navLinks::after {
                         content: '';
@@ -92,7 +92,7 @@ html {
                         transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(2deg);
                         border-radius: 3px;
                     }
-                    /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. */
+                    /* Ger ".navLinks" ännu en border till runt sig med hjälp av "::after". Positionen sätts till absolute och den vinklas lite samtidigt som radien ändras till 3px. "content" sätts till en tom sträng så att effekten ska visas. Sätter också bredden samt höjden till 100%. Med hjälp av "left: 50%;" och "right: 50%;" så placeras border:n mitt över nav:en. */
 
                     .navLinks.active {
                         display: flex;
@@ -148,13 +148,13 @@ html {
                     width: 40px;
                     height: 35px;
                 }
-                /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. */
+                /* Gör så att knappen alltid finns placerad högst upp i högra hörnet, objekten ges mellanrum mellan varandra och de visas i en kolumn. Bestämmer bredden och höjden. */
                 
                     .bar {
                         height: 5px;
                         width: 100%;
                         background-color: white;
-                        border-radius: 10px;
+                        border-radius: 30%;
                     }
                     /* Sätter en höjd och bredd på strecken och ändrar bakgrundsfärgen. Ger den också en radie. */
 
@@ -165,7 +165,7 @@ html {
             min-width: 100%;
             z-index: -2;
         }
-        /* Ger videon en fixad position med minst 100% bredd. Den placeras bakom alla andra element. */
+        /* Ger videon en fixad position med minst 100% bredd. Den placeras bakom alla andra element med hjälp av "z-index: -2;", "left: 0;" samt "right: 0;". */
 
         .backgroundOverlay {
             height: 100%;
@@ -177,7 +177,7 @@ html {
             background: black;
             opacity: 80%;
         }
-        /* Skapar en svart overlay för videon, den görs svart med 80% opacitet. Den placeras framför videon. */
+        /* Skapar en overlay för videon, den görs svart med 80% opacitet. Den placeras framför videon. Positionen görs fixad. Den placeras bakom videon med hjälp av "z-index: -1;", "left: 0;" samt "right: 0;". Den ges också en höjd samt bredd. */
 
         .pageHeading {
             text-align: center;
@@ -193,7 +193,7 @@ html {
             padding-top: 2rem;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        /* Ändrar färgen och bakgrundfärgen, centrerar texten och gör denna text fet. Ger elementet också en padding och margin längst upp. Ändrar slutligen typsnittet. */
+        /* Ändrar bakgrundfärgen, centrerar texten och gör denna text fet. Ger elementet också en padding och margin längst upp. Ändrar slutligen typsnittet. */
 
             footer a { 
                 color: white;
@@ -218,9 +218,8 @@ html {
 
         #mainContentIndex, #mainContentImages, #mainContentContact, #mainContentAbout, #mainContentSuccess, #mainContentPrivacy {
             flex: 1;
-
         }
-        /* Med hjälp av "flex: 1" kommer huvudinnehållet på sidorna alltid att vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
+        /* Med hjälp av "flex: 1" kommer elementen på sidorna alltid vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
         stort eller för litet beroende på skärmstorleken. */
 
     /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -245,7 +244,7 @@ html {
                     height: auto;
                     border-radius: 20%;
                 }
-                /* Sätter bildens bredd till 260px och höjd till auto (att den bestäms av webbläsaren) */
+                /* Sätter bildens bredd till 260px och höjd till auto (att den bestäms av webbläsaren). Ger den också en radie. */
 
         #imagesGridContainer {
             display: grid;
@@ -381,11 +380,11 @@ html {
                         width: 11rem;
                         height: 3rem;
                         margin: auto;
-                        border-radius: 11px;
+                        border-radius: 20%;
                     }
-                    /* Centrerar textboxarna och knapparna i formuläret med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sin container.
+                    /* Centrerar textboxarna och knappen i formuläret med hjälp av "display: block" och "margin: auto". "margin: auto" gör så att de är centrerade i sin container.
                     Nu visas de också i block-form istället för i inline-form. Då går de att centrera lättare.
-                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. */
+                    Sätter bredden till 11rem och höjden till 3rem så de är lättare att använda på en mobiltelefon. De ges också en radie. */
 
                         #contactGridItem1 form input[type="submit"] {
                             width: 9rem;
@@ -393,7 +392,7 @@ html {
                             cursor: pointer;
                         }
                         /* Gör knappen med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. Lägger
-                        också till en margin längst upp. */
+                        också till en margin längst upp samt ändrar muspekaren. */
 
                         #contactGridItem1 form textarea {
                             resize: none;
@@ -406,7 +405,7 @@ html {
                         display: block;
                         margin-top: 1rem;
                     }
-                    /* Gör så att samtliga labels visas som block, ger de en margin högst upp. */
+                    /* Gör så att samtliga labels visas som block, ger dem en margin högst upp. */
 
         #aboutGridContainer {
             display: grid;
@@ -436,7 +435,7 @@ html {
                     width: 100px;
                     margin: 1rem;
                 }
-                /* Bestämmer bildens bredd. */
+                /* Bestämmer bildens bredd samt lägger till en margin. */
 
                     .aboutLogo:hover, .aboutLogo:active {
                         transform: scale(1.2);
@@ -467,11 +466,11 @@ html {
             margin-right: auto;
             height: fit-content;
             padding: 1rem;
-            border-radius: 30px;
+            border-radius: 40%;
             text-decoration: none;
         }
         /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
-        och texten görs större samt tjockare. Slutligen centreras länken, deng es en höjd samt en radie och textdekorationen tas bort. */
+        och texten görs större samt tjockare. Slutligen centreras länken, den ges en höjd, padding samt en radie. Textdekorationen tas bort. */
 
         #privacyGridContainer {
             display: grid;
