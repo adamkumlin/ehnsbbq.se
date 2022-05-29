@@ -447,7 +447,7 @@ html {
                 }
                 /* Ändrar länkarnas färg. */
 
-        #successText {
+        .successText {
             font-size: 200%;
             text-align: center;
         }
