@@ -2,16 +2,20 @@
 @media screen and (min-width: 460px) {
 /* När bredden på skärmen är 460px eller mer. För större mobiltelefoner och mindre tablets. */
 
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
     .headerNav img {
         width: 415px;
     }
     /* Sätter bildens bredd. */
 }
 
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 @media screen and (min-width: 768px) {
 /* När bredden på skärmen är 768px eller mer. För tablet:s (och resterande enheter). */
 
-/* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
     .headerNav img {
         width: 450px;
@@ -22,20 +26,6 @@
         font-size: 230%
     }
     /* Gör sidtitlarna större. */
-
-/* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
-
-/* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
-
-    #contactGridItem1 form input, #contactGridItem1 form textarea {
-        width: 17rem;
-    }
-    /* Ökar bredden till 17rem så de är lättare att använda på en tablet. */
-
-        form input[type="submit"] {
-            width: 13rem;
-        }
-        /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
 
     footer {
         margin-top: 4rem;
@@ -65,7 +55,9 @@
         }
         /* Centrerar texten och lägger till en padding längst upp och längst ned.  */
 
-/* För sidan "book.html". ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
 
     #indexGridItem0 img {
         width: 400px;
@@ -77,6 +69,10 @@
         grid-template-rows: auto auto auto auto auto auto;
     }
     /* Skapar en grid-container som ges två kolumner och sex rader. */
+
+/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
 
     #imagesGridItem0 {
         grid-row: 1;
@@ -150,10 +146,28 @@
     }
     /* Placerar grid-item:et i den andra kolumnen och på den sjätte raden. */
 
+/* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
     #contactGridItem0 br {
         display: none;
     }
     /* Tar bort br-taggarna så texten inte bryts efter länkarna. */
+
+    #contactGridItem1 form input, #contactGridItem1 form textarea {
+        width: 17rem;
+    }
+    /* Ökar bredden till 17rem så de är lättare att använda på en tablet. */
+
+        #contactGridItem1 form input[type="submit"] {
+            width: 13rem;
+        }
+        /* Gör knappen större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. */
+
+/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidorna "about.html" och "index.html". --------------------------------------------------------------------------------------------------------------- */
 
     #aboutGridContainer, #indexGridContainer {
         grid-template-columns: 15% 70% 15%;
@@ -183,4 +197,6 @@
         width: 170px;
     }
     /* Sätter bildens bredd till 170px. */
+
+/* Gäller för sidorna "about.html" och "index.html". --------------------------------------------------------------------------------------------------------------- */
 }

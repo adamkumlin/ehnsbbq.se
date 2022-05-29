@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ehn's BBQ - Kontakta oss</title>
-    <!--Skriver ut webbsidans titel.-->
+    <!--Lägger till en titel.-->
+
+    <link rel="icon" type="image/x-icon" href="media/favicon.png">
+    <!--Lägger till en favicon, en sorts ikon som syns i webbläsarens adressfält när webbsidan visas i webbläsaren.-->
 
     <meta name="description" content="Har du några frågor om vad vi på Ehn's BBQ gör? Vill du boka ett besök? Kontakta oss direkt så löser vi tillsammans!">
     <!--Lägger till en beskrivning av webbsidans innehåll, detta förbättrar sökmotoroptimeringen.-->
@@ -217,7 +220,7 @@
     <!--Skapar en div som innehåller webbsidans huvudinnehåll.-->
 
         <h1 class="pageHeading">Kontakta oss</h1>
-        <!--Skriver ut webbsidans titel. -->
+        <!--Lägger till webbsidans titel. -->
 
         <div id="contactGridContainer">
         <!--Skapar en grid-container som kommer innehålla alla grid-items.-->
@@ -269,14 +272,16 @@
         </div>
 
         <div class="footerAbout">
-            Ehn's BBQ<br>
+            <p>Ehn's BBQ<br>
             Tel: <a href="tel:0733464592">073-346 45 92</a><br>
             E-post: <a href="mailto:ehnsbbq@gmail.com">ehnsbbq@gmail.com</a><br>
             <a href="privacy.html">Integritetspolicy</a><br>
-            &copy; 2022 Ehn's BBQ.
+            &copy; 2022 Ehn's BBQ.<br></p>
+
+            <span class="creatorName">Created by <a href="mailto:kumlinadam99@gmail.com">Adam Kumlin</a></span>
         </div>
     </footer>
-    <!--Skapar en footer som innehåller information om företaget och ikoner för sociala medier.-->
+    <!--Skapar en footer som innehåller information om företaget och ikoner för sociala medier. Skaparen krediteras också.-->
 
     <script src="scripts/script.js"></script>
     <script src="scripts/contact.js"></script>

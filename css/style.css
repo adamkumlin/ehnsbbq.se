@@ -1,4 +1,4 @@
-/* Gäller globalt. ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 html {
     overflow-x: hidden;
@@ -63,10 +63,10 @@ html {
                     border-radius: 5px;
                     background-image: url("../media/nav_background.jpg");
                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    letter-spacing: 3px;
+                    font-size: 120%;
                 }
                 /* Gömmer navigationslänkarna som standard, ger dem en border med radien 5px med 3px mellan bokstäverna. Positionen beror på ".headerNav":s position. Ger dem också
-                en bakgrundsbild och ändrar typsnittet samt avståndet mellan bokstäverna. */
+                en bakgrundsbild och ändrar typsnittet samt teckenstorleken. */
 
                     .navLinks::before {
                         content: '';
@@ -204,6 +204,11 @@ html {
                 text-align: center;
             }
             /* Centrerar bilderna. */
+
+                .creatorName {
+                    font-size: 70%;
+                }
+                /* Gör texten mindre. */
             
                 .footerIcons img {
                     width: 100px;
@@ -222,7 +227,9 @@ html {
         /* Med hjälp av "flex: 1" kommer elementen på sidorna alltid vara samma längd, oavsett hur stort fönstret är. Detta förhindrar att något element blir för
         stort eller för litet beroende på skärmstorleken. */
 
-    /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
 
         #indexGridContainer {
             display: grid;
@@ -245,6 +252,10 @@ html {
                     border-radius: 20%;
                 }
                 /* Sätter bildens bredd till 260px och höjd till auto (att den bestäms av webbläsaren). Ger den också en radie. */
+
+/* Gäller för sidan "index.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
 
         #imagesGridContainer {
             display: grid;
@@ -336,6 +347,10 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den tolfte raden. */
 
+/* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidorna "contact.html" och "privacy.html". ----------------------------------------------------------------------------------------------------------- */
+
         #contactGridContainer {
             display: grid;
             grid-template-columns: auto;
@@ -407,6 +422,10 @@ html {
                     }
                     /* Gör så att samtliga labels visas som block, ger dem en margin högst upp. */
 
+/* Gäller för sidorna "contact.html" och "privacy.html". ----------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "about.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+
         #aboutGridContainer {
             display: grid;
             grid-template-columns: auto;
@@ -447,6 +466,10 @@ html {
                 }
                 /* Ändrar länkarnas färg. */
 
+/* Gäller för sidan "about.html". ---------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "success.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
         .successText {
             font-size: 200%;
             text-align: center;
@@ -472,6 +495,10 @@ html {
         /* Länken visas som block. Den ges en border runt och textfärgen ändras till svart. Bakgrundsfärgen ändras och texten centreras. Bredden bestäms
         och texten görs större samt tjockare. Slutligen centreras länken, den ges en höjd, padding samt en radie. Textdekorationen tas bort. */
 
+/* Gäller för sidan "success.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "privacy.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
         #privacyGridContainer {
             display: grid;
             grid-template-columns: auto;
@@ -486,3 +513,5 @@ html {
                 text-align: center;
             }
             /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */
+
+/* Gäller för sidan "privacy.html". -------------------------------------------------------------------------------------------------------------------------------- */
