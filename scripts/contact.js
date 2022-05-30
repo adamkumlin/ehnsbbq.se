@@ -2,6 +2,7 @@ let username = document.getElementById("contactName");
 let email = document.getElementById("contactEmail");
 let phone = document.getElementById("contactPhone");
 let message = document.getElementById("contactMessage");
+let consent = document.getElementById("contactConsent");
 // Skapar fyra variabler och kopplar dem till respektive element.
 
 function validateForm() {
@@ -51,8 +52,17 @@ function validateForm() {
         return false;
         // Returnerar "false".
 
-    } else {
+    } else if (!consent.checked == true) {
+    // Om checkbox:en inte är ikryssad.
         
+        alert("Du måste acceptera integritetspolicyn.");
+        // Skriver ut ett felmeddelande.
+
+        return false;
+        // Returnerar "false".
+
+    } else {
+         
         return true;
         // Annars returneras "true".
     }

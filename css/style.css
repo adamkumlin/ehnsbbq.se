@@ -409,6 +409,13 @@ html {
                         /* Gör knappen med typen "submit" större, fast inte lika stor som de övriga input-elementen. Det gör det lättare att skilja på knappen och dessa. Lägger
                         också till en margin längst upp samt ändrar muspekaren. */
 
+                        #contactGridItem1 form #contactConsent {
+                            display: inline;
+                            height: initial;
+                            width: initial;
+                        }
+                        /* Visar checkbox:en som inline istället. Nollställer också bredden samt höjden. */
+
                         #contactGridItem1 form textarea {
                             resize: none;
                             height: 7rem;

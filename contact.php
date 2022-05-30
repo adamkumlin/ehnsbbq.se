@@ -253,14 +253,10 @@
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
+                    <label for="contactConsent"><input type="checkbox" id="contactConsent" name="contactConsent">Jag godkänner <a href="privacy.html">integritetspolicyn</a>.</label>
                     <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
                 <!--Skapar ett formulär.-->
-
-                <p>
-                    Genom att kontakta oss via kontaktformuläret eller via e-post så godkänner du vår <a href="privacy.html">integritetspolicy</a>.
-                </p>
-                <!--Skriver en text som länkar till integritetspolicyn.-->
             </div>
         </div>
     </div>

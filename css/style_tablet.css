@@ -158,7 +158,7 @@
     #contactGridItem1 form input, #contactGridItem1 form textarea {
         width: 17rem;
     }
-    /* Ökar bredden till 17rem så de är lättare att använda på en tablet. */
+    /* Ökar bredden till 17rem. */
 
         #contactGridItem1 form input[type="submit"] {
             width: 13rem;
