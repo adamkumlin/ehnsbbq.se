@@ -413,8 +413,11 @@ html {
                             display: inline;
                             height: initial;
                             width: initial;
+                            transform: scale(2);
+                            margin-right: 0.5rem;
                         }
-                        /* Visar checkbox:en som inline istället. Nollställer också bredden samt höjden. */
+                        /* Visar checkbox:en som inline istället. Nollställer också bredden samt höjden. Gör checkbox:en större med "transform: scale(2);". Lägger också till en margin
+                        så att den inte döljer texten till höger.*/
 
                         #contactGridItem1 form textarea {
                             resize: none;

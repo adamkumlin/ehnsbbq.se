@@ -174,7 +174,7 @@
                 // Skriver ut ett felmeddelande.
             }
         }
-    ?> 
+    ?>
 
     <header>
 
