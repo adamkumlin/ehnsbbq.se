@@ -52,17 +52,22 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
 
-            $url = "https://www.google.com/recaptcha/api/siteverify";
+            $verify_url = "https://www.google.com/recaptcha/api/siteverify";
             //Skapar en variabel för URL:en som kommer utföra verifieringen.
 
             $data = [
                 "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
-                "response" => $_POST["token"],
+// Här sparas den hemliga nyckeln.
+
+                "response" => $_POST["captchaToken"],
+// Här sparas användarens captcha-token.
+
                 "remoteip" => $_SERVER["REMOTE_ADDR"]
+// Här sparas användarens ip-adress.
             ];
             // Skapar en array "data" med olika variabler.
 
-            $options = array (
+            $request = array (
                 "http" => array (
                 "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
                 "method"  => "POST",
@@ -70,12 +75,12 @@
                 // Skapar en HTTP-request som innehåller variablerna från array:en "data".
                 )
             );
-            // Skapar en array "options" med olika variabler.
+            // Skapar en array "request" med olika variabler.
             
-            $context  = stream_context_create($options);
-            // Skickar en stream-context med $options. Här skickas själva HTTP-request:en.
+            $stream_context = stream_context_create($request);
+            // Skickar en stream-context med $stream_context. Här skickas själva HTTP-request:en.
 
-            $response = file_get_contents($url, false, $context);
+            $response = file_get_contents($verify_url, false, $stream_context);
             // Hämtar variablernas innehåll. De verifieras med variabeln "url".
 
             $res = json_decode($response, true);
@@ -248,7 +253,7 @@
                 valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
                 att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
         
-                    <input type="hidden" id="token" name="token"> <!--Här kommer token:en från reCAPTCHA:n att sparas för att skickas till server:n.-->
+                    <input type="hidden" id="captchaToken" name="captchaToken"> <!--Här kommer token:en från reCAPTCHA:n att sparas för att skickas till server:n.-->
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
@@ -287,7 +292,7 @@
         grecaptcha.ready(function() {
         // Funktionen krävs för att reCAPTCHA:n ska fungera.
           grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
-              document.getElementById("token").value = token;
+              document.getElementById("captchaToken").value = token;
               // Ger elementet variabeln "token":s värde.
           });
         });
