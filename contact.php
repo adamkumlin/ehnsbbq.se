@@ -56,37 +56,33 @@
             //Skapar en variabel för URL:en som kommer utföra verifieringen.
 
             $data = [
-                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
-// Här sparas den hemliga nyckeln.
-
                 "response" => $_POST["captchaToken"],
-// Här sparas användarens captcha-token.
+                // Här sparas användarens captcha-token.
 
-                "remoteip" => $_SERVER["REMOTE_ADDR"]
-// Här sparas användarens ip-adress.
+                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
+                // Här sparas den hemliga nyckeln som bara server:n har.
             ];
             // Skapar en array "data" med olika variabler.
 
             $request = array (
                 "http" => array (
-                "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
-                "method"  => "POST",
-                "content" => http_build_query($data)
-                // Skapar en HTTP-request som innehåller variablerna från array:en "data".
+                    "content" => http_build_query($data),
+                    "method"  => "POST"
                 )
+                // Konstruerar en HTTP-request som ska skickas med hjälp av POST-metoden. Allt placeras inuti en array som innehåller variablerna från array:en "$data".
             );
-            // Skapar en array "request" med olika variabler.
             
             $stream_context = stream_context_create($request);
-            // Skickar en stream-context med $stream_context. Här skickas själva HTTP-request:en.
+            // Skickar en stream-context med variabeln $request. Här specificeras var som ska göras med filen som hämtas i $captcha_response längre ned.
 
             $response = file_get_contents($verify_url, false, $stream_context);
-            // Hämtar variablernas innehåll. De verifieras med variabeln "url".
+            // Läser av URL:en. Den verifieras med variabeln "$stream_context". Filen letas inte efter i användarens lokala hårddisk ("C:\") med hjälp av den andra parametern som
+            // är satt till "false".
 
-            $res = json_decode($response, true);
-            // Och avkodar JSON-datan.
+            $captcha_response = json_decode($response, true);
+            // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
 
-            if ($res["success"] == true && $res["score"] >= 0.5) {
+            if ($captcha_response["success"] == true && $captcha_response["score"] >= 0.5) {
             // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
 
                 $user_name = htmlspecialchars($_POST["contactName"]);
@@ -163,9 +159,10 @@
 
                     mail($user_email,$subject_confirmation,$message_confirmation,$headers);
                     // Skickar först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
-                    
+
                     header("Location: success.html");
                     // Sedan skickas användaren vidare till sidan "success.html".
+
                 } else {
                     http_response_code(500);
                     // Eller om HTTP-response-code:en är 500 (att det misslyckades).
