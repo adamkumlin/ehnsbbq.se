@@ -239,7 +239,7 @@
                 </p>
                 <!--Skriver en text med länkar och bilder inbäddade.-->
 
-                <p>Du får också gärna använda formuläret nedan:</p>
+                <p>Du får också gärna använda formuläret nedan, vi ser fram emot ditt meddelande!</p>
             </div>
 
             <div id="contactGridItem1">
