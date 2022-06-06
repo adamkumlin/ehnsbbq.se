@@ -17,7 +17,7 @@
     <meta name="description" content="Har du några frågor om vad vi på Ehn's BBQ gör? Vill du boka ett besök? Kontakta oss direkt så löser vi tillsammans!">
     <!--Lägger till en beskrivning av webbsidans innehåll, detta förbättrar sökmotoroptimeringen.-->
 
-    <meta name="keywords" content="Ehn's BBQ, Ehns BBQ, Kontakta oss, Mejl, Telefon">
+    <meta name="keywords" content="Ehn's BBQ, Ehns BBQ, Kontakta oss, Mejl, E-post, Telefon">
     <!--Lägger till sökord för webbsidan, detta förbättrar sökmotoroptimeringen.-->
 
     <meta name="author" content="Adam Kumlin">
