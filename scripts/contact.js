@@ -3,8 +3,7 @@ let email = document.getElementById("contactEmail");
 let phone = document.getElementById("contactPhone");
 let message = document.getElementById("contactMessage");
 let consent = document.getElementById("contactConsent");
-let captcha = document.getElementById("contactCaptcha");
-// Skapar sex variabler och kopplar dem till respektive element.
+// Skapar fyra variabler och kopplar dem till respektive element.
 
 function validateForm() {
 
@@ -57,15 +56,6 @@ function validateForm() {
     // Om checkbox:en inte är ikryssad.
         
         alert("Du måste acceptera integritetspolicyn.");
-        // Skriver ut ett felmeddelande.
-
-        return false;
-        // Returnerar "false".
-
-    } else if (captcha.value == "") {
-    // Om variabeln är tom.
-
-        alert("Robotfiltrets textfält får inte lämnas tomt.");
         // Skriver ut ett felmeddelande.
 
         return false;
