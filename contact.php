@@ -42,60 +42,8 @@
     <!--Länkar en Google-font.-->
 </head>
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
-
-<script>
-    window.addEventListener('load', function() {
-        window.cookieconsent.initialise({
-            revokeBtn: "<div class='cc-revoke'></div>",
-            type: "opt-in",
-            theme: "classic",
-            palette: {
-                popup: {
-                    background: "#000",
-                    text: "#fff"
-                    },
-                button: {
-                    background: "#fd0",
-                    text: "#000"
-                    }
-                },
-            content: {
-                message: "Den här webbplatsen använder kakor för att kunna fungera.",
-                link: "Läs mer",
-                allow: "Jag accepterar",
-                deny: "",
-                href: "http://ehnsbbq.se/privacy.html"
-                },
-
-            onInitialise: function(status) {
-                if(status == cookieconsent.status.allow) loadCaptcha();
-            },
-
-            onStatusChange: function(status) {
-            if (this.hasConsented()) loadCaptcha();
-            }
-        })
-    });
-
-    function loadCaptcha() {
-        var scriptElement = document.createElement("script");
-        scriptElement.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s");
-        document.head.appendChild(scriptElement);
-    }
-    /* MIT License
-
-    Copyright (c) 2019 Osano, Inc., A Public Benefit Corporation
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
-    
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
-</script>
-
 <body class="contact">
-
+    
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
