@@ -40,9 +40,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
-
-    <!--<script src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>-->
-    <!--Lägger in kod för reCAPTCHA v3.-->
 </head>
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css"/>
@@ -72,11 +69,22 @@
                 deny: "",
                 href: "http://ehnsbbq.se/privacy.html"
                 },
-    }   )
-var scriptElement = document.createElement("script");
-scriptElement.src = "https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s";
-document.head.append(scriptElement);
+
+            onInitialise: function(status) {
+                if(status == cookieconsent.status.allow) loadCaptcha();
+            },
+
+            onStatusChange: function(status) {
+            if (this.hasConsented()) loadCaptcha();
+            }
+        })
     });
+
+    function loadCaptcha() {
+        var scriptElement = document.createElement("script");
+        scriptElement.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s");
+        document.head.appendChild(scriptElement);
+    }
     /* MIT License
 
     Copyright (c) 2019 Osano, Inc., A Public Benefit Corporation
