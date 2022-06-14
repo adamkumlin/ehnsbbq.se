@@ -40,8 +40,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
+<<<<<<< HEAD
 </head>
 
+=======
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>
+    <!--Lägger in kod för reCAPTCHA v3.-->
+</head>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+
+<script>
+    window.addEventListener('load', function() {
+        window.cookieconsent.initialise({
+            revokeBtn: "<div class='cc-revoke'></div>",
+            type: "opt-in",
+            theme: "classic",
+            palette: {
+                popup: {
+                    background: "#000",
+                    text: "#fff"
+                    },
+                button: {
+                    background: "#fd0",
+                    text: "#000"
+                    }
+                },
+            content: {
+                message: "Den här webbplatsen använder kakor för att kunna fungera. Genom att fortsätta använda webbplatsen godkänner du att vi använder kakor.",
+                link: "Läs mer",
+                allow: "Jag förstår",
+                deny: "",
+                href: "http://ehnsbbq.se/privacy.html"
+                },
+    }   )
+    });
+    /* MIT License
+
+    Copyright (c) 2019 Osano, Inc., A Public Benefit Corporation
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
+</script>
+
+>>>>>>> parent of 5ba9502 (e)
 <body class="contact">
     
     <?php
@@ -79,7 +125,7 @@
             // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
 
             if ($captcha_response["success"] == true && $captcha_response["score"] >= 0.5) {
-            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.*/
+            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
 
                 $user_name = htmlspecialchars($_POST["contactName"]);
                 $user_phone = htmlspecialchars($_POST["contactPhone"]);
