@@ -40,87 +40,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
-
-    <!--<script src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>-->
-    <!--Lägger in kod för reCAPTCHA v3.-->
 </head>
-
-<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
-
-<script>
-    window.addEventListener('load', function() {
-        window.cookieconsent.initialise({
-            revokeBtn: "<div class='cc-revoke'></div>",
-            type: "opt-in",
-            theme: "classic",
-            palette: {
-                popup: {
-                    background: "#000",
-                    text: "#fff"
-                },
-                button: {
-                    background: "#fd0",
-                    text: "#000"
-                }
-            },
-            content: {
-                message: "Den här webbplatsen använder kakor för att kunna fungera. Genom att fortsätta använda webbplatsen godkänner du att vi använder kakor.",
-                link: "Läs mer",
-                allow: "Jag förstår",
-                deny: "",
-                href: "http://ehnsbbq.se/privacy.html"
-            },
-        })
-    });
-    /* MIT License
-
-    Copyright (c) 2019 Osano, Inc., A Public Benefit Corporation
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
-    
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
-</script>-->
 
 <body class="contact">
     
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
-
-            /* $verify_url = "https://www.google.com/recaptcha/api/siteverify";
-            //Skapar en variabel för URL:en som kommer utföra verifieringen.
-
-            $data = [
-                "response" => $_POST["captchaToken"],
-                // Här sparas användarens captcha-token.
-
-                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
-                // Här sparas den hemliga nyckeln som bara server:n har.
-            ];
-            // Skapar en array "data" med olika variabler.
-
-            $request = array (
-                "http" => array (
-                    "content" => http_build_query($data),
-                    "method"  => "POST"
-                )
-                // Konstruerar en HTTP-request som ska skickas med hjälp av POST-metoden. Allt placeras inuti en array som innehåller variablerna från array:en "$data".
-            );
-            
-            $stream_context = stream_context_create($request);
-            // Skickar en stream-context med variabeln $request. Här specificeras var som ska göras med filen som hämtas i $captcha_response längre ned.
-
-            $response = file_get_contents($verify_url, false, $stream_context);
-            // Läser av URL:en. Den verifieras med variabeln "$stream_context". Filen letas inte efter i användarens lokala hårddisk ("C:\") med hjälp av den andra parametern som
-            // är satt till "false".
-
-            $captcha_response = json_decode($response, true);
-            // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
-
-            if ($captcha_response["success"] == true && $captcha_response["score"] >= 0.5) {
-            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.*/
 
             $user_name = htmlspecialchars($_POST["contactName"]);
             $user_phone = htmlspecialchars($_POST["contactPhone"]);
@@ -209,11 +135,6 @@
                 echo "<h2>Något gick fel. Ditt meddelande skickades inte.</h2>";
                 // Annars skrivs ett felmeddelande ut.
             }
-
-            /*} else {
-                echo "<h2>CAPTCHA:n returnerade ett förbjudet värde. Försök igen.</h2>";
-                // Skriver ut ett felmeddelande.
-            }*/
         }
     ?>
 
@@ -287,8 +208,7 @@
                 <!--Formuläret skickar datan med POST-metoden. När den skickas in så kontrolleras den först med funktionen "validateForm()". "novalidate" förhindrar att formuläret istället
                 valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
                 att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
-        
-                    <!--<input type="hidden" id="captchaToken" name="captchaToken">-->
+    
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
@@ -324,15 +244,5 @@
     <script src="scripts/contact.js"></script>
     <!--Länkar två JavaScript-filer.-->
 
-    <!--<script>
-        grecaptcha.ready(function() {
-        // Funktionen krävs för att reCAPTCHA:n ska fungera.
-          grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
-              document.getElementById("captchaToken").value = token;
-              // Ger elementet variabeln "token":s värde.
-          });
-        });
-  </script>-->
-    
 </body>
 </html>
