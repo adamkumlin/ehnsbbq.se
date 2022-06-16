@@ -71,18 +71,7 @@
             Telefonnummer: $user_phone\n
             Meddelande: $user_message";
             // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
-    
-            $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
-            // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren om mejlet går fram.
-    
-            $message_confirmation = 
-            "Hej $user_name!\n
-            Ditt meddelande har skickats.\n
-            Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
-            Ditt meddelande: $user_message\n
-            OBS: du kan inte svara på detta mejl!";
-            // Skapar ett konfirmationsmeddelande till användaren.
-    
+
             if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
             // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
                             
@@ -123,9 +112,6 @@
     
             if ($mail_sent) {
             // Om variabeln har värdet "sant".
-
-                mail($user_email,$subject_confirmation,$message_confirmation,$headers);
-                // Skickar först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
 
                 header("Location: success.html");
                 // Sedan skickas användaren vidare till sidan "success.html".
