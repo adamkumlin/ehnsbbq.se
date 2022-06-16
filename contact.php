@@ -40,152 +40,89 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
-
 </head>
 
-<!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
-<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"dark","language":"sv","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Ehns BBQ","website_privacy_policy_url":"http://ehnsbbq.se/privacy.html"});
-});
-</script>
-
-<!-- Recaptcha -->
-<script type="text/plain" cookie-consent="functionality" src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>
-<!-- end of Recaptcha-->
-
-<noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy Policy Generator website</a></noscript>
-<!-- End Cookie Consent -->
-
 <body class="contact">
-
+    
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
 
-            $verify_url = "https://www.google.com/recaptcha/api/siteverify";
-            //Skapar en variabel för URL:en som kommer utföra verifieringen.
+            $user_name = htmlspecialchars($_POST["contactName"]);
+            $user_phone = htmlspecialchars($_POST["contactPhone"]);
+            $user_email = htmlspecialchars($_POST["contactEmail"]);
+            $user_message = htmlspecialchars($_POST["contactMessage"]);
+            $user_captcha = htmlspecialchars($_POST["contactCaptcha"]);
+            // Hämtar namnet, telefonnumret, e-postadressen, meddelandet och captcha:n från formuläret och tilldelar sina egna variabler. Gör om strängarna till text, detta förhindrar
+            // att användaren skriver in html-taggar i textboxarna.
+    
+            $from = "noreply@ehnsbbq.se";
+            $to = "ehnsbbq@gmail.com";
+            // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
+    
+            $subject = "Nytt meddelande från en användare på ehnsbbq.se";
+            // Specificerar ämnet som kommer synas i mejlet.
+    
+            $headers = "From: $from\n";
+            // Headers (en valfri parameter) ges variabeln "from":s värde.
+    
+            $message = "E-postadress: $user_email\n
+            Namn: $user_name\n
+            Telefonnummer: $user_phone\n
+            Meddelande: $user_message";
+            // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
 
-            $data = [
-                "response" => $_POST["captchaToken"],
-                // Här sparas användarens captcha-token.
+            $message = str_replace("\n.", "\n..", $message);
+            // Tar bort "full stops" från meddelandet.
 
-                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
-                // Här sparas den hemliga nyckeln som bara server:n har.
-            ];
-            // Skapar en array "data" med olika variabler.
+            if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
+            // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
+                            
+                echo "<h2>Vänligen använd endast bokstäver (A-Ö) och mellanslag i namnrutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (!preg_match("/^[0-9]*$/", $user_phone)) {
+            // Om telefonnumret som användaren skrev in inte endast innehåller siffror.
+                            
+                echo "<h2>Vänligen använd endast siffror i telefonrutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+            // Om textboxen är tom eller om e-postadressen som användaren skrev in inte är giltig.
+    
+                echo "<h2>E-postadressen är inte giltig.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (empty($user_message) || preg_match("/(http|https|ftp|mailto)/", $user_message)) {
+            // Om textboxen är tom eller om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
+                            
+                echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
+                // Skriver ut ett felmeddelande.
+    
+            } elseif (empty($user_captcha) || $user_captcha != 5){
+            // Om textboxen är tom eller om meddelandet som användaren skrev in inte är 5. Detta är för att minska mängden spam-meddelanden som kan komma fram.
 
-            $request = array (
-                "http" => array (
-                    "content" => http_build_query($data),
-                    "method"  => "POST"
-                )
-                // Konstruerar en HTTP-request som ska skickas med hjälp av POST-metoden. Allt placeras inuti en array som innehåller variablerna från array:en "$data".
-            );
-            
-            $stream_context = stream_context_create($request);
-            // Skickar en stream-context med variabeln $request. Här specificeras var som ska göras med filen som hämtas i $captcha_response längre ned.
-
-            $response = file_get_contents($verify_url, false, $stream_context);
-            // Läser av URL:en. Den verifieras med variabeln "$stream_context". Filen letas inte efter i användarens lokala hårddisk ("C:\") med hjälp av den andra parametern som
-            // är satt till "false".
-
-            $captcha_response = json_decode($response, true);
-            // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
-
-            if ($captcha_response["success"] == true && $captcha_response["score"] >= 0.5) {
-            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
-
-                $user_name = htmlspecialchars($_POST["contactName"]);
-                $user_phone = htmlspecialchars($_POST["contactPhone"]);
-                $user_email = htmlspecialchars($_POST["contactEmail"]);
-                $user_message = htmlspecialchars($_POST["contactMessage"]);
-                // Hämtar namnet, telefonnumret, e-postadressen och meddelandet från formuläret och tilldelar sina egna variabler. Gör om strängarna till text, detta förhindrar
-                // att användaren skriver in html-taggar i textboxarna.
-        
-                $from = "noreply@ehnsbbq.se";
-                $to = "ehnsbbq@gmail.com";
-                // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
-        
-                $subject = "Nytt meddelande från en användare på ehnsbbq.se";
-                // Specificerar ämnet som kommer synas i mejlet.
-        
-                $headers = "From: $from\n";
-                // Headers (en valfri parameter) ges variabeln "from":s värde.
-        
-                $message = "E-postadress: $user_email\n
-                Namn: $user_name\n
-                Telefonnummer: $user_phone\n
-                Meddelande: $user_message";
-                // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
-        
-                $subject_confirmation = "Vi har tagit emot ditt meddelande på ehnsbbq.se";
-                // Skapar ett ämne till konfirmationsmejlet som kommer skickas till användaren om mejlet går fram.
-        
-                $message_confirmation = 
-                "Hej $user_name!\n
-                Ditt meddelande har skickats.\n
-                Tack för att du kontaktade Ehn's BBQ, vi återkommer så snart vi kan.\n
-                Ditt meddelande: $user_message\n
-                OBS: du kan inte svara på detta mejl!";
-                // Skapar ett konfirmationsmeddelande till användaren.
-        
-                if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
-                // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
-                                
-                    echo "<h2>Vänligen använd endast bokstäver (A-Ö) och mellanslag i namnrutan.</h2>";
-                    // Skriver ut ett felmeddelande.
-        
-                } elseif (!preg_match("/^[0-9]*$/", $user_phone)) {
-                // Om telefonnumret som användaren skrev in inte endast innehåller siffror.
-                                
-                    echo "<h2>Vänligen använd endast siffror i telefonrutan.</h2>";
-                    // Skriver ut ett felmeddelande.
-        
-                } elseif (empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
-                // Om textboxen är tom eller om e-postadressen som användaren skrev in inte är giltig.
-        
-                    echo "<h2>E-postadressen är inte giltig.</h2>";
-                    // Skriver ut ett felmeddelande.
-        
-                } elseif (empty($user_message) || preg_match("/(http|https|ftp|mailto)/", $user_message)) {
-                // Om textboxen är tom eller om meddelandet som användaren skrev in innehåller "http", "https", "ftp" eller "mailto". Detta är för att minska mängden spam-meddelanden som kan komma fram.
-                                
-                    echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
-                    // Skriver ut ett felmeddelande.
-        
-                } else {
-        
-                    $mail_sent = mail($to,$subject,$message,$headers);
-                    // Annars skickas mejlet, detta görs med metoden mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
-                    // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till metoden. Metoden kopplas
-                    // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
-                }
-        
-                if ($mail_sent) {
-                // Om variabeln har värdet "sant".
-
-                    http_response_code(200);
-                    // Och om HTTP-response-code:en är 200 (att det lyckades).
-
-                    mail($user_email,$subject_confirmation,$message_confirmation,$headers);
-                    // Skickar först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
-
-                    header("Location: success.html");
-                    // Sedan skickas användaren vidare till sidan "success.html".
-
-                } else {
-                    http_response_code(500);
-                    // Eller om HTTP-response-code:en är 500 (att det misslyckades).
-
-                    echo "<h2>Något gick fel. Ditt meddelande skickades inte.</h2>";
-                    // Skriver ut ett felmeddelande.
-                }
+                echo"<h2>Vänligen dubbelkolla robotfiltret.</h2>";
+                // Skriver ut ett felmeddelande.
 
             } else {
-                echo "<h2>Du måste godkänna cookies om du vill använda kontaktformuläret.</h2>";
-                // Skriver ut ett felmeddelande.
+                    
+                $mail_sent = mail($to,$subject,$message,$headers);
+                // Annars skickas mejlet, detta görs med metoden mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
+                // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till metoden. Metoden kopplas
+                // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
+            }
+    
+            if ($mail_sent) {
+            // Om variabeln har värdet "sant".
+
+                header("Location: success.html");
+                // Sedan skickas användaren vidare till sidan "success.html".
+
+            } else {
+
+                echo "<h2>Något gick fel. Ditt meddelande skickades inte.</h2>";
+                // Annars skrivs ett felmeddelande ut.
             }
         }
     ?>
@@ -250,26 +187,8 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
                 </p>
                 <!--Skriver en text med länkar och bilder inbäddade.-->
 
-                <p>Du får också gärna använda formuläret nedan, vi ser fram emot ditt meddelande!</p>
-            </div>
-
-            <div id="contactGridItem1">
-            <!--Skapar ett grid-item.-->
-
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm();" name="contactForm" novalidate>
-                <!--Formuläret skickar datan med POST-metoden. När den skickas in så kontrolleras den först med funktionen "validateForm()". "novalidate" förhindrar att formuläret istället
-                valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
-                att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
-        
-                    <input type="hidden" id="captchaToken" name="captchaToken"> <!--Här kommer token:en från reCAPTCHA:n att sparas för att skickas till server:n.-->
-                    <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
-                    <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
-                    <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
-                    <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
-                    <label for="contactConsent"><input type="checkbox" id="contactConsent" name="contactConsent">Jag godkänner <a href="privacy.html">integritetspolicyn</a>.</label>
-                    <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
-                </form>
-                <!--Skapar ett formulär.-->
+                <p>Genom att kontakta oss via mejl eller via e-post så accepterar du vår <a href="privacy.html">integritetspolicy<a>.</p>
+                <!--Skriver en notis om integritetspolicyn.-->
             </div>
         </div>
     </div>
@@ -296,15 +215,5 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
     <script src="scripts/contact.js"></script>
     <!--Länkar två JavaScript-filer.-->
 
-    <script>
-        grecaptcha.ready(function() {
-        // Funktionen krävs för att reCAPTCHA:n ska fungera.
-          grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
-              document.getElementById("captchaToken").value = token;
-              // Ger elementet variabeln "token":s värde.
-          });
-        });
-  </script>
-    
 </body>
 </html>
