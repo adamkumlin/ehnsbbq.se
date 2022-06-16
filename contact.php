@@ -72,6 +72,9 @@
             Meddelande: $user_message";
             // Skapar meddelandet som mejlet ska innehålla. I meddelandet skrivs användarens e-postadress, namn, telefonnummer och meddelande ut.
 
+            $message = str_replace("\n.", "\n..", $message);
+            // Tar bort "full stops" från meddelandet.
+
             if (empty($user_name) || !preg_match("/^([a-öA-Ö' ]+)$/", $user_name)) {
             // Om textboxen är tom eller om namnet som användaren skrev in inte endast innehåller bokstäver eller mellanrum.
                             
