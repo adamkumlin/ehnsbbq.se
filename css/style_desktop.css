@@ -42,23 +42,6 @@
 
 /* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
-    
-    #contactGridItem1 input {
-        height: 2rem;
-    }
-    /* Ändrar höjden. Användaren förutsätts använda en mus så då behöver inte
-    textboxarna vara lika stora. */
-
-        #contactGridItem1 input[type="submit"] {
-            width: initial;
-            display: inline;
-        }
-        /* Överskriver ändringarna ovan med hjälp av "initial". Knappen är nu mindre, då sticker den ut från resten av input-elementen.
-        Den visas nu också istället i inline-form så att den kan placeras bredvid sin label. */
-
-/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
-
 /* Gäller för sidorna "index.html", "images.html", "about.html", "contact.html" och "privacy.html". ---------------------------------------------------------------- */
 
     #indexGridItem0 img {
@@ -77,7 +60,7 @@
     }
     /* Ändrar grid-container:nas kolumners storlek. */
 
-        #contactGridItem0, #contactGridItem1, #privacyGridItem0 {
+        #contactGridItem0, #privacyGridItem0 {
             grid-column: 2;
         }
         /* Grid-items:en placers i den andra kolumnen. */
