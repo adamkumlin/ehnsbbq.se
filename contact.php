@@ -62,10 +62,7 @@
     
             $subject = "Nytt meddelande från en användare på ehnsbbq.se";
             // Specificerar ämnet som kommer synas i mejlet.
-    
-            $headers = "From: $from\n";
-            // Headers (en valfri parameter) ges variabeln "from":s värde.
-    
+
             $message = "E-postadress: $user_email\n
             Namn: $user_name\n
             Telefonnummer: $user_phone\n
@@ -107,7 +104,7 @@
 
             } else {
                     
-                $mail_sent = mail($to,$subject,$message,$headers);
+                $mail_sent = mail($to,$subject,$message);
                 // Annars skickas mejlet, detta görs med metoden mail(). Här specificeras vilken e-postadress mejlet ska skickas till ($to), mejlets ämne ($subject),
                 // meddelandet (det som mejlet ska innehålla, $message) och $headers (avsändaren ($from)). En variabel "$mail_sent" kopplas till metoden. Metoden kopplas
                 // till en variabel. Om mejlet skickas så får variabeln värdet "true", annars "false".
