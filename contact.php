@@ -41,7 +41,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
 
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script type="module" src="https://unpkg.com/friendly-challenge@0.9.4/widget.module.min.js" async defer></script>
+    <script nomodule src="https://unpkg.com/friendly-challenge@0.9.4/widget.min.js" async defer></script>
 
 </head>
 
@@ -51,21 +52,40 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
 
-            $data = array(
-                'secret' => "0x1a32F69D720976513459C82F6E78e0C19161Fa72",
-                'response' => $_POST['h-captcha-response']
+            $verify_url = "https://api.friendlycaptcha.com/api/v1/siteverify";
+            //Skapar en variabel för URL:en som kommer utföra verifieringen.
+
+            $data = [
+                "solution" => $_POST["frc-captcha-solution"],
+                // Här sparas användarens captcha-token.
+
+                "secret" => "A1IT8L3E9H7BPQDFR1J57JIF4OMSV8VNI3JKB0204IUBCECB6P1IA0NPS3",
+                // Här sparas den hemliga nyckeln som bara server:n har.
+
+                "sitekey" => "FCMIIQMPP8GSKLFV"
+            ];
+            // Skapar en array "data" med olika variabler.
+
+            $request = array (
+                "http" => array (
+                    "content" => http_build_query($data),
+                    "method"  => "POST"
+                )
+                // Konstruerar en HTTP-request som ska skickas med hjälp av POST-metoden. Allt placeras inuti en array som innehåller variablerna från array:en "$data".
             );
+            
+            $stream_context = stream_context_create($request);
+            // Skickar en stream-context med variabeln $request. Här specificeras var som ska göras med filen som hämtas i $captcha_response längre ned.
 
-            $verify = curl_init();
-            curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
-            curl_setopt($verify, CURLOPT_POST, true);
-            curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
-            curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($verify);
+            $response = file_get_contents($verify_url, false, $stream_context);
+            // Läser av URL:en. Den verifieras med variabeln "$stream_context". Filen letas inte efter i användarens lokala hårddisk ("C:\") med hjälp av den andra parametern som
+            // är satt till "false".
 
-            $responseData = json_decode($response);
+            $captcha_response = json_decode($response, true);
+            // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
 
-            if($responseData->success) {
+            if ($captcha_response["success"] == true) {
+            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
 
                 $user_name = htmlspecialchars($_POST["contactName"]);
                 $user_phone = htmlspecialchars($_POST["contactPhone"]);
@@ -229,13 +249,14 @@
                 <!--Formuläret skickar datan med POST-metoden. När den skickas in så kontrolleras den först med funktionen "validateForm()". "novalidate" förhindrar att formuläret istället
                 valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
                 att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
-        
+
+                    <input type="hidden" name="mtcaptcha-verifiedtoken" value="<token>"/>
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
                     <label for="contactConsent"><input type="checkbox" id="contactConsent" name="contactConsent">Jag godkänner <a href="privacy.html">integritetspolicyn</a>.</label>
-                    <div class="h-captcha" data-sitekey="0ebb4214-dfec-4c14-b795-1f64cc5d4ae7"></div>
+                    <div class="frc-captcha" data-sitekey="FCMIIQMPP8GSKLFV"></div>
                     <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
                 <!--Skapar ett formulär.-->

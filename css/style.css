@@ -432,6 +432,11 @@ html {
                     }
                     /* Gör så att samtliga labels visas som block, ger dem en margin högst upp. */
 
+                    .frc-captcha {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
 /* Gäller för sidorna "contact.html" och "privacy.html". ----------------------------------------------------------------------------------------------------------- */
 
 /* Gäller för sidan "about.html". ---------------------------------------------------------------------------------------------------------------------------------- */
