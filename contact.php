@@ -202,7 +202,7 @@
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
-                    <label for="contactCaptcha">Vad är summan av två och tre? <input type="text" id="contactCaptcha" name="contactCaptcha"></label>
+                    <label for="contactCaptcha">Vad är summan av två och tre? (robotfilter)<input type="text" id="contactCaptcha" name="contactCaptcha"></label>
                     <label for="contactConsent"><input type="checkbox" id="contactConsent" name="contactConsent">Jag godkänner <a href="privacy.html">integritetspolicyn</a>.</label>
                     <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
