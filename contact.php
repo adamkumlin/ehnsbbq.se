@@ -41,22 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Rancho&family=Rye&display=swap" rel="stylesheet">
     <!--Länkar en Google-font.-->
 
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 </head>
-
-<!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
-<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"dark","language":"sv","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Ehns BBQ","website_privacy_policy_url":"http://ehnsbbq.se/privacy.html"});
-});
-</script>
-
-<!-- Recaptcha -->
-<script type="text/plain" cookie-consent="functionality" src="https://www.google.com/recaptcha/api.js?render=6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s"></script>
-<!-- end of Recaptcha-->
-
-<noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy Policy Generator website</a></noscript>
-<!-- End Cookie Consent -->
 
 <body class="contact">
 
@@ -64,38 +51,21 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Om server:n får en POST-request.
 
-            $verify_url = "https://www.google.com/recaptcha/api/siteverify";
-            //Skapar en variabel för URL:en som kommer utföra verifieringen.
-
-            $data = [
-                "response" => $_POST["captchaToken"],
-                // Här sparas användarens captcha-token.
-
-                "secret" => "6LeBjwYgAAAAAAxuaEJwX_xUbCSxsVHi1sRxr6T7",
-                // Här sparas den hemliga nyckeln som bara server:n har.
-            ];
-            // Skapar en array "data" med olika variabler.
-
-            $request = array (
-                "http" => array (
-                    "content" => http_build_query($data),
-                    "method"  => "POST"
-                )
-                // Konstruerar en HTTP-request som ska skickas med hjälp av POST-metoden. Allt placeras inuti en array som innehåller variablerna från array:en "$data".
+            $data = array(
+                'secret' => "0x1a32F69D720976513459C82F6E78e0C19161Fa72",
+                'response' => $_POST['h-captcha-response']
             );
-            
-            $stream_context = stream_context_create($request);
-            // Skickar en stream-context med variabeln $request. Här specificeras var som ska göras med filen som hämtas i $captcha_response längre ned.
 
-            $response = file_get_contents($verify_url, false, $stream_context);
-            // Läser av URL:en. Den verifieras med variabeln "$stream_context". Filen letas inte efter i användarens lokala hårddisk ("C:\") med hjälp av den andra parametern som
-            // är satt till "false".
+            $verify = curl_init();
+            curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
+            curl_setopt($verify, CURLOPT_POST, true);
+            curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($verify);
 
-            $captcha_response = json_decode($response, true);
-            // Avkodar JSON-datan. Den returneras som ett objekt med hjälp av den andra parametern som är satt till "true".
+            $responseData = json_decode($response);
 
-            if ($captcha_response["success"] == true && $captcha_response["score"] >= 0.5) {
-            // Om verifieringen lyckas och "score" har värdet 0.5 eller mer.
+            if($responseData->success) {
 
                 $user_name = htmlspecialchars($_POST["contactName"]);
                 $user_phone = htmlspecialchars($_POST["contactPhone"]);
@@ -165,29 +135,28 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
         
                 if ($mail_sent) {
                 // Om variabeln har värdet "sant".
-
+        
                     http_response_code(200);
                     // Och om HTTP-response-code:en är 200 (att det lyckades).
-
+        
                     mail($user_email,$subject_confirmation,$message_confirmation,$headers);
                     // Skickar först ett konfirmationsmejl till användaren för att försäkra hen om att hens meddelande kom fram.
-
+        
                     header("Location: success.html");
                     // Sedan skickas användaren vidare till sidan "success.html".
-
+        
                 } else {
                     http_response_code(500);
                     // Eller om HTTP-response-code:en är 500 (att det misslyckades).
-
+        
                     echo "<h2>Något gick fel. Ditt meddelande skickades inte.</h2>";
                     // Skriver ut ett felmeddelande.
                 }
-
             } else {
-                echo "<h2>Du måste godkänna cookies om du vill använda kontaktformuläret.</h2>";
-                // Skriver ut ett felmeddelande.
+            echo "Robotfiltret returnerade ett förbjudet värde, försök igen.";
             }
-        }
+    }
+
     ?>
 
     <header>
@@ -264,12 +233,12 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
                 valideras av HTML-koden. Datan skickas sedan till servern (om den gick igenom valideringen). Den skickas till samma sida, gör också om strängarna till text, detta förhindrar 
                 att användaren skriver in html-taggar i textboxarna (t.ex. en script-tagg vilken kan vara en säkerhetsrisk).-->
         
-                    <input type="hidden" id="captchaToken" name="captchaToken"> <!--Här kommer token:en från reCAPTCHA:n att sparas för att skickas till server:n.-->
                     <label for="contactName">Namn<input type="text" id="contactName" name="contactName" placeholder="Anna Andersson"></label>
                     <label for="contactPhone">Telefon (valfritt)<input type="tel" id="contactPhone" name="contactPhone" placeholder="0733464592"></label>
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
                     <label for="contactConsent"><input type="checkbox" id="contactConsent" name="contactConsent">Jag godkänner <a href="privacy.html">integritetspolicyn</a>.</label>
+                    <div class="h-captcha" data-sitekey="0ebb4214-dfec-4c14-b795-1f64cc5d4ae7"></div>
                     <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
                 <!--Skapar ett formulär.-->
@@ -297,17 +266,6 @@ cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","pal
 
     <script src="scripts/script.js"></script>
     <script src="scripts/contact.js"></script>
-    <!--Länkar två JavaScript-filer.-->
-
-    <script>
-        grecaptcha.ready(function() {
-        // Funktionen krävs för att reCAPTCHA:n ska fungera.
-          grecaptcha.execute('6LeBjwYgAAAAAOnJl0mFTmalOHULmfEdlWwRuL2s', {action: 'submit'}).then(function(token) {
-              document.getElementById("captchaToken").value = token;
-              // Ger elementet variabeln "token":s värde.
-          });
-        });
-  </script>
-    
+    <!--Länkar två JavaScript-filer.--> 
 </body>
 </html>
