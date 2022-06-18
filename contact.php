@@ -219,9 +219,6 @@
                 </p>
                 <!--Skriver en text med länkar och bilder inbäddade.-->
 
-                <p>Genom att kontakta oss via mejl eller via e-post så accepterar du vår <a href="privacy.html">integritetspolicy<a>.</p>
-                <!--Skriver en notis om integritetspolicyn.-->
-
                 <p>Du får också gärna använda formuläret nedan, vi ser fram emot ditt meddelande!</p>
             </div>
 
