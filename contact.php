@@ -96,7 +96,7 @@
                 echo "<h2>Vänligen använd inga länkar i meddelanderutan.</h2>";
                 // Skriver ut ett felmeddelande.
     
-            } elseif (empty($user_captcha) || $user_captcha != 5){
+            } elseif (empty($user_captcha) || $user_captcha != 5) {
             // Om textboxen är tom eller om meddelandet som användaren skrev in inte är 5. Detta är för att minska mängden spam-meddelanden som kan komma fram.
 
                 echo"<h2>Vänligen dubbelkolla robotfiltret.</h2>";
