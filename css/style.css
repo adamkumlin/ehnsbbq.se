@@ -257,6 +257,12 @@ html {
 
 /* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
 
+        #imagesAbout {
+            text-align: center;
+            font-size: 150%;
+        }
+        /*Centrerar texten och gör den större. */
+        
         #imagesGridContainer {
             display: grid;
             grid-template-columns: auto;
@@ -346,6 +352,114 @@ html {
                 grid-column: 1;
             }
             /* Placerar grid-item:et i den första kolumnen och på den tolfte raden. */
+
+            #imagesGridItem12 {
+                grid-row: 13;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den trettonde raden. */
+
+            #imagesGridItem13 {
+                grid-row: 14;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den fjortonde raden. */
+
+            #imagesGridItem14 {
+                grid-row: 15;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den femtonde raden. */
+
+            #imagesGridItem15 {
+                grid-row: 16;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den sextonde raden. */
+
+            #imagesGridItem16 {
+                grid-row: 17;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den sjuttonde raden. */
+
+            #imagesGridItem17 {
+                grid-row: 18;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den artonde raden. */
+
+            #imagesGridItem18 {
+                grid-row: 19;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den nittonde raden. */
+
+            #imagesGridItem19 {
+                grid-row: 20;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugonde raden. */
+
+            #imagesGridItem20 {
+                grid-row: 21;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugoförsta raden. */
+
+            #imagesGridItem21 {
+                grid-row: 22;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugoandra raden. */
+
+            #imagesGridItem22 {
+                grid-row: 23;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugotredje raden. */
+
+            #imagesGridItem23 {
+                grid-row: 24;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugofjärde raden. */
+
+            #imagesGridItem24 {
+                grid-row: 25;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugofemte raden. */
+
+            #imagesGridItem25 {
+                grid-row: 26;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugosjätte raden. */
+
+            #imagesGridItem26 {
+                grid-row: 27;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugosjunde raden. */
+            
+            #imagesGridItem27 {
+                grid-row: 28;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugoåttonde raden. */
+            
+            #imagesGridItem28 {
+                grid-row: 29;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den tjugonionde raden. */
+
+            #imagesGridItem29 {
+                grid-row: 30;
+                grid-column: 1;
+            }
+            /* Placerar grid-item:et i den första kolumnen och på den trettionde raden. */
 
 /* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
 
