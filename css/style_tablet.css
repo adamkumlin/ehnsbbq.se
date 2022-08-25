@@ -146,6 +146,114 @@
     }
     /* Placerar grid-item:et i den andra kolumnen och på den sjätte raden. */
 
+    #imagesGridItem12 {
+        grid-row: 7;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den sjunde raden. */
+
+    #imagesGridItem13 {
+        grid-row: 7;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den sjunde raden. */
+
+    #imagesGridItem14 {
+        grid-row: 8;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den åttonde raden. */
+
+    #imagesGridItem15 {
+        grid-row: 8;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den åttonde raden. */
+
+    #imagesGridItem16 {
+        grid-row: 9;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den nionde raden. */
+
+    #imagesGridItem17 {
+        grid-row: 9;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den nionde raden. */
+
+    #imagesGridItem18 {
+        grid-row: 10;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den tionde raden. */
+
+    #imagesGridItem19 {
+        grid-row: 10;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den tionde raden. */
+
+    #imagesGridItem20 {
+        grid-row: 11;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den elfte raden. */
+
+    #imagesGridItem21 {
+        grid-row: 11;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den elfte raden. */
+
+    #imagesGridItem22 {
+        grid-row: 12;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den tolfte raden. */
+
+    #imagesGridItem23 {
+        grid-row: 12;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den tolfte raden. */
+
+    #imagesGridItem24 {
+        grid-row: 13;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den trettonde raden. */
+
+    #imagesGridItem25 {
+        grid-row: 13;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den trettonde raden. */
+
+    #imagesGridItem26 {
+        grid-row: 14;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den fjortonde raden. */
+    
+    #imagesGridItem27 {
+        grid-row: 14;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den fjortonde raden. */
+    
+    #imagesGridItem28 {
+        grid-row: 15;
+        grid-column: 1;
+    }
+    /* Placerar grid-item:et i den första kolumnen och på den femtonde raden. */
+
+    #imagesGridItem29 {
+        grid-row: 15;
+        grid-column: 2;
+    }
+    /* Placerar grid-item:et i den andra kolumnen och på den femtonde raden. */
+
 /* Gäller för sidan "images.html". --------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
