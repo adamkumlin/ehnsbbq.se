@@ -1,0 +1,104 @@
+@media screen and (min-width: 1024px) {
+/* När bredden på skärmen är 1024px eller mer. För laptop:s och andra desktop:s. */
+
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    .headerNav {
+        flex-direction: row;
+    }
+    /* Navigationen sträcker nu ut sig på en rad istället. */
+
+    .headerNav img {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    /* Ger en margin till höger och till vänster. */
+
+        .navLinks {
+            display: flex;
+        }
+        /* Nu visas länkarna med hjälp av "display: flex;". */
+
+            .navLinks::before {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(0.9deg);
+            }
+            /* Skapar en border som är roterad runt elementet. */
+
+            .navLinks::after {
+                transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1deg);
+            }
+            /* Skapar en border som är roterad runt elementet. */
+
+            .navLinks ul {
+                flex-direction: row;
+                width: initial;
+            }
+            /* Objektet visas nu i en rad samtidigt som dess bredd görs till det som den hade innan. */
+            
+        .navToggle {
+            display: none;
+        }
+        /* Gömmer hamburgermenyn. */
+
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
+    
+    #contactGridItem1 input {
+        height: 2rem;
+    }
+    /* Ändrar höjden. Användaren förutsätts använda en mus så då behöver inte
+    textboxarna vara lika stora. */
+
+        #contactGridItem1 input[type="submit"] {
+            width: initial;
+            display: inline;
+        }
+        /* Överskriver ändringarna ovan med hjälp av "initial". Knappen är nu mindre, då sticker den ut från resten av input-elementen.
+        Den visas nu också istället i inline-form så att den kan placeras bredvid sin label. */
+
+/* Gäller för sidan "contact.html". -------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gäller för sidorna "index.html", "images.html", "about.html", "contact.html" och "privacy.html". ---------------------------------------------------------------- */
+
+    #indexGridItem0 img {
+        width: 500px;
+    }
+    /* Sätter bildens bredd till 500px. */
+    
+    #imagesGridContainer img {
+        width: 400px;
+        height: 400px;
+    }
+    /* Sätter bildernas bredd och höjd till 400px. */
+
+    #aboutGridContainer, #indexGridContainer, #contactGridContainer, #privacyGridContainer {
+        grid-template-columns: 20% 60% 20%;
+    }
+    /* Ändrar grid-container:nas kolumners storlek. */
+
+        #contactGridItem0, #contactGridItem1, #privacyGridItem0 {
+            grid-column: 2;
+        }
+        /* Grid-items:en placers i den andra kolumnen. */
+
+/* Gäller för sidorna "index.html", "images.html", "about.html", "contact.html" och "privacy.html". ---------------------------------------------------------------- */
+}
+
+@media screen and (min-width: 1246px) {
+/* När bredden på skärmen är 1246px eller mer. För större desktops. */
+
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    .headerNav img {
+        width: 600px;
+    }
+    /* Ökar bildens bredd. */
+
+    .navLinks ul li {
+        padding: 1rem;
+    }
+    /* Lägger till en padding. */
+
+/* Gäller globalt. ------------------------------------------------------------------------------------------------------------------------------------------------- */
+}
