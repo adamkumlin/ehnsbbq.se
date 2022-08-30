@@ -480,7 +480,7 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 
 
-                #contactGridItem0 a, #contactGridItem1 a, #privacyGridItem0 a {
+                #contactGridItem0 a, #privacyGridItem0 a {
                     color: rgb(0, 204, 255);
                     text-decoration: underline;
                 }
