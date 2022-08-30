@@ -480,7 +480,7 @@ html {
             }
             /* Placerar grid-item:et i den första kolumnen och på den första raden. Centrerar objekten och gör texten större. */ 
 
-                #contactGridItem0 a, #privacyGridItem0 a {
+                #contactGridItem0 p a, #privacyGridItem0 p a {
                     color: rgb(0, 204, 255);
                     text-decoration: underline;
                 }
@@ -532,6 +532,11 @@ html {
                         }
                         /* Visar checkbox:en som inline istället. Nollställer också bredden samt höjden. Gör checkbox:en större med "transform: scale(2);". Lägger också till en margin
                         så att den inte döljer texten till höger.*/
+
+                            #contactPrivacyNoticeLink{
+                                color: rgb(0, 204, 255);
+                                margin-right: 5px;
+                            }
 
                         #contactGridItem1 form textarea {
                             resize: none;
