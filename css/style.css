@@ -22,6 +22,7 @@ html {
     allt innehåll som inte rymmer på skärmen horisontellt automatiskt göms. */
 
         /* rye-regular - latin */
+        /* Detta typsnitt heter Rye och är skapat av Nicole Fally. Typsnittet används med tillstånd utifrån Open Font License (http://scripts.sil.org/OFL). */
         @font-face {
             font-family: 'Rye';
             font-style: normal;
@@ -36,6 +37,7 @@ html {
         }
 
         /* barlow-condensed-regular - latin */
+        /* Detta typsnitt heter Barlow Condensed och är skapat av Jeremy Tribby. Typsnittet används med tillstånd utifrån Open Font License (http://scripts.sil.org/OFL). */
         @font-face {
             font-family: 'Barlow Condensed';
             font-style: normal;
