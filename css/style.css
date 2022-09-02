@@ -23,6 +23,7 @@ html {
 
         /* rye-regular - latin */
         /* Detta typsnitt heter Rye och är skapat av Nicole Fally. Typsnittet används med tillstånd utifrån Open Font License (http://scripts.sil.org/OFL). */
+        /* Rye-Regular.ttf: Copyright (c) 2012, Sorkin Type Co with Reserved Font Name 'Rye' */
         @font-face {
             font-family: 'Rye';
             font-style: normal;
@@ -38,6 +39,7 @@ html {
 
         /* barlow-condensed-regular - latin */
         /* Detta typsnitt heter Barlow Condensed och är skapat av Jeremy Tribby. Typsnittet används med tillstånd utifrån Open Font License (http://scripts.sil.org/OFL). */
+        /* BarlowCondensed-Regular.ttf: Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow) */
         @font-face {
             font-family: 'Barlow Condensed';
             font-style: normal;
