@@ -46,7 +46,7 @@
             // Hämtar namnet, telefonnumret, e-postadressen, meddelandet och captcha:n från formuläret och tilldelar sina egna variabler. Gör om strängarna till text, detta förhindrar
             // att användaren skriver in html-taggar i textboxarna.
     
-            $from = "noreply@ehnsbbq.se";
+            $from = "ehnsbbq@gmail.com";
             $to = "ehnsbbq@gmail.com";
             // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
     
