@@ -47,7 +47,7 @@
             // att användaren skriver in html-taggar i textboxarna.
     
             $from = "noreply@ehnsbbq.se";
-            $to = "ehnsbbq@gmail.com";
+            $to = "mattias.ehn@hotmail.com";
             // Specificerar från vilken e-postadress mejlet ska skickas och vilken e-postadress mejlet ska skickas till. Informationen sparas i två olika variabler.
     
             $subject = "Nytt meddelande från en användare på ehnsbbq.se";
@@ -167,7 +167,7 @@
 
                 <p>
                     Kontakta oss gärna genom telefon på <br><a href="tel:0733464592"><img src="media/phone_icon.png" alt="Bild på en telefonikon">073-346 45 92</a> eller via e-post på 
-                    <br><a href="mailto:ehnsbbq@gmail.com"><img src="media/email_icon.png" alt="Bild på en e-postikon">ehnsbbq@gmail.com</a>.
+                    <br><a href="mailto:mattias.ehn@hotmail.com"><img src="media/email_icon.png" alt="Bild på en e-postikon">mattias.ehn@hotmail.com</a>.
                 </p>
                 <!--Skriver en text med länkar och bilder inbäddade.-->
 
@@ -207,7 +207,7 @@
         <div class="footerAbout">
             <p>Ehn's BBQ<br>
             Tel: <a href="tel:0733464592">073-346 45 92</a><br>
-            E-post: <a href="mailto:ehnsbbq@gmail.com">ehnsbbq@gmail.com</a><br>
+            E-post: <a href="mailto:mattias.ehn@hotmail.com">mattias.ehn@hotmail.com</a><br>
             <a href="privacy.html">Integritetspolicy</a><br>
             &copy; 2022 Ehn's BBQ.<br></p>
 
