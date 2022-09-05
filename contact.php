@@ -190,7 +190,7 @@
                     <label for="contactEmail">E-post<input type="email" id="contactEmail" name="contactEmail" placeholder="example@example.com"></label>
                     <label for="contactMessage">Meddelande<textarea id="contactMessage" name="contactMessage" placeholder="OBS: Var snäll inkludera inga länkar."></textarea></label>
                     <label for="contactCaptcha">Vad är summan av två och tre? (robotfilter)<input type="text" id="contactCaptcha" name="contactCaptcha"></label>
-                    <label for="contactConsent"><div id="contactPrivacyNotice">Jag godkänner <a id="contactPrivacyNoticeLink" href="privacy.html">integritetspolicyn</a>.<input type="checkbox" id="contactConsent" name="contactConsent"></div></label>
+                    <label for="contactConsent"><div id="contactPrivacyNotice">Jag godkänner att mina personuppgifter behandlas enligt <a id="contactPrivacyNoticeLink" href="privacy.html">integritetspolicyn</a>.<input type="checkbox" id="contactConsent" name="contactConsent"></div></label>
                     <input type="submit" id="contactSubmit" name="contactSubmit" value="Skicka">
                 </form>
                 <!--Skapar ett formulär.-->
